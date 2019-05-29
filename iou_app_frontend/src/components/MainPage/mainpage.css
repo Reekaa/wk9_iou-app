@@ -1,7 +1,40 @@
 .main-page-head {
   width: 100%;
   background-color: #156678;
+  display: flex;
+  justify-content: center;
 }
 .header-image {
   height:150px;
+}
+.dropdown-container {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #156678;
+}
+#caret {
+  margin-left: 10px;
+}
+#dropdowns {
+  width: 130px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #c0d7dd;
+  border: 3px solid #156678;
+  color: #156678;
+}
+#submitbutt {
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #c0d7dd;
+  border: 3px solid #156678;
+  color: #156678;
 }
