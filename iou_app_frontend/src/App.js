@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
+import Header from "./components/MainPage/Header"
 // import containers
 import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    
+
     //anything you want to run straight away
   }
 
   render() {
     return (
       <div className="App">
-        Hello
+        <Header />
         <MainPageContainer />
       </div>
     );
