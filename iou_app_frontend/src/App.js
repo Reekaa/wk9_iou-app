@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
+import LoginFormContainer from "./containers/LoginFormContainer";
 // import containers
 import "./App.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
       <div className="App">
         <HeaderContainer />
         <MainPageContainer />
+        <LoginFormContainer />
       </div>
     );
   }
