@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import LoginFormContainer from "./containers/LoginFormContainer";
 // import containers
 import "./App.css";
@@ -17,9 +18,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderContainer />
-        <MainPageContainer />
-        <LoginFormContainer />
+        <Router>
+          <Fragment>
+            <Route
+              path='/'
+              component={HeaderContainer}
+            />
+            <Route
+             exact path='/'
+             component={MainPageContainer}
+            />
+            <LoginFormContainer />
+          </Fragment>
+        </Router>
+
       </div>
     );
   }
