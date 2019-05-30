@@ -10,7 +10,7 @@
 }
 .dropdown-container {
   margin-top: 20px;
-  width: 850px;
+  width: 900px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +38,7 @@
 #caret {
   margin-left: 10px;
 }
-#userDropdown, #taskDropdown {
+#userDropdown, #taskDropdown, #costDropdown {
   width: 130px;
   height: 40px;
   font-size: 15px;
@@ -70,4 +70,8 @@
   border-radius: 5px;
   color: #156678;
   margin-left: 10px;
+}
+
+#dropdown-option {
+  padding: 5px 0 5px 10px;
 }
