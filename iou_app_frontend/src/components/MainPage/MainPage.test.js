@@ -9,7 +9,7 @@ afterEach(cleanup);
 const setup = () => {
   const utils = render(
     <Main
-      selected={{user: "Ben", task: 'babysitting'}}
+      selected={{user: "Keith", task: 'babysitting'}}
       tasks={[{_id: "xxx", task:"Babysitting", value: 0}]}
       users={[{_id:'xxx', name: 'Keith', karma: 0, completedTask: []}]}
     />
@@ -49,20 +49,31 @@ describe('main page new task testing',  () => {
     await (() => getByText(/babysitting/i))
   });
 
-  // xit("option from task from dropdown should be selectable", async () => {
-  //   // Arrange
-  //   const { newTaskInput, btn} = setup();
-  //   // Act
-  //   fireEvent.click();
-  //   // Assert
-  //   await (() => getByText()
-  // });
+  it("option from task dropdown should be selectable", async () => {
+    // Arrange
+    const { newTaskInput, taskOption} = setup();
+    // Act
+    fireEvent.click(newTaskInput);
+    await(() => fireEvent.click(taskOption));
+    // Assert
+    await (() => getByText(/babysitting/i))
+  });
 
   it("user dropdown should show users once clicked", async () => {
     // Arrange
     const { taskReceiver, btn} = setup();
     // Act
     fireEvent.click(taskReceiver);
+    // Assert
+    await (() => getByText(/keith/i))
+  });
+
+  it("option from user dropdown should be selectable", async () => {
+    // Arrange
+    const { taskReceiver, taskOption} = setup();
+    // Act
+    fireEvent.click(taskReceiver);
+    await(() => fireEvent.click(taskReceiverOption));
     // Assert
     await (() => getByText(/keith/i))
   });
@@ -78,17 +89,6 @@ describe('main page new task testing',  () => {
     fireEvent.click(btn);
     // Assert
     await(() => getByText("Task submitted!"));
-  });
-
-  xit("should accept selection", () => {
-    //Arrange
-    const { newTaskInput, taskReceiver, btn } = setup();
-    //Act
-    fireEvent.select(newTaskInput, { target: { value: "I painted a wall" } });
-    fireEvent.select(taskReceiver, { target: { value: "Reka" } });
-    //Assert
-    expect(newTaskInput.value).toBe("I painted a wall");
-    expect(taskReceiver.value).toBe("Reka");
   });
 
 
