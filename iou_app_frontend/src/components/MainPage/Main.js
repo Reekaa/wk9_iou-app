@@ -111,48 +111,50 @@ const Main = props => {
 
 
   return(
-    <div className='main-container'>
-      <div className='dropdown-container'>
-        New Task:
-        <div className="dropdown">
-          <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            Select Task
-            <span id="caret" className="caret"></span>
-          </button>
-          <ul className="dropdown-menu">
-            {tasks}
-          </ul>
-        </div>
-        <div className="dropdown">
-          <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            Select User
-            <span id="caret" className="caret"></span>
-          </button>
-          <ul className="dropdown-menu">
-            {users}
-          </ul>
-        </div>
-        <div id='cost-input' className="form-group row">
-          <label className="col-2 col-form-label">Cost: </label>
-          <div id='cost-select' className="col-10">
-            <input className="form-control" type="number" placeholder='0' id="example-number-input" onChange={handleNumber}/>
+    <div className='main-container-grid'>
+      <div className='main-container'>
+        <div className='dropdown-container'>
+          New Task:
+          <div className="dropdown">
+            <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Select Task
+              <span id="caret" className="caret"></span>
+            </button>
+            <ul className="dropdown-menu">
+              {tasks}
+            </ul>
           </div>
-        </div>
-        <div className="dropdown">
-          <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            Select Cost
-            <span id="caret" className="caret"></span>
-          </button>
-          <ul className="dropdown-menu">
-            {costHours()}
-            {costPounds()}
-          </ul>
-        </div>
+          <div className="dropdown">
+            <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Select User
+              <span id="caret" className="caret"></span>
+            </button>
+            <ul className="dropdown-menu">
+              {users}
+            </ul>
+          </div>
+          <div id='cost-input' className="form-group row">
+            <label className="col-2 col-form-label">Cost: </label>
+            <div id='cost-select' className="col-10">
+              <input className="form-control" type="number" placeholder='0' id="example-number-input" onChange={handleNumber}/>
+            </div>
+          </div>
+          <div className="dropdown">
+            <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Select Cost
+              <span id="caret" className="caret"></span>
+            </button>
+            <ul className="dropdown-menu">
+              {costHours()}
+              {costPounds()}
+            </ul>
+          </div>
 
-        <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Add task</button>
+          <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Add task</button>
+        </div>
+        {confirmation()}
       </div>
-      {confirmation()}
-      <div id='users-list-sidebar'>
+      <div className='user-list-sidebar'>
         <ViewGroupUsersContainer />
       </div>
     </div>

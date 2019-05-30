@@ -15,13 +15,47 @@
   align-items: center;
   justify-content: space-between;
 }
+.main-container-grid {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas:
+    "main sidebar";
+  justify-content: center;
+}
 .main-container {
+  grid-area: main;
   font-size: 20px;
   font-weight: 700;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #156678;
+}
+.user-list-sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.user-list {
+  margin: 80px 10px 10px 10px;
+}
+.user-list p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.user-list div:nth-child(odd) {
+  background-color: #c0d7dd;
+}
+.user-list-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 15px;
+  font-weight: 700;
+  color: #156678;
+}
+.user-list-item-name, .user-list-item-karma {
+  justify-self: center;
 }
 .confirm-text {
   margin-top: 20px;
