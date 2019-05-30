@@ -2,40 +2,96 @@ import React from "react";
 import './mainpage.css'
 
 const Main = props => {
-  console.log(props);
 
-  const tasks = () => {
-    return (<li><a href="#">Babysitting</a></li>)
+  const handleTasksDropdown = (evt) => {
+    props.selectTask(evt)
+    let button = document.querySelector('#taskDropdown')
+    button.textContent = evt
+    props.changeConfirm(false)
   }
 
-  const users = () => {
-    return (<li><a href="#">Rose</a></li>);
+  const handleUsersDropdown = (evt) => {
+    props.selectUser(evt)
+    let button = document.querySelector('#userDropdown')
+    button.textContent = evt
+    props.changeConfirm(false)
+  }
+
+  const tasks = props.tasks.map((task) => {
+    return (
+      <li  key={task._id}>
+        <a onClick={() => {handleTasksDropdown(task.task)}} href="#">{task.task}</a>
+      </li>)
+  })
+
+  const users = props.groupUsers.map((user) => {
+    return (
+      <li key={user._id}>
+        <a onClick={() => {handleUsersDropdown(user.name)}} href="#">{user.name}</a>
+      </li>);
+  })
+
+  const handleSubmit = () => {
+    props.tasks.map((task) => {
+      if (task.task === props.selected.task) {
+        let newTask = task
+        newTask.whoFor = props.selected.user
+        props.addTaskToUser(props.currentUser, newTask)
+        props.changeConfirm(true)
+      }
+    })
+    let arrow = document.createElement('span')
+    arrow.id = 'caret'
+    arrow.classList.add('caret')
+    let arrow2 = document.createElement('span')
+    arrow2.id = 'caret'
+    arrow2.classList.add('caret')
+    let taskButton = document.querySelector('#taskDropdown')
+    taskButton.textContent = 'Select Task'
+    taskButton.appendChild(arrow)
+    let userButton = document.querySelector('#userDropdown')
+    userButton.textContent = 'Select User'
+    userButton.appendChild(arrow2)
+  }
+
+  const confirmation = () => {
+    if(props.confirm === true){
+    return (
+      <div className='confirm-text'>
+        Task submitted!
+      </div>
+    )}else{
+      return <div></div>
+    }
   }
 
 
   return(
-  <div className='dropdown-container'>
-    New Task:
-    <div className="dropdown">
-      <button id="dropdowns" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Select Task
-        <span id="caret" className="caret"></span>
-      </button>
-      <ul className="dropdown-menu">
-        {tasks()}
-      </ul>
+    <div className='main-container'>
+      <div className='dropdown-container'>
+        New Task:
+        <div className="dropdown">
+          <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Select Task
+            <span id="caret" className="caret"></span>
+          </button>
+          <ul className="dropdown-menu">
+            {tasks}
+          </ul>
+        </div>
+        <div className="dropdown">
+          <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Select User
+            <span id="caret" className="caret"></span>
+          </button>
+          <ul className="dropdown-menu">
+            {users}
+          </ul>
+        </div>
+        <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Submit</button>
+      </div>
+      {confirmation()}
     </div>
-    <div className="dropdown">
-      <button id="dropdowns" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Select User
-        <span id="caret" className="caret"></span>
-      </button>
-      <ul className="dropdown-menu">
-        {users()}
-      </ul>
-    </div>
-    <button id='submitbutt' type="button" className="btn btn-primary">Submit</button>
-  </div>
 )
 };
 
