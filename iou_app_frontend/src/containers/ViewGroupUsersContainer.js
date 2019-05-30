@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
-import ViewGroupUsers from '../components/ViewGroupUsers';
-import filteredUsers from '../helpers/filtered_users';
+import ViewGroupUsers from '../components/MainPage/ViewGroupUsers';
 
 const mapStateToProps = (state) => {
-  // use filteredUsers function to filter users by group
-  // map filtered users to generate jsx LIs
-  // return list of  with names and karma ratings
-  const groupName = state.currentUser.groups[0].groupName;
-  const usersOnProps = filteredUsers(state.users, groupName);
-  return
+  // map state.currentUser to generate jsx LIs
+  // return list of users with names and karma ratings
+  return {
+    groupName: state.currentUser.groups[0].groupName,
+    groupUsers: state.groupUsers
+  }
 }
+
+export default connect(mapStateToProps)(ViewGroupUsers);
