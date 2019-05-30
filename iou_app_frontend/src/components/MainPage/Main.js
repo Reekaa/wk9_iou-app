@@ -57,7 +57,7 @@ const Main = props => {
   const confirmation = () => {
     if(props.confirm === true){
     return (
-      <div>
+      <div className='confirm-text'>
         Task submitted!
       </div>
     )}else{
@@ -67,7 +67,7 @@ const Main = props => {
 
 
   return(
-    <div>
+    <div className='main-container'>
       <div className='dropdown-container'>
         New Task:
         <div className="dropdown">

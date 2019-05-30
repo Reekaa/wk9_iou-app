@@ -2,10 +2,10 @@ use iou_app;
 
 db.tasks.insertMany(
   [
-    { "task": "babysitting", "value": 5 },
-    { "task": "painting", "value": 10 },
-    { "task": "gardening", "value": 8 },
-    { "task": "cleaning kitchen", "value": 15 }
+    { "task": "Babysitting", "value": 5 },
+    { "task": "Painting", "value": 10 },
+    { "task": "Gardening", "value": 8 },
+    { "task": "Cleaning Kitchen", "value": 15 }
   ]
 );
 

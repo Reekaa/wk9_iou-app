@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
-import Header from "./components/MainPage/Header"
+import HeaderContainer from "./containers/HeaderContainer"
 // import containers
 import "./App.css";
 
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <HeaderContainer />
         <MainPageContainer />
       </div>
     );
