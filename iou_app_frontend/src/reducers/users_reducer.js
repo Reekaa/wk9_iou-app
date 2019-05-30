@@ -1,7 +1,7 @@
 const usersReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_USERS":
-      let newState = [...state, ...action.users];
+      let newState = action.users;
       return newState;
     case "ADD_TASK_TO_USER":
       return state.map(user => {

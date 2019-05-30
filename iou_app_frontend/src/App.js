@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import LoginFormContainer from "./containers/LoginFormContainer";
 // import containers
 import "./App.css";
 
@@ -27,8 +28,10 @@ class App extends Component {
              exact path='/'
              component={MainPageContainer}
             />
+            <LoginFormContainer />
           </Fragment>
         </Router>
+
       </div>
     );
   }
