@@ -2,15 +2,20 @@ import React from "react";
 import './mainpage.css'
 
 const Main = props => {
-  console.log(props);
 
-  const tasks = () => {
-    return (<li><a href="#">Babysitting</a></li>)
-  }
+  const tasks = props.tasks.map((task) => {
+    return (
+      <li key={task._id}>
+        <a href="#">{task.task}</a>
+      </li>)
+  })
 
-  const users = () => {
-    return (<li><a href="#">Rose</a></li>);
-  }
+  const users = props.users.map((user) => {
+    return (
+      <li key={user._id}>
+        <a href="#">{user.name}</a>
+      </li>);
+  })
 
 
   return(
@@ -22,7 +27,7 @@ const Main = props => {
         <span id="caret" className="caret"></span>
       </button>
       <ul className="dropdown-menu">
-        {tasks()}
+        {tasks}
       </ul>
     </div>
     <div className="dropdown">
@@ -31,7 +36,7 @@ const Main = props => {
         <span id="caret" className="caret"></span>
       </button>
       <ul className="dropdown-menu">
-        {users()}
+        {users}
       </ul>
     </div>
     <button id='submitbutt' type="button" className="btn btn-primary">Submit</button>
