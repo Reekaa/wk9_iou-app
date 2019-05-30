@@ -1,5 +1,6 @@
 import React from "react";
-import './mainpage.css'
+import './mainpage.css';
+import Navbar from './Navbar.js';
 
 const Header = props => {
   return (
@@ -7,6 +8,7 @@ const Header = props => {
       <div className='current-user'>User: {props.currentUser.name}</div>
       <img src='./images/top_banner.png' alt='top_banner' className='header-image'></img>
       <div className='spacer'></div>
+      <Navbar/>
     </div>
   );
 }
