@@ -36,22 +36,6 @@ class MongoHelper {
     });
   }
 
-  static addTask(coll, id, payload) {
-    console.log("COll:", coll);
-    console.log("ID:", id);
-    console.log("PAYLOAD:", payload);
-    return MongoClient.connect(
-      HOST,
-      { useNewUrlParser: true }
-    ).then(client => {
-      const collection = client.db(DB_NAME).collection(coll);
-      return collection.updateOne(
-        { _id: ObjectID(id)},
-        {$push: {completedTasks: payload}}
-      )
-    })
-  }
-
 }
 
   module.exports = MongoHelper;

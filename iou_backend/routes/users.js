@@ -20,10 +20,4 @@ router.delete("/:id", function(req, res) {
   });
 });
 
-router.put("/:id/task", function(req, res) {
-  MongoHelper.addTask("users", req.params.id, req.body).then(result => {
-    res.status(201).json('task added')
-  })
-})
-
 module.exports = router;
