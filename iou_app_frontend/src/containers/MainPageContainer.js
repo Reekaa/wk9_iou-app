@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import Main from "../components/MainPage/Main";
-import filteredUsers from '../helpers/filtered_users.js';
 
 
 
@@ -48,10 +47,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => {
-  const groupName = state.currentUser.groups[0].groupName;
-  const usersOnProps = filteredUsers(state.users, groupName);
   return {
-    users: usersOnProps,
+    groupUsers: state.groupUsers,
     tasks: state.tasks,
     selected: state.selected,
     currentUser: state.currentUser,

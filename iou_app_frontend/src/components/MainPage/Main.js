@@ -25,7 +25,7 @@ const Main = props => {
       </li>)
   })
 
-  const users = props.users.map((user) => {
+  const users = props.groupUsers.map((user) => {
     return (
       <li key={user._id}>
         <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
