@@ -15,10 +15,14 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   addTaskToUser(currentUser, newTask) {
-    dispatch({
-      type: 'ADD_TASK_TO_USER',
-      currentUser,
-      newTask
+    console.log("CURRENTUSER", currentUser);
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/users/${currentUser._id}/task`, {
+        method: 'PUT',
+        body: JSON.stringify(newTask),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json());
     })
   },
   changeConfirm(confirm) {

@@ -52,6 +52,7 @@ const mapDispatchToProps = dispatch => {
         })
       })
     }
+
   }
 }
 
