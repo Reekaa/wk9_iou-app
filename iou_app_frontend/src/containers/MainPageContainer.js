@@ -16,8 +16,19 @@ const mapDispatchToProps = dispatch => ({
       selectedUser
     })
   },
+  selectCost(selectedCost) {
+    dispatch({
+      type: 'ADD_SELECTED_COST',
+      selectedCost
+    })
+  },
+  costMethod(costMethod) {
+    dispatch({
+      type: 'ADD_SELECTED_COST_METHOD',
+      costMethod
+    })
+  },
   addTaskToUser(currentUser, newTask) {
-    console.log("CURRENTUSER", currentUser);
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${currentUser._id}/task`, {
         method: 'PUT',

@@ -37,17 +37,16 @@ class MongoHelper {
   }
 
   static addTask(coll, id, payload) {
-    console.log("COll:", coll);
-    console.log("ID:", id);
-    console.log("PAYLOAD:", payload);
+    delete payload._id
+    console.log(payload);
     return MongoClient.connect(
       HOST,
       { useNewUrlParser: true }
     ).then(client => {
       const collection = client.db(DB_NAME).collection(coll);
       return collection.updateOne(
-        { _id: ObjectID(id)},
-        {$push: {completedTasks: payload}}
+        { "_id": ObjectID('5cefdf8cd5f95eb68e8f25dd'), "groups.groupName": "SW2"},
+        {"$push": { "groups.$.completedTasks": payload}}
       )
     })
   }
