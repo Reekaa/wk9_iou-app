@@ -1,5 +1,6 @@
 import React from "react";
 import './mainpage.css'
+import ViewGroupUsersContainer from '../containers/ViewGroupUsersContainer';
 
 const Main = props => {
 

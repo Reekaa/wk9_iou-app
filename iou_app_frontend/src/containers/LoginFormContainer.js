@@ -14,6 +14,7 @@ const LoginFormContainer = (props) => {
 }
 
 const mapDispatchToProps = dispatch => ({
+  // add a funciton that sets state.currentUser
   setGroupUsers(groupUsers) {
     dispatch({
       type: 'SET_GROUP_USERS',
