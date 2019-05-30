@@ -10,7 +10,7 @@
 }
 .dropdown-container {
   margin-top: 20px;
-  width: 600px;
+  width: 850px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,4 +55,19 @@
   background-color: #c0d7dd;
   border: 3px solid #156678;
   color: #156678;
+}
+#cost-input {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+#cost-select {
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 3px solid #156678;
+  border-radius: 5px;
+  color: #156678;
+  margin-left: 10px;
 }

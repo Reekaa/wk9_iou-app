@@ -65,6 +65,10 @@ const Main = props => {
     }
   }
 
+  const handleNumber = () => {
+
+  }
+
 
   return(
     <div className='main-container'>
@@ -87,6 +91,12 @@ const Main = props => {
           <ul className="dropdown-menu">
             {users}
           </ul>
+        </div>
+        <div id='cost-input' class="form-group row">
+          <label for="example-number-input" class="col-2 col-form-label">Cost: </label>
+          <div id='cost-select' class="col-10">
+            <input class="form-control" type="number" placeholder="1" id="example-number-input" onChange={handleNumber}/>
+          </div>
         </div>
         <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Submit</button>
       </div>
