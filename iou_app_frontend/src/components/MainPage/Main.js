@@ -88,7 +88,7 @@ const Main = props => {
             {users}
           </ul>
         </div>
-        <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Submit</button>
+        <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Add task</button>
       </div>
       {confirmation()}
     </div>
