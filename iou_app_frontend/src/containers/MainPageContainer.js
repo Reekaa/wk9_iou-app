@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
 import Main from "../components/MainPage/Main";
+import filteredUsers from '../helpers/filtered_users.js';
+
+
 
 const mapDispatchToProps = dispatch => ({
   selectTask(selectedTask) {
@@ -15,10 +18,14 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   addTaskToUser(currentUser, newTask) {
-    dispatch({
-      type: 'ADD_TASK_TO_USER',
-      currentUser,
-      newTask
+    console.log("CURRENTUSER", currentUser);
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/users/${currentUser._id}/task`, {
+        method: 'PUT',
+        body: JSON.stringify(newTask),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json());
     })
   },
   changeConfirm(confirm) {
@@ -30,8 +37,10 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => {
+  const groupName = state.currentUser.groups[0].groupName;
+  const usersOnProps = filteredUsers(state.users, groupName);
   return {
-    users: state.users,
+    users: usersOnProps,
     tasks: state.tasks,
     selected: state.selected,
     currentUser: state.currentUser,
