@@ -20,7 +20,7 @@
 #caret {
   margin-left: 10px;
 }
-#dropdowns {
+#userDropdown, #taskDropdown {
   width: 130px;
   height: 40px;
   font-size: 15px;
