@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-import ViewGroupUsers from '../components/ViewGroupUsers';
-import filteredUsers from '../helpers/filtered_users';
+import ViewGroupUsers from '../components/MainPage/ViewGroupUsers';
 
 const mapStateToProps = (state) => {
-  // map state.currentUsers to generate jsx LIs
-  // return list of  with names and karma ratings
+  // map state.currentUser to generate jsx LIs
+  // return list of users with names and karma ratings
   return {
     groupName: state.currentUser.groups[0].groupName,
     groupUsers: state.groupUsers

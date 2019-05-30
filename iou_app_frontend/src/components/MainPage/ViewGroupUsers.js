@@ -3,6 +3,7 @@ import './mainpage.css'
 
 const ViewGroupUsers = (props) => {
 
+
 console.log(props);
 
   return (
@@ -11,4 +12,4 @@ console.log(props);
   )
 };
 
-export default Main;
+export default ViewGroupUsers;

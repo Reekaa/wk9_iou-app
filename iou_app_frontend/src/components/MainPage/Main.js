@@ -1,6 +1,6 @@
 import React from "react";
 import './mainpage.css'
-import ViewGroupUsersContainer from '../containers/ViewGroupUsersContainer';
+import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 
 const Main = props => {
   console.log(props);
@@ -152,6 +152,9 @@ const Main = props => {
         <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Add task</button>
       </div>
       {confirmation()}
+      <div id='users-list-sidebar'>
+        <ViewGroupUsersContainer />
+      </div>
     </div>
 )
 };
