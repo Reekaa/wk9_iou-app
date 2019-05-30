@@ -3,6 +3,15 @@ const usersReducer = (state = [], action) => {
     case "ADD_USERS":
       let newState = [...state, ...action.users];
       return newState;
+    case "ADD_TASK_TO_USER":
+      return state.map(user => {
+        if(user.name === action.currentUser){
+          let newUser = {...user, completedTasks: [...user.completedTasks, action.newTask]}
+          return newUser
+        }
+      return user
+      })
+
     default:
       return state;
   }
