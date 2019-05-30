@@ -7,6 +7,7 @@ const LoginFormContainer = (props) => {
   const groupUsers = props.users.filter(user => {
     return user.groups[0].groupName === props.currentUser.groups[0].groupName;
   })
+  props.setGroupUsers(groupUsers);
 
   return null;
   // EXTENSION: INSERT LOGIN FORM HERE
