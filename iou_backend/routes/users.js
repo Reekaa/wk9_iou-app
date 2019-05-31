@@ -8,7 +8,14 @@ router.post('/', function(req, res) {
   })
 });
 
+router.get('/:name', function(req, res) {
+  MongoHelper.getByName('users', req.params.name).then(result => {
+    res.status(200).json(result)
+  })
+});
+
 router.get('/', function(req, res) {
+  console.log('hello');
   MongoHelper.get('users').then(result => {
     res.status(200).json(result)
   })
@@ -32,4 +39,6 @@ router.put("/:id/karma", function(req, res) {
     res.status(201).json('karma added')
   })
 })
+
+
 module.exports = router;
