@@ -1,12 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 
 const TasksDropdown = (props) => {
 
-  const inputRef = useRef(null);
-
   const handleTasksDropdown = (evt) => {
     props.object.selectTask(evt)
-    inputRef.current.textContent = evt
+    props.updateTaskButton(evt)
     props.object.changeConfirm(false)
   }
 
@@ -20,8 +18,8 @@ const TasksDropdown = (props) => {
 
   return(
     <>
-    <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ref={inputRef}>
-      Select Task
+    <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+      {props.state.taskButton}
       <span id="caret" className="caret"></span>
     </button>
     <ul className="dropdown-menu">

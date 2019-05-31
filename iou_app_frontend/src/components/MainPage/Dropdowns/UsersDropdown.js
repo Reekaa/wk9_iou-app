@@ -1,12 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 
 const UsersDropdown = (props) => {
 
-  const inputRef = useRef(null);
-
   const handleUsersDropdown = (evt) => {
     props.object.selectUser(evt)
-    inputRef.current.textContent = evt
+    props.updateUserButton(evt)
     props.object.changeConfirm(false)
   }
 
@@ -19,8 +17,8 @@ const UsersDropdown = (props) => {
 
   return(
     <>
-      <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ref={inputRef}>
-        Select User
+      <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        {props.state.userButton}
         <span id="caret" className="caret"></span>
       </button>
       <ul className="dropdown-menu">

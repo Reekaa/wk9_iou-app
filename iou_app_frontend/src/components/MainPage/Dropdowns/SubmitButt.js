@@ -31,7 +31,7 @@ const SubmitButt = (props) => {
 
   return(
     <>
-      <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Add task</button>
+      <button onClick = {() => {handleSubmit()}}id='submitbutt' type="button" className="btn btn-primary">Add Task</button>
     </>
   )
 }

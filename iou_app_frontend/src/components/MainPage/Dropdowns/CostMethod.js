@@ -1,8 +1,6 @@
-import React, {useRef} from 'react'
+import React from 'react'
 
 const CostMethod = (props) => {
-
-  const inputRef = useRef(null);
 
   const costHours = () => {
     return (
@@ -21,14 +19,14 @@ const CostMethod = (props) => {
 
   const handleCostDropdown = (evt) => {
     props.object.costMethod(evt)
-    inputRef.current.textContent = evt
+    props.updateCostButton(evt)
     props.object.changeConfirm(false)
   }
 
   return(
     <>
-      <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ref={inputRef}>
-        Select Cost
+      <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        {props.state.costMethod}
         <span id="caret" className="caret"></span>
       </button>
       <ul className="dropdown-menu">
