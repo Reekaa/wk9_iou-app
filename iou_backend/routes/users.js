@@ -26,4 +26,10 @@ router.put("/:id/task", function(req, res) {
   })
 })
 
+router.put("/:id/karma", function(req, res) {
+  console.log(req.body);
+  MongoHelper.addKarma("users", req.params.id, req.body.karma).then(result => {
+    res.status(201).json('karma added')
+  })
+})
 module.exports = router;

@@ -16,6 +16,7 @@
   justify-content: space-between;
 }
 .main-container-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-areas:

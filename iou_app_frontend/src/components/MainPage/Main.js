@@ -3,7 +3,6 @@ import './mainpage.css'
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 
 const Main = props => {
-  console.log(props);
 
   const handleTasksDropdown = (evt) => {
     props.selectTask(evt)
@@ -38,11 +37,22 @@ const Main = props => {
       if (task.task === props.selected.task) {
         let newTask = task
         newTask.whoFor = props.selected.user
+        newTask.karma = props.selected.cost * task.value
+        console.log(newTask.karma);
         if (props.selected.method === 'Hours') {
           newTask.cost = {hours: props.selected.cost}
         } else {
           newTask.cost = {pounds: props.selected.cost}
         }
+        let whoFor = {};
+        console.log(props);
+        for (let user of props.users) {
+          if (user.name === props.selected.user) {
+            whoFor = user
+          }
+        }
+        props.addKarmaToUser(whoFor, (0 - newTask.karma))
+        props.addKarmaToUser(props.currentUser, newTask.karma)
         props.addTaskToUser(props.currentUser, newTask)
         props.changeConfirm(true)
       }
