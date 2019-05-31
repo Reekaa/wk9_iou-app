@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import Main from "../components/MainPage/Main";
 
 
-
 const mapDispatchToProps = dispatch => ({
   selectTask(selectedTask) {
     dispatch({

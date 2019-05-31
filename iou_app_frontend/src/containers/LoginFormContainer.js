@@ -19,7 +19,7 @@ const LoginFormContainer = (props) => {
   return(
     <div>
       <Login
-        setCurrentUser = {props.setCurrentUser}
+        getCurrentUser = {props.getCurrentUser}
       />
     </div>
   )
@@ -33,13 +33,19 @@ const mapDispatchToProps = dispatch => ({
       groupUsers
     })
   },
-  setCurrentUser(currentUser) {
-    console.log(currentUser);
-    dispatch({
-      type: 'SET_CURRENT_USER',
-      currentUser
-    })
-  }
+  getCurrentUser(name) {
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/users/${name}`)
+      .then((response) => response.json())
+      .then((currentUser) => {
+        console.log(currentUser);
+        dispatch({
+          type: 'SET_CURRENT_USER',
+          currentUser
+        })
+      })
+  })
+}
 })
 
 const mapStateToProps = state => {
