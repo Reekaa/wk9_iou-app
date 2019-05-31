@@ -25,13 +25,15 @@ class App extends Component {
               component={HeaderContainer}
             />
             <Route
-             exact path='/'
-             component={MainPageContainer}
+              exact path='/'
+              component={MainPageContainer}
             />
-            <LoginFormContainer />
+            <Route
+              exact path='/login'
+              component={LoginFormContainer}
+            />
           </Fragment>
         </Router>
-
       </div>
     );
   }

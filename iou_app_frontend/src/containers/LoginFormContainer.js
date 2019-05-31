@@ -1,4 +1,6 @@
 import { connect } from "react-redux";
+import React from 'react';
+import Login from '../components/MainPage/Login.js';
 
 // filter the users to return an array of the ones in the relevant group
 
@@ -9,7 +11,12 @@ const LoginFormContainer = (props) => {
   })
   props.setGroupUsers(groupUsers);
 
-  return null;
+  return(
+    <div>
+      <Login setGroupUsers = {props.setGroupUsers}/>
+    </div>
+  )
+
   // EXTENSION: INSERT LOGIN FORM HERE
   // TAKE CURRENT USER FOR ABOVE FUNCTION FROM USER INPUT
 }
