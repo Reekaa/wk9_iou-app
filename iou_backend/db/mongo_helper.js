@@ -20,8 +20,11 @@ class MongoHelper {
       HOST,
       { useNewUrlParser: true }
     ).then(client => {
+      console.log('hi', client);
       const collection = client.db(DB_NAME).collection(coll);
-      return collection.find().toArray();
+      const users = collection.find().toArray()
+      console.log('hello', users);
+      return users
     });
   }
 
@@ -62,6 +65,16 @@ class MongoHelper {
         {$inc: {"groups.$.karma": payload}}
       )
     })
+  }
+
+  static getByName(coll, name) {
+    return MongoClient.connect(
+      HOST,
+      { useNewUrlParser: true }
+    ).then(client => {
+      const collection = client.db(DB_NAME).collection(coll);
+      return collection.findOne({name: name})
+    });
   }
 
 }
