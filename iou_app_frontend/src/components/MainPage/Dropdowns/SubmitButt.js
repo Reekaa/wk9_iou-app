@@ -8,14 +8,12 @@ const SubmitButt = (props) => {
         let newTask = task
         newTask.whoFor = props.object.selected.user
         newTask.karma = props.object.selected.cost * task.value
-        console.log(newTask.karma);
         if (props.object.selected.method === 'Hours') {
           newTask.cost = {hours: props.object.selected.cost}
         } else {
           newTask.cost = {pounds: props.object.selected.cost}
         }
         let whoFor = {};
-        console.log(props.object);
         for (let user of props.object.users) {
           if (user.name === props.object.selected.user) {
             whoFor = user
@@ -27,6 +25,9 @@ const SubmitButt = (props) => {
         props.object.changeConfirm(true)
       }
     })
+    props.updateTaskButton('Select Task')
+    props.updateUserButton('Select User')
+    props.updateCostButton('Select Cost')
   }
 
   return(
