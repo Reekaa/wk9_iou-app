@@ -2,28 +2,35 @@ import React, { Component } from 'react';
 
 class Login extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state ={
+    this.state = {
       userNameInput: ''
     }
-    // this.handleSubmit = this.handleSubmit.bind(this)
-    // this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  handleInputChange(evt){
+    this.setState({userNameInput: evt.target.value})
+  }
 
- /*onSubmit={this.handleSubmit}*/
-/*onChange={this.handleInputChange}*/
+  handleSubmit(evt){
+    evt.preventDefault();
+    const newUser = this.state.userNameInput;
+    this.props.setCurrentUser(newUser)
+  }
+
   render(){
     return(
       <div>
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input
               id="entry"
               type="text"
               value={this.state.userNameInput}
-
+              onChange={this.handleInputChange}
             />
             <input type="submit" />
           </form>

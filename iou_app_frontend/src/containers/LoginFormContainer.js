@@ -2,23 +2,28 @@ import { connect } from "react-redux";
 import React from 'react';
 import Login from '../components/MainPage/Login.js';
 
+// EXTENSION: INSERT LOGIN FORM HERE
+// TAKE CURRENT USER FOR ABOVE FUNCTION FROM USER INPUT
 // filter the users to return an array of the ones in the relevant group
+
 
 const LoginFormContainer = (props) => {
 
-  const groupUsers = props.users.filter(user => {
-    return user.groups[0].groupName === props.currentUser.groups[0].groupName;
-  })
-  props.setGroupUsers(groupUsers);
+  if (props.currentUser.groups ) {
+    const groupUsers = props.users.filter(user => {
+      return user.groups[0].groupName === props.currentUser.groups[0].groupName;
+    })
+    props.setGroupUsers(groupUsers);
+  }
 
   return(
     <div>
-      <Login setGroupUsers = {props.setGroupUsers}/>
+      <Login
+        setCurrentUser = {props.setCurrentUser}
+      />
     </div>
   )
 
-  // EXTENSION: INSERT LOGIN FORM HERE
-  // TAKE CURRENT USER FOR ABOVE FUNCTION FROM USER INPUT
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -26,6 +31,13 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: 'SET_GROUP_USERS',
       groupUsers
+    })
+  },
+  setCurrentUser(currentUser) {
+    console.log(currentUser);
+    dispatch({
+      type: 'SET_CURRENT_USER',
+      currentUser
     })
   }
 })
