@@ -24,6 +24,7 @@ class Login extends Component {
     return(
       <div>
         <div>
+          <label htmlFor="entry">Please login with your username</label>
           <form onSubmit={this.handleSubmit}>
             <input
               id="entry"
@@ -31,7 +32,7 @@ class Login extends Component {
               value={this.state.userNameInput}
               onChange={this.handleInputChange}
             />
-            <input type="submit" />
+            <input type="submit" value="Login" />
           </form>
         </div>
         <div className="dropdown">
