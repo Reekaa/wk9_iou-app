@@ -1,5 +1,5 @@
 const tempCurrentUser = {
-  "_id": "5cefb95cd9067b7f7031b698",
+  "_id": "5cefdf8cd5f95eb68e8f25dd",
   "name": "Keith",
   "groups": [
     {
