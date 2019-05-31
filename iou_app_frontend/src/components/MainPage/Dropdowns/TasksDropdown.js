@@ -18,6 +18,7 @@ const TasksDropdown = (props) => {
 
   return(
     <>
+    <label>What task did you do?</label>
     <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
       {props.state.taskButton}
       <span id="caret" className="caret"></span>

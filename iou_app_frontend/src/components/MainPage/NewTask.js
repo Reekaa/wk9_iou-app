@@ -11,13 +11,14 @@ class NewTask extends Component {
     this.state = {
       taskButton: 'Select Task',
       userButton: 'Select User',
-      costMethod: 'Select Cost'
-
+      costButton: 'Select Cost',
+      costMethod: ''
     }
     this.confirmation = this.confirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateCostButton = this.updateCostButton.bind(this)
+    this.updateCostMethod = this.updateCostMethod.bind(this)
   }
 
   confirmation() {
@@ -38,27 +39,39 @@ class NewTask extends Component {
     this.setState({userButton: userButtonText})
   }
   updateCostButton(costButtonText) {
-    this.setState({costMethod: costButtonText})
+    this.setState({costButton: costButtonText})
+  }
+  updateCostMethod(costMethodText) {
+    this.setState({costMethod: costMethodText})
   }
 
   render() {
     return(
       <>
+      <div className='new-task'>New Task:</div>
       <div className='dropdown-container'>
-        New Task:
-        <div className="dropdown">
+        <div id='dropdown' className="dropdown">
           <TasksDropdown object={this.props.object} state={this.state} updateTaskButton={this.updateTaskButton}/>
         </div>
-        <div className="dropdown">
+        <div id='dropdown' className="dropdown">
           <UsersDropdown object={this.props.object} state={this.state} updateUserButton={this.updateUserButton}/>
         </div>
-        <div id='cost-input' className="form-group row">
-          <CostNumber object={this.props.object}/>
+        <div id='dropdown' className="dropdown">
+          <CostMethod object={this.props.object} state={this.state} updateCostButton={this.updateCostButton}
+          updateCostMethod={this.updateCostMethod}/>
         </div>
-        <div className="dropdown">
-          <CostMethod object={this.props.object} state={this.state} updateCostButton={this.updateCostButton}/>
+        <div id='dropdown' className="form-group row">
+          <CostNumber object={this.props.object} state={this.state}/>
         </div>
-        <SubmitButt object={this.props.object} state={this.state}/>
+        <div id='submit-container'>
+        <SubmitButt
+        object={this.props.object}
+        state={this.state}
+        updateTaskButton={this.updateTaskButton}
+        updateUserButton={this.updateUserButton}
+        updateCostButton={this.updateCostButton}
+        />
+        </div>
 
       </div>
       {this.confirmation()}

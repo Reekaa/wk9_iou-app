@@ -17,6 +17,7 @@ const UsersDropdown = (props) => {
 
   return(
     <>
+      <label>Who did you do it for?</label>
       <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
         {props.state.userButton}
         <span id="caret" className="caret"></span>
