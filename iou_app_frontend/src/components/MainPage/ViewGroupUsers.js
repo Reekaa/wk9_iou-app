@@ -14,7 +14,6 @@ const groupUsersList = props.groupUsers.map((user, i) => {
         </div>
 });
 
-console.log(props);
 
   return (
     <div className='user-list'>

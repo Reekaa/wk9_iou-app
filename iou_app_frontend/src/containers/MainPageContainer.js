@@ -35,7 +35,23 @@ const mapDispatchToProps = dispatch => ({
         body: JSON.stringify(newTask),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then((response) => response.json());
+      .then((response) => response.json())
+      .then(this.getNewData());
+    })
+  },
+  addKarmaToUser(user, newKarma) {
+    console.log(user._id);
+    console.log(newKarma);
+    let karma = {karma: newKarma}
+    console.log(karma);
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/users/${user._id}/karma`, {
+        method: 'PUT',
+        body: JSON.stringify(karma),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json())
+      .then(this.getNewData());
     })
   },
   changeConfirm(confirm) {
@@ -43,11 +59,25 @@ const mapDispatchToProps = dispatch => ({
       type: 'CONFIRM_TASK',
       confirm
     })
+  },
+  getNewData() {
+    dispatch(() =>{
+      fetch('http://localhost:3000/api/users')
+      .then(res => {
+        return res.json().then(users => {
+        dispatch({
+          type:'ADD_USERS',
+          users
+        })
+      })
+      })
+    })
   }
 })
 
 const mapStateToProps = state => {
   return {
+    users: state.users,
     groupUsers: state.groupUsers,
     tasks: state.tasks,
     selected: state.selected,
