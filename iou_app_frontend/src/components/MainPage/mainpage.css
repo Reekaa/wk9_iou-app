@@ -49,15 +49,18 @@
   background-color: #c0d7dd;
 }
 .user-list-item {
-  transition: all .2s ease-in-out;
+  transition: all .3s ease;
+  border: 1px solid #FFFFFF;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   font-size: 15px;
   font-weight: 700;
   color: #156678;
+  height: 50px;
 }
 .user-list-item:hover {
-  transform: scale(1.1);
+  border: 1px solid #156678;
+  height: 100px;
 }
 .user-list-item-name, .user-list-item-karma {
   justify-self: center;
@@ -70,6 +73,20 @@
 }
 .group-name:hover {
   transform: scale(1.2);
+}
+.user-info {
+  font-size: 15px;
+  font-weight: 700;
+  color: #156678;
+  grid-column-start: 1;
+  grid-column-end: two;
+  test-align: center;
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
+}
+.user-info p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .confirm-text {
   margin-top: 20px;
