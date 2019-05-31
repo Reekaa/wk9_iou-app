@@ -1,11 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => (
-    <h6>
-      <Link to="/">Main Page</Link>
-      <Link to="/">Login</Link>
-    </h6>
+    <div className="navbar">
+      <Link className="link" to="/">Login</Link>
+      <Link className="link" to="/mainpage">Main Page</Link>
+      <Link className="link" to="/userprofile">User Profile</Link>
+      <Link className="link" to="/groups">Groups</Link>
+      <Link className="link" to="/voting">Voting</Link>
+      <Link className="link" to="/logout">Logout</Link>
+    </div>
 )
 
 export default Navbar;
