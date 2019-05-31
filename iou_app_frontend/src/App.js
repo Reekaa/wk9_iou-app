@@ -26,11 +26,11 @@ class App extends Component {
             />
             <Route
               exact path='/'
-              component={MainPageContainer}
+              component={LoginFormContainer}
             />
             <Route
-              exact path='/login'
-              component={LoginFormContainer}
+              exact path='/mainpage'
+              component={MainPageContainer}
             />
           </Fragment>
         </Router>
