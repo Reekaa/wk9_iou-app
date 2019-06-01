@@ -10,43 +10,58 @@ class ViewGroupUsers extends Component {
     this.groupUsersList = this.groupUsersList.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.renderInfo = this.renderInfo.bind(this);
+    this.mouseLeave = this.mouseLeave.bind(this);
+    this.mouseEnter = this.mouseEnter.bind(this);
+  }
+
+  mouseEnter(evt) {
+    this.setState({ selectedUser: evt });
+  }
+
+  mouseLeave() {
+    this.setState({ selectedUser: null });
   }
 
   handleClick(evt) {
-    this.setState({ selectedUser: evt });
     console.log('CLICK', evt);
   }
 
-  renderInfo(user) {
+  renderInfo(user, index) {
     return (this.state.selectedUser === user.name) ?
-    <p>Info about the user goes here</p>
+    <p>Info about user {`${index}`} goes here</p>
     : null;
   }
 
   groupUsersList() {
+    let counter = 300;
     return this.props.groupUsers.map((user, i) => {
-      return (
+      console.log(counter);
+      const content =
         <div
-          key={i}
-          className='user-list-item'
-          onClick={(name) => {this.handleClick(user.name)}}
+        key={i}
+        className='user-list-item'
+        onClick={(name) => {this.handleClick(user.name)}}
+        onMouseEnter={(name) => {this.mouseEnter(user.name)}}
+        onMouseLeave={(name) => {this.mouseLeave()}}
+        style={{ bottom: `${counter}px` }}
         >
-          <p className='user-list-item-name'>
-            {user.name}
+        <p className='user-list-item-name'>
+        {user.name}
+        </p>
+        <p className='user-list-item-karma'>
+        {user.groups[0].karma}
+        </p>
+        <p className='user-info'>
+        {/* add handleClick for parent div to update this.state.selectedUser with user item
+          // create renderInfo function:
+          - render user info IF (this.state.selectedUser === user.name)
+          - filter groupUsers for relevant user info and render
+          */}
+          {this.renderInfo(user, i)}
           </p>
-          <p className='user-list-item-karma'>
-            {user.groups[0].karma}
-          </p>
-          <div className='user-info' style={{ opacity: `${0.5}` }}>
-            {/* add handleClick for parent div to update this.state.selectedUser with user item
-             // create renderInfo function:
-                - render user info IF (this.state.selectedUser === user.name)
-                - filter groupUsers for relevant user info and render
-            */}
-            {this.renderInfo(user)}
           </div>
-        </div>
-      )
+        counter -= 40;
+      return content;
     });
   }
 
@@ -54,7 +69,7 @@ class ViewGroupUsers extends Component {
     return (
       <div className='user-list'>
         <div className='group-name'>
-          {this.props.groupName}
+          Current group: {this.props.groupName}
         </div>
         {this.groupUsersList()}
       </div>

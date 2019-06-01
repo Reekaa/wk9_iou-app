@@ -37,6 +37,8 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  position: relative;
+  min-height: 600px;
 }
 .user-list {
   margin: 80px 10px 10px 10px;
@@ -45,34 +47,37 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.user-list div {
+  background-color: #FFFFFF;
+}
 .user-list div:nth-child(even) {
   background-color: #c0d7dd;
 }
 .user-list-item {
   transition: all .3s ease;
-  border: 1px solid #FFFFFF;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   font-size: 15px;
   font-weight: 700;
   color: #156678;
-  height: 50px;
+  height: 40px;
+  position: absolute;
+  width: 250px;
 }
 .user-list-item:hover {
   border: 1px solid #156678;
-  height: 100px;
+  height: 120px;
 }
 .user-list-item-name, .user-list-item-karma {
   justify-self: center;
 }
 .group-name {
-  transition: all .2s ease-in-out;
+  /* transition: all .2s ease-in-out; */
   font-size: 20px;
   font-weight: 900;
   text-align: center;
-}
-.group-name:hover {
-  transform: scale(1.2);
+  height: 100px;
+  max-height: 100px;
 }
 .user-info {
   font-size: 15px;
@@ -81,8 +86,7 @@
   grid-column-start: 1;
   grid-column-end: two;
   test-align: center;
-  transition: opacity .5s ease-in-out;
-  opacity: 0;
+  overflow: hidden;
 }
 .user-info p {
   margin-left: 10px;
