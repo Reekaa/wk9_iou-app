@@ -40,10 +40,9 @@
   flex-direction: column;
   overflow-y: scroll;
   position: relative;
-  min-height: 600px;
 }
 .user-list {
-  margin: 80px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
 }
 .user-list p {
   margin-top: 5px;
@@ -74,7 +73,6 @@
   justify-self: center;
 }
 .group-name {
-  /* transition: all .2s ease-in-out; */
   font-size: 20px;
   font-weight: 900;
   text-align: center;

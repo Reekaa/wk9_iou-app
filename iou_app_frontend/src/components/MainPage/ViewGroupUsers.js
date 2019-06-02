@@ -33,7 +33,8 @@ class ViewGroupUsers extends Component {
   }
 
   groupUsersList() {
-    let counter = 300;
+    // counter calculates the height needed for list items to allow absolute positioning
+    let counter = (this.props.groupUsers.length * 40);
     return this.props.groupUsers.map((user, i) => {
       console.log(counter);
       const content =
@@ -60,7 +61,7 @@ class ViewGroupUsers extends Component {
           {this.renderInfo(user, i)}
           </p>
           </div>
-        counter -= 40;
+        counter -= 40; // decrement counter to move next item 40px downwards
       return content;
     });
   }
