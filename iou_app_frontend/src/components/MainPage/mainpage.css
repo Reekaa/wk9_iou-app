@@ -42,9 +42,6 @@
   overflow-y: scroll;
   position: relative;
 }
-.user-list {
-  margin: 10px 10px 10px 10px;
-}
 .user-list p {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -74,11 +71,27 @@
   justify-self: center;
 }
 .group-name {
+  transition: all .4s ease-out;
+  position: relative;
   font-size: 20px;
   font-weight: 900;
   text-align: center;
   height: 100px;
-  max-height: 100px;
+  width: 100%;
+}
+.group-name:hover {
+  border: 1px solid #156678;
+  height: 160px;
+}
+.group-dropdown {
+  background-color: #FFFFFF;
+}
+.group-dropdown li {
+  list-style-type: none;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  color: #156678;
 }
 .user-info {
   font-size: 15px;
@@ -86,7 +99,7 @@
   color: #156678;
   grid-column-start: 1;
   grid-column-end: two;
-  test-align: center;
+  text-align: center;
   overflow: hidden;
 }
 .user-info p {
