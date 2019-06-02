@@ -39,40 +39,60 @@
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   overflow-y: scroll;
+  position: relative;
 }
 .user-list {
-  margin: 80px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
 }
 .user-list p {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.user-list div {
+  background-color: #FFFFFF;
+}
 .user-list div:nth-child(even) {
   background-color: #c0d7dd;
 }
 .user-list-item {
-  transition: all .2s ease-in-out;
+  transition: all .4s ease-out;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   font-size: 15px;
   font-weight: 700;
   color: #156678;
+  height: 40px;
+  position: absolute;
+  width: 100%;
 }
 .user-list-item:hover {
-  transform: scale(1.1);
+  border: 1px solid #156678;
+  height: 120px;
 }
 .user-list-item-name, .user-list-item-karma {
   justify-self: center;
 }
 .group-name {
-  transition: all .2s ease-in-out;
   font-size: 20px;
   font-weight: 900;
   text-align: center;
+  height: 100px;
+  max-height: 100px;
 }
-.group-name:hover {
-  transform: scale(1.2);
+.user-info {
+  font-size: 15px;
+  font-weight: 700;
+  color: #156678;
+  grid-column-start: 1;
+  grid-column-end: two;
+  test-align: center;
+  overflow: hidden;
+}
+.user-info p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .confirm-text {
   margin-top: 20px;
