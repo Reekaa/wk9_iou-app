@@ -33,6 +33,7 @@
   display: flex;
   align-items: flex-start;
   color: #156678;
+  font-family: 'Poppins' ,sans-serif;
 }
 .user-list-sidebar {
   grid-area: sidebar;

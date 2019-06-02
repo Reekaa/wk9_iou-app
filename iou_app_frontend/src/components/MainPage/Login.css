@@ -1,0 +1,22 @@
+#entry{
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 3px solid #156678;
+  border-radius: 5px;
+  color: #156678;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.button{
+  min-width: 130px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #c0d7dd;
+  border: 3px solid #156678;
+  color: #156678;
+  align-items: center;
+}
