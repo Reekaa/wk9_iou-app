@@ -5,7 +5,7 @@ import NewTask from './NewTask'
 
 const Main = props => {
 
-  const userListSidebarHeight = `${((props.groupUsers.length * 40) + 180)}px`;
+  const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
 
   return(
     <div className='main-container-grid'>
