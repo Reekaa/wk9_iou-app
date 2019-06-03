@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import GroupPage from "../components/MainPage/Main";
+import GroupPage from "../components/GroupPage/GroupPage";
 
 const mapStateToProps = state => {
   return {

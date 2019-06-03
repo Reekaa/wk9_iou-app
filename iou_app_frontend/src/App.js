@@ -4,6 +4,7 @@ import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import LoginFormContainer from "./containers/LoginFormContainer";
+import GroupPageContainer from "./containers/GroupPageContainer";
 // import containers
 import "./App.css";
 
@@ -31,6 +32,10 @@ class App extends Component {
             <Route
               exact path='/mainpage'
               component={MainPageContainer}
+            />
+            <Route
+              exact path='/group'
+              component={GroupPageContainer}
             />
           </Fragment>
         </Router>
