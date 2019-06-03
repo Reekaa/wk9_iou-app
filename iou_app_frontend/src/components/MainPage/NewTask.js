@@ -4,6 +4,7 @@ import UsersDropdown from './Dropdowns/UsersDropdown'
 import CostNumber from './Dropdowns/CostNumber'
 import CostMethod from './Dropdowns/CostMethod'
 import SubmitButt from './Dropdowns/SubmitButt'
+import AddNewTask from './Dropdowns/AddNewTask'
 
 class NewTask extends Component {
   constructor(props) {
@@ -12,13 +13,19 @@ class NewTask extends Component {
       taskButton: 'Select Task',
       userButton: 'Select User',
       costButton: 'Select Cost',
-      costMethod: ''
+      costMethod: '',
+      newTaskForm: 'none',
+      newTaskButton: 'showButton',
+      errorMessage: ''
     }
     this.confirmation = this.confirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateCostButton = this.updateCostButton.bind(this)
     this.updateCostMethod = this.updateCostMethod.bind(this)
+    this.updateErrorMessage = this.updateErrorMessage.bind(this)
+    this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
+    this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
   }
 
   confirmation() {
@@ -43,6 +50,16 @@ class NewTask extends Component {
   }
   updateCostMethod(costMethodText) {
     this.setState({costMethod: costMethodText})
+  }
+  updateErrorMessage(errorText) {
+    console.log(errorText);
+    this.setState({errorMessage: errorText})
+  }
+  updateNewTaskForm(formText) {
+    this.setState({newTaskForm: formText})
+  }
+  updateNewTaskButton(buttonText) {
+    this.setState({newTaskButton: buttonText})
   }
 
   render() {
@@ -72,9 +89,13 @@ class NewTask extends Component {
         updateCostButton={this.updateCostButton}
         />
         </div>
-
+        {this.confirmation()}
       </div>
-      {this.confirmation()}
+      <div className='new-task-container'>
+        <AddNewTask object={this.props.object} state={this.state} updateErrorMessage={this.updateErrorMessage}
+        updateNewTaskForm={this.updateNewTaskForm}
+        updateNewTaskButton={this.updateNewTaskButton}/>
+      </div>
       </>
     )
   }
