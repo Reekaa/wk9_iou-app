@@ -10,6 +10,7 @@ import Login from '../components/MainPage/Login.js';
 const LoginFormContainer = (props) => {
 
   if (props.currentUser.groups ) {
+    console.log(props.currentUser);
     const groupUsers = props.users.filter(user => {
       return user.groups[0].groupName === props.currentUser.groups[0].groupName;
     })

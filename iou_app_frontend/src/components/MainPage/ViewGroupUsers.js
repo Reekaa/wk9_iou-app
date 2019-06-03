@@ -7,7 +7,7 @@ class ViewGroupUsers extends Component {
     this.state = {
       selectedUser: '',
       groupDropdown: false,
-      groupNameStyle: { 'z-index': '0' }
+      groupNameStyle: { zIndex: '0' }
     }
     this.groupUsersList = this.groupUsersList.bind(this);
     this.renderInfo = this.renderInfo.bind(this);
@@ -28,7 +28,7 @@ class ViewGroupUsers extends Component {
 
   renderInfo(user, index) {
     return (this.state.selectedUser === user.name) ?
-    <p className='user-info'>Info about user {`${index}`} goes here</p>
+    <p className='user-info'>{`${user.name} likes ${user.skill}`}</p>
     : null;
   }
 
@@ -58,13 +58,14 @@ class ViewGroupUsers extends Component {
   }
 
   groupMouseEnter() {
+    this.setState({ groupNameStyle: { zIndex: '1' }});
     this.setState({ groupDropdown: true });
-    this.setState({ groupNameStyle: { 'z-index': '1' }});
   }
 
   groupMouseLeave() {
     this.setState({ groupDropdown: false });
-    this.setState({ groupNameStyle: { 'z-index': '0' }});
+    this.setState({ groupNameStyle: { zIndex: '0' }});
+    ;
   }
 
   renderGroupDropdown() {
