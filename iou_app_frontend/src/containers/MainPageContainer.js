@@ -53,6 +53,18 @@ const mapDispatchToProps = dispatch => ({
       .then(this.getNewData());
     })
   },
+  createNewTask(taskName) {
+    let newTask = {task: taskName, value: 5}
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/tasks`, {
+        method: 'POST',
+        body: JSON.stringify(newTask),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json())
+      .then(this.getTasksData());
+    })
+  },
   changeConfirm(confirm) {
     dispatch({
       type: 'CONFIRM_TASK',
@@ -67,6 +79,19 @@ const mapDispatchToProps = dispatch => ({
         dispatch({
           type:'ADD_USERS',
           users
+        })
+      })
+      })
+    })
+  },
+  getTasksData() {
+    dispatch(() =>{
+      fetch('http://localhost:3000/api/tasks')
+      .then(res => {
+        return res.json().then(tasks => {
+        dispatch({
+          type:'ADD_TASKS',
+          tasks
         })
       })
       })
