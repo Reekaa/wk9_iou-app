@@ -9,11 +9,15 @@ const UsersDropdown = (props) => {
   }
 
   const users = props.object.groupUsers.map((user) => {
-    return (
-      <li key={user._id}>
-      <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
-      </li>);
-    })
+    if (user.name !== props.object.currentUser.name) {
+      return (
+        <li key={user._id}>
+        <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
+        </li>);
+      } else {
+      return
+    }
+  })
 
   return(
     <>
