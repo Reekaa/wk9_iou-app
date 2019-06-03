@@ -10,10 +10,11 @@ import Login from '../components/MainPage/Login.js';
 const LoginFormContainer = (props) => {
 
   if (props.currentUser.groups ) {
+    console.log(props.currentUser.groups);
     const groupUsers = props.users.filter(user => {
       return user.groups[0].groupName === props.currentUser.groups[0].groupName;
     })
-    props.setGroupUsers(groupUsers);
+    props.setGroupUsers(groupUsers)
   }
 
   return(
@@ -28,6 +29,7 @@ const LoginFormContainer = (props) => {
 
 const mapDispatchToProps = dispatch => ({
   setGroupUsers(groupUsers) {
+    console.log(groupUsers);
     dispatch({
       type: 'SET_GROUP_USERS',
       groupUsers
@@ -44,6 +46,7 @@ const mapDispatchToProps = dispatch => ({
           currentUser
         })
       })
+      .then(() => {console.log('LINE 49')})
   })
 }
 })
