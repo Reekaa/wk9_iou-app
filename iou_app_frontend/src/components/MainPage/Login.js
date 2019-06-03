@@ -43,7 +43,7 @@ class Login extends Component {
             value={this.state.userNameInput}
             onChange={(evt) => {this.handleInputChange(evt)}}
           />
-          <input type="submit" value="Login" />
+          <input id="submit" type="submit" value="Login" />
         </form>
       </div>
     )

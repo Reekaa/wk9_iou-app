@@ -4,7 +4,8 @@
   background-color: #156678;
   display: flex;
   justify-content: space-around;
-  width: 100%
+  width: 100%;
+  font-size: 15px;
 }
 
 .nav ul{
