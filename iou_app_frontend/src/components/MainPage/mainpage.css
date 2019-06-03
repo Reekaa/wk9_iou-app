@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .header-image {
   height:150px;
 }
@@ -13,7 +14,7 @@
 }
 .dropdown-container {
   margin-top: 20px;
-  min-width: 900px;
+  width: 540px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -32,6 +33,7 @@
   font-weight: 700;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   color: #156678;
   font-family: 'Poppins' ,sans-serif;
 }
@@ -182,4 +184,21 @@
 }
 #dropdown.form-group.row::after{
   display: none !important;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.new-task-container {
+  width: 500px;
+  margin-left: 20px;
+}
+.invalidInput {
+  font-size: 15px;
+  font-weight: 400;
+  color: red;
+}
+.new-task-form {
+  display: flex;
+  align-items: center;
 }
