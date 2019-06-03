@@ -24,6 +24,7 @@ class Login extends Component {
 
   render(){
     if(this.props.currentUser.name !== null){
+      console.log(this.props.currentUser);
         return <Redirect to='/mainpage' />
       }
     return(

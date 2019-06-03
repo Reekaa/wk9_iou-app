@@ -11,9 +11,17 @@ import "./App.css";
 
 class App extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      current: 'Keith'
+    }
+  }
+
   componentDidMount() {
     this.props.getData()
     this.props.getTasksData()
+    this.props.getCurrentUser(this.state.current)
     //anything you want to run straight away
   }
 
@@ -32,7 +40,9 @@ class App extends Component {
             />
             <Route
               exact path='/mainpage'
-              component={MainPageContainer}
+              render={(routeProps) => (
+                <MainPageContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/about'
@@ -73,6 +83,19 @@ const mapDispatchToProps = dispatch => {
             tasks
           })
         })
+        })
+      })
+    },
+    getCurrentUser(name) {
+      dispatch (() => {
+        fetch(`http://localhost:3000/api/users/${name}`)
+        .then((response) => response.json())
+        .then((currentUser) => {
+          console.log(currentUser);
+          dispatch({
+            type: 'SET_CURRENT_USER',
+            currentUser
+          })
         })
       })
     }
