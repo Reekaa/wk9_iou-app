@@ -7,7 +7,7 @@
 }
 
 .header-image {
-  height:150px;
+  height: 18vh;
 }
 .header-container {
   width: 100%;
@@ -79,7 +79,7 @@
   font-size: 20px;
   font-weight: 900;
   text-align: center;
-  height: 100px;
+  min-height: 120px;
   width: 100%;
 }
 .group-name:hover {
@@ -185,13 +185,14 @@
 #dropdown.form-group.row::after{
   display: none !important;
 }
+
 .button-container {
   display: flex;
   justify-content: center;
 }
 .new-task-container {
   width: 500px;
-  margin-left: 20px;
+  margin: 25px 0 0 20px;
 }
 .invalidInput {
   font-size: 15px;
@@ -201,4 +202,7 @@
 .new-task-form {
   display: flex;
   align-items: center;
+}
+.new-task-head {
+  margin-bottom: 10px;
 }

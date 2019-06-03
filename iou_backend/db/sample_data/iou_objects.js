@@ -13,6 +13,7 @@ db.users.insertMany(
   [
     {
       "name": "Keith",
+      "skill": "giving guitar lessons",
       "groups": [
         {
           "groupName": "SW2",
@@ -23,6 +24,7 @@ db.users.insertMany(
     },
     {
       "name": "Ben",
+      "skill": "giving swimming lessons",
       "groups": [
         {
           "groupName": "SW2",
@@ -33,6 +35,7 @@ db.users.insertMany(
     },
     {
       "name": "Reka",
+      "skill": "dog walking",
       "groups": [
         {
           "groupName": "SW2",
@@ -43,6 +46,7 @@ db.users.insertMany(
     },
     {
       "name": "Matthew",
+      "skill": "gardening",
       "groups": [
         {
           "groupName": "SW2",
@@ -53,6 +57,7 @@ db.users.insertMany(
     },
     {
       "name": "Euan",
+      "skill": "cleaning windows",
       "groups": [
         {
           "groupName": "SW2",
@@ -63,6 +68,7 @@ db.users.insertMany(
     },
     {
       "name": "Rose",
+      "skill": "babysitting",
       "groups": [
         {
           "groupName": "SW2",
@@ -73,6 +79,7 @@ db.users.insertMany(
     },
     {
       "name": "Hamish",
+      "skill": "painting and decorating",
       "groups": [
         {
           "groupName": "SW2",
@@ -83,6 +90,7 @@ db.users.insertMany(
     },
     {
       "name": "Rod",
+      "skill": "photographing events",
       "groups": [
         {
           "groupName": "SW2",
@@ -93,6 +101,7 @@ db.users.insertMany(
     },
     {
       "name": "Pawel",
+      "skill": "providing spiritual support",
       "groups": [
         {
           "groupName": "SW2",
@@ -103,6 +112,7 @@ db.users.insertMany(
     },
     {
       "name": "James",
+      "skill": "picking up people's shopping",
       "groups": [
         {
           "groupName": "SW2",
@@ -113,6 +123,7 @@ db.users.insertMany(
     },
     {
       "name": "Kris",
+      "skill": "giving piano lessons",
       "groups": [
         {
           "groupName": "SW2",
@@ -123,6 +134,7 @@ db.users.insertMany(
     },
     {
       "name": "Sian",
+      "skill": "proofreading",
       "groups": [
         {
           "groupName": "SW2",
