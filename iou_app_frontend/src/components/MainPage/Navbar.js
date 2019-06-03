@@ -1,19 +1,51 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = () => (
-    <div className="nav">
-      <ul className="nav-links">
-        <li><Link className="link" to="/">Login</Link></li>
-        <li><Link className="link" to="/mainpage">Main Page</Link></li>
-        <li><Link className="link" to="/profile">Profile</Link></li>
-        <li><Link className="link" to="/groups">Groups</Link></li>
-        <li><Link className="link" to="/voting">Voting</Link></li>
-        <li><Link className="link" to="/about">About</Link></li>
-        <li><Link className="link" to="/">Logout</Link></li>
+class Navbar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      active: 'slidein',
+    };
+    this.toggleClass = this.toggleClass.bind(this)
+  }
+
+  toggleClass() {
+    if(this.state.active === 'slidein') {
+      this.setState({ active: '' });
+    } else {
+      this.setState({ active: 'slidein' });
+    }
+  };
+
+  render() {
+    return(
+      <ul className="icon-cont">
+        <li id='menu-button' className="dropdown">
+          <div className="menu-button" onClick={this.toggleClass}><img className='menuicon' src="/images/menu.png"/></div>
+          <div id='slider' className={this.state.active} >
+            <div className='link-cont'><Link className="link" to="/mainpage">Main Page</Link></div>
+            <br/>
+            <div className='link-cont'><Link className="link" to="/profile">Profile</Link></div>
+            <br/>
+            <div className='link-cont'><Link className="link" to="/groups">Groups</Link></div>
+            <br/>
+            <div className='link-cont'><Link className="link" to="/voting">Voting</Link></div>
+            <br/>
+            <div className='link-cont'><Link className="link" to="/about">About</Link></div>
+            <br/>
+            <div className='link-cont'><Link className="link" to="/">Logout</Link></div>
+          </div>
+        </li>
       </ul>
-    </div>
-)
+    )
+  }
+
+}
+
+
+
+
 
 export default Navbar;
