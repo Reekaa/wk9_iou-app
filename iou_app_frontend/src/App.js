@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import LoginFormContainer from "./containers/LoginFormContainer";
+import About from './components/MainPage/About.js'
 import UserProfileContainer from "./containers/UserProfileContainer";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 // import containers
@@ -34,6 +35,8 @@ class App extends Component {
               component={MainPageContainer}
             />
             <Route
+              exact path='/about'
+              component={About}
               exact path='/profile'
               component={UserProfileContainer}
             />
