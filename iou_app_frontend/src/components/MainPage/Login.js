@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css'
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -8,11 +8,11 @@ class Login extends Component {
     super(props)
     this.state = {
       userNameInput: '',
-      redirect: false
+      // redirect: false
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.setRedirect = this.setRedirect.bind(this)
+    // this.setRedirect = this.setRedirect.bind(this)
   }
 
   handleInputChange(evt) {
@@ -22,17 +22,17 @@ class Login extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput)
-    this.setRedirect()
+    // this.setRedirect()
   }
 
-  setRedirect() {
-    this.setState({redirect: true})
-  }
+  // setRedirect() {
+  //   this.setState({redirect: true})
+  // }
 
   render(){
-    if (this.state.redirect) {
-      return <Redirect to='/mainpage' />
-    }
+    // if (this.state.redirect && this.handleSubmit) {
+    //   return <Redirect to='/mainpage' />
+    // }
     return(
       <div className="login">
         <label htmlFor="entry">Login with your username</label>
