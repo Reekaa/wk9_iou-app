@@ -45,7 +45,7 @@ const AddNewTask = (props) => {
 
   return (
     <>
-      <div>Is the task you performed not listed? Add it here:</div>
+      <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
       <div className='button-container'>
         {newTaskButton()}
       </div>
