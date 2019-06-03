@@ -36,10 +36,14 @@ class App extends Component {
               component={MainPageContainer}
             />
             <Route
-              exact path='/group'
+              exact path='/groups'
               component={GroupPageContainer}
+            />
+            <Route
               exact path='/about'
               component={About}
+            />
+            <Route
               exact path='/profile'
               component={UserProfileContainer}
             />
