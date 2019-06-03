@@ -28,7 +28,6 @@ const LoginFormContainer = (props) => {
 
 const mapDispatchToProps = dispatch => ({
   setGroupUsers(groupUsers) {
-    console.log(groupUsers);
     dispatch({
       type: 'SET_GROUP_USERS',
       groupUsers
@@ -45,7 +44,6 @@ const mapDispatchToProps = dispatch => ({
           currentUser
         })
       })
-      .then(() => {console.log('LINE 49')})
   })
 }
 })

@@ -6,6 +6,10 @@ const GroupPage = (props) => {
 
   const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
 
+  // const recentTasks = () => {
+  //   return props.groupUsers.map
+  // }
+
   return (
     <>
       <div className='main-container-grid'>
