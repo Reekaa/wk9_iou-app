@@ -13,7 +13,7 @@ const LoginFormContainer = (props) => {
     const groupUsers = props.users.filter(user => {
       return user.groups[0].groupName === props.currentUser.groups[0].groupName;
     })
-    props.setGroupUsers(groupUsers);
+    props.setGroupUsers(groupUsers)
   }
 
   return(
@@ -28,6 +28,7 @@ const LoginFormContainer = (props) => {
 
 const mapDispatchToProps = dispatch => ({
   setGroupUsers(groupUsers) {
+    console.log(groupUsers);
     dispatch({
       type: 'SET_GROUP_USERS',
       groupUsers
