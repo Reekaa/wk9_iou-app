@@ -1,4 +1,4 @@
-const currentUserReducer = (state = {}, action) => {
+const currentUserReducer = (state = {name: null}, action) => {
   switch (action.type) {
     case 'SET_CURRENT_USER':
       return action.currentUser

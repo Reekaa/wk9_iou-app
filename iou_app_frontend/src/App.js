@@ -4,7 +4,7 @@ import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import LoginFormContainer from "./containers/LoginFormContainer";
-// import containers
+import About from './components/MainPage/About.js'
 import "./App.css";
 
 class App extends Component {
@@ -31,6 +31,10 @@ class App extends Component {
             <Route
               exact path='/mainpage'
               component={MainPageContainer}
+            />
+            <Route
+              exact path='/about'
+              component={About}
             />
           </Fragment>
         </Router>
