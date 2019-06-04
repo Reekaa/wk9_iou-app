@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import LoginFormContainer from "./containers/LoginFormContainer";
+import GroupPageContainer from "./containers/GroupPageContainer";
 import About from './components/MainPage/About.js'
 import UserProfileContainer from "./containers/UserProfileContainer";
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -44,8 +45,14 @@ class App extends Component {
               )}
             />
             <Route
+              exact path='/groups'
+              component={GroupPageContainer}
+            />
+            <Route
               exact path='/about'
               component={About}
+            />
+            <Route
               exact path='/profile'
               component={UserProfileContainer}
             />
