@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import LoginFormContainer from "./containers/LoginFormContainer";
+import GroupPageContainer from "./containers/GroupPageContainer";
 import About from './components/MainPage/About.js'
 import UserProfileContainer from "./containers/UserProfileContainer";
 import VotingContainer from "./containers/VotingContainer";
@@ -34,6 +35,10 @@ class App extends Component {
             <Route
               exact path='/mainpage'
               component={MainPageContainer}
+            />
+            <Route
+              exact path='/groups'
+              component={GroupPageContainer}
             />
             <Route
               exact path='/about'

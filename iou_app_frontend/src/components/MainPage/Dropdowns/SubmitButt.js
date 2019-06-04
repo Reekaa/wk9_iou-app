@@ -1,13 +1,14 @@
 import React from 'react'
 
 const SubmitButt = (props) => {
-
+console.log(props.object.currentUser);
   const handleSubmit = () => {
     props.object.tasks.map((task) => {
       if (task.task === props.object.selected.task) {
         let newTask = task
         newTask.whoFor = props.object.selected.user
         newTask.karma = props.object.selected.cost * task.value
+        newTask.date = new Date();
         if (props.object.selected.method === 'Hours') {
           newTask.cost = {hours: props.object.selected.cost}
         } else {
@@ -19,8 +20,8 @@ const SubmitButt = (props) => {
             whoFor = user
           }
         }
-        props.object.addKarmaToUser(whoFor, (0 - newTask.karma), props.object.currentUser)
-        props.object.addKarmaToUser(props.object.currentUser, newTask.karma)
+        props.object.addKarmaToUser(whoFor, (0 - newTask.karma))
+        props.object.addKarmaToUser(props.object.currentUser, newTask.karma, props.object.currentUser)
         props.object.addTaskToUser(props.object.currentUser, newTask)
         props.object.changeConfirm(true)
       }
