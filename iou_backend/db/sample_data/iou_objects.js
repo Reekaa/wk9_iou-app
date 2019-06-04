@@ -2,10 +2,10 @@ use iou_app;
 
 db.tasks.insertMany(
   [
-    { "task": "Babysitting", "value": 5 },
+    { "task": "Babysitting", "value": 10 },
     { "task": "Painting", "value": 10 },
-    { "task": "Gardening", "value": 8 },
-    { "task": "Cleaning Kitchen", "value": 15 }
+    { "task": "Gardening", "value": 10 },
+    { "task": "Cleaning Kitchen", "value": 10 }
   ]
 );
 
@@ -17,20 +17,43 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 20,
+          "completedTasks": [
+            {
+              "task": "Painting",
+              "value": 10,
+              "whoFor": "Reka",
+              "karma": 20,
+              "date": "2019-06-04T16:04:36.163Z",
+              "cost": {
+                "hours": 2
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false
-    },
+    }
+    ,
     {
       "name": "Ben",
       "skill": "giving swimming lessons",
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 30,
+          "completedTasks": [
+            {
+              "task": "Babysitting",
+              "value": 10,
+              "whoFor": "Matthew",
+              "karma": 30,
+              "date": "2019-06-03T16:04:36.163Z",
+              "cost": {
+                "hours": 3
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false
@@ -41,7 +64,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -20,
           "completedTasks": []
         }
       ],
@@ -50,11 +73,41 @@ db.users.insertMany(
     {
       "name": "Matthew",
       "skill": "gardening",
+      "userprofile": "I'm a keen gardener and if you're lucky I'll keep you supplied with delicious veg all through the summer. My strawberries are second to none!",
       "groups": [
         {
           "groupName": "SW2",
           "karma": 0,
-          "completedTasks": []
+          "completedTasks": [
+            {
+              "task": "Gardening",
+              "value": 10,
+              "whoFor": "Euan",
+              "karma": 10,
+              "date": "2019-05-29T16:02:36.163Z",
+              "cost": {
+                "hours": 1
+              }
+            },
+            {
+              "task": "Gardening",
+              "value": 10,
+              "whoFor": "Hamish",
+              "karma": 20,
+              "date": "2019-06-01T16:04:36.163Z",
+              "cost": {
+                "hours": 2
+              }
+            }
+          ],
+          "requestedTasks": [
+            {
+              "task": "Painting"
+            },
+            {
+              "task": "Cleaning"
+            }
+          ]
         }
       ],
       "isCurrent": false
@@ -65,7 +118,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -10,
           "completedTasks": []
         }
       ],
@@ -89,8 +142,19 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 10,
+          "completedTasks": [
+            {
+              "task": "Cleaning",
+              "value": 10,
+              "whoFor": "Rose",
+              "karma": 30,
+              "date": "2019-05-27T16:04:36.163Z",
+              "cost": {
+                "hours": 3
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false
@@ -101,8 +165,19 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 20,
+          "completedTasks": [
+            {
+              "task": "Gardening",
+              "value": 10,
+              "whoFor": "Sian",
+              "karma": 20,
+              "date": "2019-05-27T16:04:36.163Z",
+              "cost": {
+                "hours": 2
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false
@@ -149,7 +224,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -20,
           "completedTasks": []
         }
       ],
