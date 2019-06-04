@@ -38,7 +38,7 @@ const Main = props => {
                 <tr>
                   <th>Group</th>
                   <th>Karma</th>
-                  <th>View Group</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
