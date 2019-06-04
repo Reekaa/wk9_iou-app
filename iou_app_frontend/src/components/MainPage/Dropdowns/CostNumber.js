@@ -8,13 +8,13 @@ const CostNumber = (props) => {
   }
 
 
-
   return(
     <>
-      <label>{props.state.costMethod}</label>
+      <label>How long did it take you?
       <div id='cost-select' className="col-10">
         <input className="form-control" type="number" placeholder='0' id="example-number-input" onChange={(evt)=>{handleNumber(evt)}}/>
       </div>
+      <span> hours</span></label>
     </>
   )
 }
