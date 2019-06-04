@@ -37,8 +37,6 @@ class Navbar extends Component {
             <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/groups">Groups</Link></div>
             <br/>
-            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/voting">Voting</Link></div>
-            <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/about">About</Link></div>
             <br/>
             <div className='link-cont logout' onClick={this.logout}><Link className="link" to="/">Logout</Link></div>
