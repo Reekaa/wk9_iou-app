@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
-import React from 'react';
 import LoginMiddle from '../components/MainPage/LoginMiddle.js';
-
 
 const mapDispatchToProps = dispatch => ({
   setGroupUsers(groupUsers) {
@@ -15,7 +13,6 @@ const mapDispatchToProps = dispatch => ({
       fetch(`http://localhost:3000/api/users/${name}`)
       .then((response) => response.json())
       .then((currentUser) => {
-        console.log(currentUser);
         dispatch({
           type: 'SET_CURRENT_USER',
           currentUser
@@ -24,7 +21,6 @@ const mapDispatchToProps = dispatch => ({
       })
       .then((currentUser) => {
         if (currentUser.groups) {
-          console.log('current user exists');
           const groupUsers = users.filter(user => {
             return user.groups[0].groupName === currentUser.groups[0].groupName;
           })

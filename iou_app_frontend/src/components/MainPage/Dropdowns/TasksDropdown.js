@@ -11,21 +11,21 @@ const TasksDropdown = (props) => {
   const tasks = props.object.tasks.map((task) => {
     return (
       <li  key={task._id}>
-      <div id='dropdown-option' onClick={() => {handleTasksDropdown(task.task)}}>{task.task}</div>
+        <div id='dropdown-option' onClick={() => {handleTasksDropdown(task.task)}}>{task.task}</div>
       </li>
     )
   })
 
   return(
     <>
-    <label>What task did you do?</label>
-    <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-      {props.state.taskButton}
-      <span id="caret" className="caret"></span>
-    </button>
-    <ul className="dropdown-menu">
-      {tasks}
-    </ul>
+      <label>What task did you do?</label>
+        <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+          {props.state.taskButton}
+          <span id="caret" className="caret"></span>
+        </button>
+      <ul className="dropdown-menu">
+        {tasks}
+      </ul>
     </>
   )
 }

@@ -1,4 +1,4 @@
-const selectedReducer = (state = {user: '', task: '', cost: 0, method: ''}, action) => {
+const newTaskReducer = (state = {user: '', task: '', cost: 0, method: ''}, action) => {
   switch (action.type) {
     case "ADD_SELECTED_TASK":
       const newTaskState = {...state, task: action.selectedTask}
@@ -17,4 +17,4 @@ const selectedReducer = (state = {user: '', task: '', cost: 0, method: ''}, acti
   }
 };
 
-export default selectedReducer;
+export default newTaskReducer;

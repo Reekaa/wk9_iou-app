@@ -31,16 +31,16 @@ const CostMethod = (props) => {
   return(
     <>
       <label>Did the task take time or money?</label>
-      <div>
-      <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        {props.state.costButton}
-        <span id="caret" className="caret"></span>
-      </button>
-      <ul className="dropdown-menu">
-        {costHours()}
-        {costPounds()}
-      </ul>
-      </div>
+        <div>
+          <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            {props.state.costButton}
+            <span id="caret" className="caret"></span>
+          </button>
+          <ul className="dropdown-menu">
+            {costHours()}
+            {costPounds()}
+          </ul>
+        </div>
     </>
   )
 }

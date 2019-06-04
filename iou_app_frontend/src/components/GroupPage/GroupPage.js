@@ -1,6 +1,8 @@
 import React from 'react';
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 import '../MainPage/mainpage.css'
+import { Link } from 'react-router-dom';
+
 
 const GroupPage = (props) => {
 
@@ -15,6 +17,7 @@ const GroupPage = (props) => {
     }
   })
 
+<<<<<<< HEAD
   const recentTasksList = recentTasks.map((task, i) => {
     return <li key={i}>{task.task}</li>
   })
@@ -24,6 +27,12 @@ const GroupPage = (props) => {
   //   return a>b ? -1 : a<b ? 1 : 0; // sort dates in order starting with most recent??
   // });
 
+=======
+  recentTasks.sort((a, b) => {
+    return a>b ? -1 : a<b ? 1 : 0; // sort dates in order starting with most recent??
+  });
+
+>>>>>>> 4510e87de6cc726e7443c2026cac29d3b452bc25
   return (
     <>
       <div className='main-container-grid'>
@@ -36,7 +45,7 @@ const GroupPage = (props) => {
             <ul>
               {recentTasksList}
             </ul>
-            <button>Add a new completed task</button>
+            <button><Link to="/newtask">Add a new completed task</Link></button>
             <h3>Open tasks</h3>
             <ul>
               <li>List item{/*logic to return recent tasks*/}</li>

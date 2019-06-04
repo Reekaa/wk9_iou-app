@@ -1,6 +1,6 @@
 import React from "react";
 import './userprofile.css'
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Main = props => {
 
@@ -14,14 +14,10 @@ const Main = props => {
         <tr key={i}>
         <td>{group.groupName}</td>
         <td>{group.karma}</td>
-        <td><button onClick = {() => {handleView(group.groupName)}} className='viewGroupButton' type="button">View Group</button></td>
+        <td><button className='viewGroupButton' type="button"><Link to="/groups">View Group</Link></button></td>
         </tr>
       )
     })
-
-    const handleView = () => {
-      console.log('hello');
-    }
 
     return(
       <div className='page-grid'>
