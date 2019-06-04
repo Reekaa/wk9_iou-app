@@ -20,7 +20,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Ben",
@@ -31,7 +32,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Reka",
@@ -42,7 +44,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Matthew",
@@ -53,7 +56,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Euan",
@@ -64,7 +68,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Rose",
@@ -75,7 +80,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Hamish",
@@ -86,7 +92,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Rod",
@@ -97,7 +104,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Pawel",
@@ -108,7 +116,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "James",
@@ -119,7 +128,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Kris",
@@ -130,7 +140,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     },
     {
       "name": "Sian",
@@ -141,7 +152,8 @@ db.users.insertMany(
           "karma": 0,
           "completedTasks": []
         }
-      ]
+      ],
+      "isCurrent": false
     }
   ]
 );

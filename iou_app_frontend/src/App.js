@@ -6,11 +6,19 @@ import LoginFormContainer from "./containers/LoginFormContainer";
 import GroupPageContainer from "./containers/GroupPageContainer";
 import About from './components/MainPage/About.js'
 import UserProfileContainer from "./containers/UserProfileContainer";
+import VotingContainer from "./containers/VotingContainer";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 // import containers
 import "./App.css";
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      current: 'Keith'
+    }
+  }
 
   componentDidMount() {
     this.props.getData()
@@ -33,7 +41,9 @@ class App extends Component {
             />
             <Route
               exact path='/mainpage'
-              component={MainPageContainer}
+              render={(routeProps) => (
+                <MainPageContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/groups'
@@ -46,6 +56,10 @@ class App extends Component {
             <Route
               exact path='/profile'
               component={UserProfileContainer}
+            />
+            <Route
+              exact path='/voting'
+              component={VotingContainer}
             />
           </Fragment>
         </Router>

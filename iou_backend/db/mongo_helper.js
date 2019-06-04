@@ -15,18 +15,6 @@ class MongoHelper {
     });
   }
 
-  static get(coll) {
-    return MongoClient.connect(
-      HOST,
-      { useNewUrlParser: true }
-    ).then(client => {
-      console.log('hi', client);
-      const collection = client.db(DB_NAME).collection(coll);
-      const users = collection.find().toArray()
-      console.log('hello', users);
-      return users
-    });
-  }
 
   static delete(coll, id) {
     // Connect using the connection string
@@ -66,15 +54,52 @@ class MongoHelper {
       )
     })
   }
-
-  static getByName(coll, name) {
+  static get(coll) {
     return MongoClient.connect(
       HOST,
       { useNewUrlParser: true }
     ).then(client => {
       const collection = client.db(DB_NAME).collection(coll);
-      return collection.findOne({name: name})
+      const users = collection.find().toArray()
+      return users
     });
+  }
+  static setCurrent(coll, id, payload) {
+    return MongoClient.connect(
+      HOST,
+      { useNewUrlParser: true }
+    ).then(client => {
+      const collection = client.db(DB_NAME).collection(coll);
+      collection.findOne({"_id": ObjectID(id)})
+        .then(doc => {
+          collection.updateOne(
+            { "_id": ObjectID(id)},
+            {$set: {isCurrent: !doc.isCurrent}}
+          )
+        })
+    })
+  }
+
+  static getByName(coll, name) {
+    let collection;
+    return MongoClient.connect(
+      HOST,
+      { useNewUrlParser: true }
+    ).then(client => {
+      collection = client.db(DB_NAME).collection(coll);
+      return collection.findOne({name: name})
+    })
+    .then((user) => {
+      console.log('setting current user', user);
+      collection.updateOne(
+        { "_id": ObjectID(user._id)},
+        {$set: {isCurrent: !user.isCurrent}}
+      )
+      return user
+    })
+    .then((user) => {
+      return user
+    })
   }
 
 }

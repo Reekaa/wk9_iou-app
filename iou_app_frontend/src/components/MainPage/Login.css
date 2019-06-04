@@ -1,3 +1,7 @@
+.login-page{
+  padding-top: 200px;
+}
+
 .login{
   width: 550px;
   display: flex;
@@ -35,4 +39,12 @@ lable{
   background-color: #c0d7dd;
   border: 3px solid #156678;
   color: #156678;
+}
+
+.slogen{
+  padding-top: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Indie Flower', sans-serif;
+  font-weight: bold;
 }

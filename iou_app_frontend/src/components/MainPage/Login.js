@@ -18,26 +18,32 @@ class Login extends Component {
   }
 //
   handleSubmit(evt) {
+    console.log(this.props);
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput)
   }
 
   render(){
     if(this.props.currentUser.name !== null){
-        return <Redirect to='/mainpage' />
+        return <Redirect to='/profile' />
       }
     return(
-      <div className="login">
-        <label htmlFor="entry">Login with your username</label>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            id="entry"
-            type="text"
-            value={this.state.userNameInput}
-            onChange={(evt) => {this.handleInputChange(evt)}}
-          />
-          <input id="submit" type="submit" value="Login" />
-        </form>
+      <div className="login-page">
+        <div className="login">
+          <label htmlFor="entry">Login with your username</label>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              id="entry"
+              type="text"
+              value={this.state.userNameInput}
+              onChange={(evt) => {this.handleInputChange(evt)}}
+            />
+            <input id="submit" type="submit" value="Login" />
+          </form>
+        </div>
+        <div className="slogen">
+          Build a community of people that help each other!
+        </div>
       </div>
     )
   }

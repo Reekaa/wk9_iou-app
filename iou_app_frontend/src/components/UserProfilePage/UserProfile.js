@@ -2,30 +2,28 @@ import React from "react";
 import './userprofile.css'
 
 const Main = props => {
-  console.log(props);
 
   const userlikes = (skill) => {
     return skill.charAt(0).toUpperCase() + skill.slice(1);
   }
 
-  const populateGroups = props.currentUser.groups.map((group) => {
-      console.log(group);
+  if (props.currentUser !== null) {
+    const populateGroups = props.currentUser.groups.map((group) => {
       return(
         <tr>
-          <td>{group.groupName}</td>
-          <td>{group.karma}</td>
-          <td><button onClick = {() => {handleView(group.groupName)}} className='viewGroupButton' type="button">View Group</button></td>
+        <td>{group.groupName}</td>
+        <td>{group.karma}</td>
+        <td><button onClick = {() => {handleView(group.groupName)}} className='viewGroupButton' type="button">View Group</button></td>
         </tr>
       )
     })
 
-  const handleView = () => {
-    console.log('hello');
-  }
+    const handleView = () => {
+      console.log('hello');
+    }
 
-
-  return(
-    <div className='page-grid'>
+    return(
+      <div className='page-grid'>
       <div className='username'>{props.currentUser.name}</div>
       <div>
         <div className='likes'>Likes:
@@ -40,7 +38,7 @@ const Main = props => {
                 <tr>
                   <th>Group</th>
                   <th>Karma</th>
-                  <th>View Group</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -50,8 +48,12 @@ const Main = props => {
           </div>
         </div>
       </div>
-    </div>
-)
+      </div>
+    )
+
+  } else {
+    return null
+  }
 };
 
 export default Main;
