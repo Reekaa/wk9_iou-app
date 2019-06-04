@@ -1,6 +1,8 @@
 import React from 'react';
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 import '../MainPage/mainpage.css'
+import { Link } from 'react-router-dom';
+
 
 const GroupPage = (props) => {
 
@@ -36,7 +38,7 @@ const GroupPage = (props) => {
               <li>List item{/*logic to return recent tasks*/}</li>
               <li>List item</li>
             </ul>
-            <button>Add a new completed task</button>
+            <button><Link to="/newtask">Add a new completed task</Link></button>
             <h3>Open tasks</h3>
             <ul>
               <li>List item{/*logic to return recent tasks*/}</li>

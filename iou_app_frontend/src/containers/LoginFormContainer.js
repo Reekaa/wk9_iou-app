@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import React from 'react';
 import LoginMiddle from '../components/MainPage/LoginMiddle.js';
 
 

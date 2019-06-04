@@ -13,13 +13,6 @@ import "./App.css";
 
 class App extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      current: 'Keith'
-    }
-  }
-
   componentDidMount() {
     console.log(this.props);
     this.props.getData()
@@ -42,9 +35,7 @@ class App extends Component {
             />
             <Route
               exact path='/newtask'
-              render={(routeProps) => (
-                <MainPageContainer {...routeProps} {...this.state} />
-              )}
+              component={MainPageContainer}
             />
             <Route
               exact path='/groups'
