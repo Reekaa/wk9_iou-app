@@ -5,12 +5,23 @@ import '../MainPage/mainpage.css'
 const GroupPage = (props) => {
 
   const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
+  const recentTasks = [];
 
-  const recentTasks = () => {
-    console.log(props.groupUsers);
-  }
+  props.groupUsers.forEach((user) => {
+    if (user.groups[0].completedTasks) {
+      user.groups[0].completedTasks.forEach(task => {
+        recentTasks.push(task);
+      })
+    }
+  })
 
-  recentTasks();
+  console.log(recentTasks);
+
+  recentTasks.sort((a, b) => {
+    return a>b ? -1 : a<b ? 1 : 0; // sort dates in order starting with most recent??
+  });
+
+  console.log(recentTasks);
 
   return (
     <>
