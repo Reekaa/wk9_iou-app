@@ -41,7 +41,7 @@ class App extends Component {
               component={LoginFormContainer}
             />
             <Route
-              exact path='/mainpage'
+              exact path='/newtask'
               render={(routeProps) => (
                 <MainPageContainer {...routeProps} {...this.state} />
               )}
