@@ -9,6 +9,7 @@ class Navbar extends Component {
       active: '',
     };
     this.toggleClass = this.toggleClass.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
   toggleClass() {
@@ -18,6 +19,11 @@ class Navbar extends Component {
       this.setState({ active: 'slidein' });
     }
   };
+
+  logout() {
+    console.log(this.props);
+    this.toggleClass()
+  }
 
   render() {
     return(
@@ -35,7 +41,7 @@ class Navbar extends Component {
             <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/about">About</Link></div>
             <br/>
-            <div className='link-cont logout' onClick={this.toggleClass}><Link className="link" to="/">Logout</Link></div>
+            <div className='link-cont logout' onClick={this.logout}><Link className="link" to="/">Logout</Link></div>
           </div>
         </li>
       </ul>

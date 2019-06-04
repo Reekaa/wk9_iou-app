@@ -12,8 +12,6 @@ class NewTask extends Component {
     this.state = {
       taskButton: 'Select Task',
       userButton: 'Select User',
-      costButton: 'Select Cost',
-      costMethod: '',
       newTaskForm: 'none',
       newTaskButton: 'showButton',
       errorMessage: ''
@@ -21,8 +19,6 @@ class NewTask extends Component {
     this.confirmation = this.confirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
-    this.updateCostButton = this.updateCostButton.bind(this)
-    this.updateCostMethod = this.updateCostMethod.bind(this)
     this.updateErrorMessage = this.updateErrorMessage.bind(this)
     this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
     this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
@@ -44,12 +40,6 @@ class NewTask extends Component {
   }
   updateUserButton(userButtonText) {
     this.setState({userButton: userButtonText})
-  }
-  updateCostButton(costButtonText) {
-    this.setState({costButton: costButtonText})
-  }
-  updateCostMethod(costMethodText) {
-    this.setState({costMethod: costMethodText})
   }
   updateErrorMessage(errorText) {
     console.log(errorText);
@@ -74,10 +64,6 @@ class NewTask extends Component {
           <UsersDropdown object={this.props.object} state={this.state} updateUserButton={this.updateUserButton}/>
         </div>
         <div id='dropdown' className="dropdown">
-          <CostMethod object={this.props.object} state={this.state} updateCostButton={this.updateCostButton}
-          updateCostMethod={this.updateCostMethod}/>
-        </div>
-        <div id='dropdown' className="form-group row">
           <CostNumber object={this.props.object} state={this.state}/>
         </div>
         <div id='submit-container'>
