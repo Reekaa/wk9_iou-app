@@ -34,15 +34,12 @@ const mapDispatchToProps = dispatch => ({
         body: JSON.stringify(newTask),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then((response) => response.json())
-      .then(this.getNewData());
+      .then(() => {this.getNewData()});
     })
   },
-  addKarmaToUser(user, newKarma) {
-    console.log(user._id);
-    console.log(newKarma);
+  addKarmaToUser(user, newKarma, currentUser) {
     let karma = {karma: newKarma}
-    console.log(karma);
+
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${user._id}/karma`, {
         method: 'PUT',
@@ -50,7 +47,7 @@ const mapDispatchToProps = dispatch => ({
         headers: { 'Content-Type': 'application/json' }
       })
       .then((response) => response.json())
-      .then(this.getNewData());
+      .then(this.getNewData(currentUser));
     })
   },
   createNewTask(taskName) {
@@ -71,15 +68,25 @@ const mapDispatchToProps = dispatch => ({
       confirm
     })
   },
-  getNewData() {
+  getNewData(currentUser) {
     dispatch(() =>{
       fetch('http://localhost:3000/api/users')
       .then(res => {
         return res.json().then(users => {
+          console.log(users);
         dispatch({
           type:'ADD_USERS',
           users
+        });
+        if (currentUser) {
+        const groupUsers = users.filter(user => {
+          return user.groups[0].groupName === currentUser.groups[0].groupName;
         })
+        dispatch({
+          type:'SET_GROUP_USERS',
+          groupUsers
+        })}
+
       })
       })
     })

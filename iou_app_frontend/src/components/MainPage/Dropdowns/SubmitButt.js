@@ -19,7 +19,7 @@ const SubmitButt = (props) => {
             whoFor = user
           }
         }
-        props.object.addKarmaToUser(whoFor, (0 - newTask.karma))
+        props.object.addKarmaToUser(whoFor, (0 - newTask.karma), props.object.currentUser)
         props.object.addKarmaToUser(props.object.currentUser, newTask.karma)
         props.object.addTaskToUser(props.object.currentUser, newTask)
         props.object.changeConfirm(true)
