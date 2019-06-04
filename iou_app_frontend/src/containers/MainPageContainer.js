@@ -37,7 +37,6 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   addKarmaToUser(user, newKarma, currentUser) {
-    console.log(currentUser);
     let karma = {karma: newKarma}
 
     dispatch (() => {
@@ -69,7 +68,6 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   getNewData(currentUser) {
-    console.log(currentUser);
     dispatch(() =>{
       fetch('http://localhost:3000/api/users')
       .then(res => {

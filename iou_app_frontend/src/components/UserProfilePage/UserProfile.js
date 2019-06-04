@@ -1,6 +1,6 @@
 import React from "react";
 import './userprofile.css'
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 const Main = props => {
 

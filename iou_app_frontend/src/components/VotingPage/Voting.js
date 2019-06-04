@@ -3,8 +3,6 @@ import './Voting.css';
 
 const Voting = props => {
 
-  
-
   return (
     <div className="voting-page">
       <form>

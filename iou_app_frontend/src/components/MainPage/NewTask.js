@@ -53,33 +53,36 @@ class NewTask extends Component {
   render() {
     return(
       <>
-      <div className='new-task'>New Task:</div>
-      <div className='dropdown-container'>
-        <div id='dropdown' className="dropdown">
-          <TasksDropdown object={this.props.object} state={this.state} updateTaskButton={this.updateTaskButton}/>
+        <div className='new-task'>New Task:</div>
+          <div className='dropdown-container'>
+            <div id='dropdown' className="dropdown">
+              <TasksDropdown object={this.props.object} state={this.state} updateTaskButton={this.updateTaskButton}/>
+            </div>
+            <div id='dropdown' className="dropdown">
+              <UsersDropdown object={this.props.object} state={this.state} updateUserButton={this.updateUserButton}/>
+            </div>
+            <div id='dropdown' className="dropdown">
+              <CostNumber object={this.props.object} state={this.state}/>
+            </div>
+            <div id='submit-container'>
+              <SubmitButt
+                object={this.props.object}
+                state={this.state}
+                updateTaskButton={this.updateTaskButton}
+                updateUserButton={this.updateUserButton}
+                updateCostButton={this.updateCostButton}
+              />
+            </div>
+          {this.confirmation()}
         </div>
-        <div id='dropdown' className="dropdown">
-          <UsersDropdown object={this.props.object} state={this.state} updateUserButton={this.updateUserButton}/>
+        <div className='new-task-container'>
+          <AddNewTask
+            object={this.props.object}
+            state={this.state}
+            updateErrorMessage={this.updateErrorMessage}
+            updateNewTaskForm={this.updateNewTaskForm}
+            updateNewTaskButton={this.updateNewTaskButton}/>
         </div>
-        <div id='dropdown' className="dropdown">
-          <CostNumber object={this.props.object} state={this.state}/>
-        </div>
-        <div id='submit-container'>
-        <SubmitButt
-        object={this.props.object}
-        state={this.state}
-        updateTaskButton={this.updateTaskButton}
-        updateUserButton={this.updateUserButton}
-        updateCostButton={this.updateCostButton}
-        />
-        </div>
-        {this.confirmation()}
-      </div>
-      <div className='new-task-container'>
-        <AddNewTask object={this.props.object} state={this.state} updateErrorMessage={this.updateErrorMessage}
-        updateNewTaskForm={this.updateNewTaskForm}
-        updateNewTaskButton={this.updateNewTaskButton}/>
-      </div>
       </>
     )
   }

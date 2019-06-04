@@ -1,7 +1,6 @@
 import React from 'react'
 
 const UsersDropdown = (props) => {
-  console.log(props);
 
   const handleUsersDropdown = (evt) => {
     props.object.selectUser(evt)
@@ -13,7 +12,7 @@ const UsersDropdown = (props) => {
     if (user.name !== props.object.currentUser.name) {
       return (
         <li key={user._id}>
-        <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
+          <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
         </li>);
       } else {
       return null
@@ -23,10 +22,10 @@ const UsersDropdown = (props) => {
   return(
     <>
       <label>Who did you do it for?</label>
-      <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        {props.state.userButton}
-        <span id="caret" className="caret"></span>
-      </button>
+        <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+          {props.state.userButton}
+          <span id="caret" className="caret"></span>
+        </button>
       <ul className="dropdown-menu">
         {users}
       </ul>

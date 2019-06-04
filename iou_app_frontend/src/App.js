@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.props.getData()
     this.props.getTasksData()
     //anything you want to run straight away
