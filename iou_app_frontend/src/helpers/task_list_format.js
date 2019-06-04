@@ -1,0 +1,45 @@
+import React from 'react';
+
+const taskListFormat = (tasks) => {
+
+  console.log(tasks);
+  // sortByDate function adapted from https://gist.github.com/onpubcom/1772996
+  const sortByDate = (tasks) => {
+    return tasks.sort((a, b) => {
+      if (a > b) return -1;
+      if (a < b) return 1;
+      return 0;
+    });
+  };
+
+  const sortedTasks = sortByDate(tasks);
+  console.log(sortedTasks);
+  const recentTasks = [];
+  for (let i = 0; i<5; i++) {
+    recentTasks.push(sortedTasks[i])
+  };
+
+  const formatDate = (taskDate) => {
+    const date = new Date(taskDate);
+    const days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+    const day = days[date.getDay()];
+    const months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+      'October', 'November', 'December'
+    ];
+    const month = months[date.getMonth()];
+    const monthDate = `${taskDate[8]}${taskDate[9]}`;
+    const formattedDate = `${day} ${monthDate} ${month}`;
+    return formattedDate;
+  };
+
+
+
+  return recentTasks.map((task, i) => {
+    return <li key={i}>
+      {`${task.username} did some ${task.task.toLowerCase()} for ${task.whoFor} on ${formatDate(task.date)}`}
+    </li>
+  });
+
+}
+
+export default taskListFormat;
