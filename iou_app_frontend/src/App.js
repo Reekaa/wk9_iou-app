@@ -21,7 +21,6 @@ class App extends Component {
   componentDidMount() {
     this.props.getData()
     this.props.getTasksData()
-    this.props.getCurrentUser(this.state.current)
     //anything you want to run straight away
   }
 
@@ -83,19 +82,6 @@ const mapDispatchToProps = dispatch => {
             tasks
           })
         })
-        })
-      })
-    },
-    getCurrentUser(name) {
-      dispatch (() => {
-        fetch(`http://localhost:3000/api/users/${name}`)
-        .then((response) => response.json())
-        .then((currentUser) => {
-          console.log(currentUser);
-          dispatch({
-            type: 'SET_CURRENT_USER',
-            currentUser
-          })
         })
       })
     }
