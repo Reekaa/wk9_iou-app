@@ -7,6 +7,9 @@ const SubmitButt = (props) => {
         let newTask = task
         newTask.whoFor = props.object.selected.user
         newTask.karma = props.object.selected.cost * task.value
+        console.log('VALUE:', task.value);
+        console.log('HOURS:', props.object.selected.cost);
+        console.log('KARMA:', newTask.karma);
         newTask.date = new Date();
         newTask.cost = {hours: props.object.selected.cost}
         let whoFor = {};

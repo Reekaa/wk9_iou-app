@@ -5,23 +5,24 @@ import '../MainPage/mainpage.css'
 const GroupPage = (props) => {
 
   const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
-  const recentTasks = [];
 
+  const recentTasks = [];
   props.groupUsers.forEach((user) => {
-    if (user.groups[0].completedTasks) {
+    if (user.groups[0].completedTasks[0]) {
       user.groups[0].completedTasks.forEach(task => {
         recentTasks.push(task);
       })
     }
   })
 
-  console.log(recentTasks);
+  const recentTasksList = recentTasks.map((task, i) => {
+    return <li key={i}>{task.task}</li>
+  })
 
-  recentTasks.sort((a, b) => {
-    return a>b ? -1 : a<b ? 1 : 0; // sort dates in order starting with most recent??
-  });
-
-  console.log(recentTasks);
+  // TODO: sort by date
+  // recentTasks.sort((a, b) => {
+  //   return a>b ? -1 : a<b ? 1 : 0; // sort dates in order starting with most recent??
+  // });
 
   return (
     <>
@@ -33,8 +34,7 @@ const GroupPage = (props) => {
           <div>
             <h3>Recent tasks</h3>
             <ul>
-              <li>List item{/*logic to return recent tasks*/}</li>
-              <li>List item</li>
+              {recentTasksList}
             </ul>
             <button>Add a new completed task</button>
             <h3>Open tasks</h3>
