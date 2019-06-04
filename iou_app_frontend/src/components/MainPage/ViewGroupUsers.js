@@ -40,8 +40,8 @@ class ViewGroupUsers extends Component {
         <div
           key={i}
           className='user-list-item'
-          onMouseEnter={(name) => {this.mouseEnter(user.name)}}
-          onMouseLeave={(name) => {this.mouseLeave()}}
+          onMouseEnter={() => {this.mouseEnter(user.name)}}
+          onMouseLeave={() => {this.mouseLeave()}}
           style={{ bottom: `${counter}px` }}
         >
           <p className='user-list-item-name'>

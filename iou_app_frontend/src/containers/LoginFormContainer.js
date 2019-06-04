@@ -1,46 +1,6 @@
 import { connect } from "react-redux";
 import React from 'react';
-import Login from '../components/MainPage/Login.js';
-import { Redirect } from 'react-router-dom';
-
-
-// EXTENSION: INSERT LOGIN FORM HERE
-// TAKE CURRENT USER FOR ABOVE FUNCTION FROM USER INPUT
-// filter the users to return an array of the ones in the relevant group
-
-
-const LoginFormContainer = (props) => {
-
-
-  if (props.currentUser.groups ) {
-    const groupUsers = props.users.filter(user => {
-      return user.groups[0].groupName === props.currentUser.groups[0].groupName;
-    })
-    props.setGroupUsers(groupUsers);
-  }
-
-  let redirect;
-
-  for (let user of props.users) {
-    if (user.isCurrent) {
-      props.setCurrentUser(user)
-      redirect = (<Redirect to='/profile' />)
-    }
-  }
-
-  if (redirect) {
-    return redirect
-  }
-  return(
-    <div>
-    <Login
-    getCurrentUser = {props.getCurrentUser}
-    currentUser = {props.currentUser}
-    setCurrentUser = {props.setCurrentUser}
-    />
-    </div>
-  )
-}
+import LoginMiddle from '../components/MainPage/LoginMiddle.js';
 
 const mapDispatchToProps = dispatch => ({
   setGroupUsers(groupUsers) {
@@ -49,7 +9,7 @@ const mapDispatchToProps = dispatch => ({
       groupUsers
     })
   },
-  getCurrentUser(name) {
+  getCurrentUser(name, users) {
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${name}`)
       .then((response) => response.json())
@@ -59,7 +19,22 @@ const mapDispatchToProps = dispatch => ({
           type: 'SET_CURRENT_USER',
           currentUser
         })
+        return currentUser
       })
+      .then((currentUser) => {
+        if (currentUser.groups) {
+          console.log('current user exists');
+          const groupUsers = users.filter(user => {
+            return user.groups[0].groupName === currentUser.groups[0].groupName;
+          })
+          dispatch({
+            type: 'SET_GROUP_USERS',
+            groupUsers
+          })
+        }
+      })
+
+
     })
   },
   setCurrentUser(currentUser) {
@@ -77,4 +52,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginMiddle);

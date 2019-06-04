@@ -20,8 +20,10 @@ class Login extends Component {
 //
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.getCurrentUser(this.state.userNameInput)
+    console.log(this.props.users);
+    this.props.getCurrentUser(this.state.userNameInput, this.props.users)
     this.setState({redirect: true})
+    console.log(this.props);
   }
 
   render(){
