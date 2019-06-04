@@ -73,6 +73,7 @@ db.users.insertMany(
     {
       "name": "Matthew",
       "skill": "gardening",
+      "userprofile": "I'm a keen gardener and if you're lucky I'll keep you supplied with delicious veg all through the summer. My strawberries are second to none!",
       "groups": [
         {
           "groupName": "SW2",
@@ -97,6 +98,14 @@ db.users.insertMany(
               "cost": {
                 "hours": 2
               }
+            }
+          ],
+          "requestedTasks": [
+            {
+              "task": "Painting"
+            },
+            {
+              "task": "Cleaning"
             }
           ]
         }

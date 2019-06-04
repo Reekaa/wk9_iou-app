@@ -33,9 +33,9 @@ const taskListFormat = (tasks) => {
 
 
   return recentTasks.map((task, i) => {
-    return <li key={i}>
+    return <tr key={i}>
       {`${task.username} did some ${task.task.toLowerCase()} for ${task.whoFor} on ${formatDate(task.date)}`}
-    </li>
+    </tr>
   });
 
 }
