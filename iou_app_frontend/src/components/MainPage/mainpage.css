@@ -36,6 +36,7 @@
   flex-wrap: wrap;
   color: #156678;
   font-family: 'Poppins' ,sans-serif;
+  padding: 200px;
 }
 .user-list-sidebar {
   grid-area: sidebar;

@@ -2,14 +2,12 @@ import React from "react";
 import './userprofile.css'
 
 const Main = props => {
-  console.log(props);
 
   const userlikes = (skill) => {
     return skill.charAt(0).toUpperCase() + skill.slice(1);
   }
 
   const populateGroups = props.currentUser.groups.map((group) => {
-      console.log(group);
       return(
         <tr>
           <td>{group.groupName}</td>
@@ -40,7 +38,7 @@ const Main = props => {
                 <tr>
                   <th>Group</th>
                   <th>Karma</th>
-                  <th>View Group</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
