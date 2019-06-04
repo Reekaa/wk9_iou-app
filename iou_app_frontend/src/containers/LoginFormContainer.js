@@ -28,6 +28,7 @@ const LoginFormContainer = (props) => {
     }
   }
 
+
   if (redirect) {
     return redirect
   }
