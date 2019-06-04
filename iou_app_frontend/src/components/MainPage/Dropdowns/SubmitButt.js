@@ -9,11 +9,7 @@ console.log(props.object.currentUser);
         newTask.whoFor = props.object.selected.user
         newTask.karma = props.object.selected.cost * task.value
         newTask.date = new Date();
-        if (props.object.selected.method === 'Hours') {
-          newTask.cost = {hours: props.object.selected.cost}
-        } else {
-          newTask.cost = {pounds: props.object.selected.cost}
-        }
+        newTask.cost = {hours: props.object.selected.cost}
         let whoFor = {};
         for (let user of props.object.users) {
           if (user.name === props.object.selected.user) {
@@ -28,7 +24,6 @@ console.log(props.object.currentUser);
     })
     props.updateTaskButton('Select Task')
     props.updateUserButton('Select User')
-    props.updateCostButton('Select Cost')
   }
 
   return(
