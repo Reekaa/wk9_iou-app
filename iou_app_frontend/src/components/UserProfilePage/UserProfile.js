@@ -8,6 +8,7 @@ const Main = props => {
   }
 
   if (props.currentUser !== null) {
+    console.log(props.currentUser);
     const populateGroups = props.currentUser.groups.map((group) => {
       return(
         <tr>

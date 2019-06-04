@@ -77,6 +77,7 @@ const mapDispatchToProps = dispatch => {
         fetch('http://localhost:3000/api/users')
         .then(res => {
           return res.json().then(users => {
+            console.log(users);
           dispatch({
             type:'ADD_USERS',
             users
@@ -98,6 +99,7 @@ const mapDispatchToProps = dispatch => {
         })
       })
     }
+
 
   }
 }

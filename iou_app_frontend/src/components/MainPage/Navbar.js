@@ -21,7 +21,8 @@ class Navbar extends Component {
   };
 
   logout() {
-    console.log(this.props);
+    console.log(this.props)
+    this.props.toggleUser(this.props.currentUser)
     this.toggleClass()
   }
 
@@ -41,7 +42,7 @@ class Navbar extends Component {
             <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/about">About</Link></div>
             <br/>
-            <div className='link-cont logout' onClick={this.logout}><Link className="link" to="/">Logout</Link></div>
+            <div className='link-cont logout' onClick={() => {this.logout()}}><Link className="link" to="/">Logout</Link></div>
           </div>
         </li>
       </ul>
