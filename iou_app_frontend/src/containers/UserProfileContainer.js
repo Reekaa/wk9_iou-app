@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import UserProfile from "../components/UserProfilePage/UserProfile";
 
-console.log('UserProfile');
 
 const checkCurrentUser = (state) => {
   console.log();
