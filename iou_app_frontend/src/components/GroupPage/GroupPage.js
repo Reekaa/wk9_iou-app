@@ -17,13 +17,9 @@ const GroupPage = (props) => {
     }
   })
 
-  console.log(recentTasks);
-
   recentTasks.sort((a, b) => {
     return a>b ? -1 : a<b ? 1 : 0; // sort dates in order starting with most recent??
   });
-
-  console.log(recentTasks);
 
   return (
     <>

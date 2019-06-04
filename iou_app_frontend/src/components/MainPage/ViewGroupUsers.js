@@ -28,8 +28,8 @@ class ViewGroupUsers extends Component {
 
   renderInfo(user, index) {
     return (this.state.selectedUser === user.name) ?
-    <p className='user-info'>{`${user.name} likes ${user.skill}`}</p>
-    : null;
+      <p className='user-info'>{`${user.name} likes ${user.skill}`}</p>
+      : null;
   }
 
   groupUsersList() {

@@ -13,7 +13,6 @@ const LoginMiddle = (props) => {
     if (user.isCurrent) {
       props.setCurrentUser(user)
       if (user.groups) {
-        console.log('current user exists');
         const groupUsers = props.users.filter(newuser => {
           return newuser.groups[0].groupName === user.groups[0].groupName;
         })
@@ -27,24 +26,19 @@ const LoginMiddle = (props) => {
       )
     }
   }
-  console.log(props);
-
-
-
-
-
 
   if (redirect) {
     return redirect
   }
+
   return(
     <div>
-    <Login
-    getCurrentUser = {props.getCurrentUser}
-    currentUser = {props.currentUser}
-    setCurrentUser = {props.setCurrentUser}
-    users = {props.users}
-    />
+      <Login
+        getCurrentUser = {props.getCurrentUser}
+        currentUser = {props.currentUser}
+        setCurrentUser = {props.setCurrentUser}
+        users = {props.users}
+      />
     </div>
   )
 }

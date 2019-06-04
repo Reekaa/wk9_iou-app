@@ -9,7 +9,6 @@ const AddNewTask = (props) => {
   const handleNewTaskSubmit = (evt) => {
     evt.preventDefault()
     let newTask = evt.target.inlineFormInputName.value;
-    console.log(props.state.errorMessage);
     if (newTask.length >= 20) {
       props.updateErrorMessage('Task cannnot be longer than 20 characters')
     } else {

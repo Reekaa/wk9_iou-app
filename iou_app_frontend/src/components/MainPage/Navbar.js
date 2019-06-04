@@ -22,7 +22,6 @@ class Navbar extends Component {
   };
 
   logout() {
-    console.log(this.props)
     this.props.toggleUser(this.props.user)
     this.props.setCurrentUser({name: null})
     this.toggleClass()
