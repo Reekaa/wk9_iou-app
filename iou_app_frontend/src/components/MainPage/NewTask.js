@@ -53,7 +53,8 @@ class NewTask extends Component {
   render() {
     return(
       <>
-        <div className='new-task'>New Task:</div>
+        <div className='columndisplay'>
+          <div className='new-task'>New Task:</div>
           <div className='dropdown-container'>
             <div id='dropdown' className="dropdown">
               <TasksDropdown object={this.props.object} state={this.state} updateTaskButton={this.updateTaskButton}/>
@@ -73,7 +74,8 @@ class NewTask extends Component {
                 updateCostButton={this.updateCostButton}
               />
             </div>
-          {this.confirmation()}
+            {this.confirmation()}
+          </div>
         </div>
         <div className='new-task-container'>
           <AddNewTask
