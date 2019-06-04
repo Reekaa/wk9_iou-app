@@ -21,12 +21,11 @@ class Login extends Component {
     console.log(this.props);
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput)
+    return <Redirect to='/profile'/>
   }
 
   render(){
-    if(this.props.currentUser.name !== null){
-        return <Redirect to='/profile' />
-      }
+
     return(
       <div className="login-page">
         <div className="login">

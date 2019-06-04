@@ -98,6 +98,7 @@ class MongoHelper {
       return user
     })
     .then((user) => {
+      console.log(user);
       return user
     })
   }

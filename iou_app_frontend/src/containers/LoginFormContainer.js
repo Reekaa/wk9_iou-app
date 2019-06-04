@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import React from 'react';
 import Login from '../components/MainPage/Login.js';
 import { Redirect } from 'react-router-dom';
+import UserProfileContainer from "./UserProfileContainer";
+
 
 
 // EXTENSION: INSERT LOGIN FORM HERE
@@ -24,7 +26,12 @@ const LoginFormContainer = (props) => {
   for (let user of props.users) {
     if (user.isCurrent) {
       props.setCurrentUser(user)
-      redirect = (<Redirect to='/profile' />)
+      redirect = (
+        <Redirect
+          to='/profile'
+          component={UserProfileContainer}
+        />
+      )
     }
   }
 
