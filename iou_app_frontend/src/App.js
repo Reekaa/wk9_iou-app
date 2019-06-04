@@ -37,6 +37,8 @@ class App extends Component {
             <Route
               exact path='/about'
               component={About}
+            />
+            <Route
               exact path='/profile'
               component={UserProfileContainer}
             />
