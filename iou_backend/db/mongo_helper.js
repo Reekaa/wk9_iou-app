@@ -81,18 +81,24 @@ class MongoHelper {
   }
 
   static getByName(coll, name) {
+    let collection;
     return MongoClient.connect(
       HOST,
       { useNewUrlParser: true }
     ).then(client => {
-      const collection = client.db(DB_NAME).collection(coll);
+      collection = client.db(DB_NAME).collection(coll);
       return collection.findOne({name: name})
     })
     .then((user) => {
+      console.log('setting current user', user);
       collection.updateOne(
         { "_id": ObjectID(user._id)},
-        {$set: {isCurrent: !doc.isCurrent}}
+        {$set: {isCurrent: !user.isCurrent}}
       )
+      return user
+    })
+    .then((user) => {
+      return user
     })
   }
 
