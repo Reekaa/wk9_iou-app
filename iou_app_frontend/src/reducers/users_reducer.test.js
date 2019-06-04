@@ -45,6 +45,7 @@ describe('usersReducer test', () => {
        ]
      }]
 
+
   })
 
   it('should return the initial state', () => {
@@ -52,10 +53,10 @@ describe('usersReducer test', () => {
       .toEqual([]);
   });
 
-  xit(' should handle "ADD_USERS" ', () => {
+  it(' should handle "ADD_USERS" ', () => {
     //Arrang
     const beforeState = [];
-    const afterState =
+    const afterState = users
     const action = {
       type: 'ADD_USERS',
       users: users
@@ -64,5 +65,6 @@ describe('usersReducer test', () => {
     deepFreeze(beforeState);
     //Assert
     expect(usersReducer(beforeState, action)).toEqual(afterState)
-  })
+  });
+
 })
