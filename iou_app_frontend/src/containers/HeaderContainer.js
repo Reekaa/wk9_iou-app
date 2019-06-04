@@ -10,6 +10,12 @@ const mapDispatchToProps = dispatch => ({
       })
       .then((response) => response.json())
     })
+  },
+  setCurrentUser(currentUser) {
+    dispatch({
+      type: 'SET_CURRENT_USER',
+      currentUser
+    })
   }
 })
 

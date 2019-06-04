@@ -6,7 +6,7 @@ const Header = props => {
   return (
     <div className='header-container'>
       <div className='main-page-head'>
-        <Navbar user={props.currentUser} toggleUser={props.toggleCurrentUser}/>
+        <Navbar user={props.currentUser} toggleUser={props.toggleCurrentUser} setCurrentUser={props.setCurrentUser}/>
         <img src='./images/top_banner.png' alt='top_banner' className='header-image'></img>
         <div className='spacer'></div>
       </div>

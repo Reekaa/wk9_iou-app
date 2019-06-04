@@ -41,7 +41,6 @@ class NewTask extends Component {
     this.setState({userButton: userButtonText})
   }
   updateErrorMessage(errorText) {
-    console.log(errorText);
     this.setState({errorMessage: errorText})
   }
   updateNewTaskForm(formText) {
