@@ -40,5 +40,12 @@ router.put("/:id/karma", function(req, res) {
   })
 })
 
+router.put("/:id/current", function(req, res) {
+  console.log(req.body);
+  MongoHelper.setCurrent("users", req.params.id).then(result => {
+    res.status(201).json('current user set')
+  })
+})
+
 
 module.exports = router;

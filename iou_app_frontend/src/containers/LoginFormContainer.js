@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import React from 'react';
 import Login from '../components/MainPage/Login.js';
+import { Redirect } from 'react-router-dom';
+
 
 // EXTENSION: INSERT LOGIN FORM HERE
 // TAKE CURRENT USER FOR ABOVE FUNCTION FROM USER INPUT
@@ -9,6 +11,7 @@ import Login from '../components/MainPage/Login.js';
 
 const LoginFormContainer = (props) => {
 
+
   if (props.currentUser.groups ) {
     const groupUsers = props.users.filter(user => {
       return user.groups[0].groupName === props.currentUser.groups[0].groupName;
@@ -16,15 +19,27 @@ const LoginFormContainer = (props) => {
     props.setGroupUsers(groupUsers);
   }
 
+  let redirect;
+
+  for (let user of props.users) {
+    if (user.isCurrent) {
+      props.getCurrentUser(user.name)
+      redirect = (<Redirect to='/profile' />)
+    }
+  }
+
+  if (redirect) {
+    return redirect
+  }
   return(
     <div>
-      <Login
-        getCurrentUser = {props.getCurrentUser}
-        currentUser = {props.currentUser}
-      />
+    <Login
+    getCurrentUser = {props.getCurrentUser}
+    currentUser = {props.currentUser}
+    setCurrentUser = {props.setCurrentUser}
+    />
     </div>
   )
-
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -45,8 +60,18 @@ const mapDispatchToProps = dispatch => ({
           currentUser
         })
       })
-  })
-}
+    })
+  },
+  setCurrentUser(user) {
+    console.log(user._id);
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/users/${user._id}/current`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json())
+    })
+  }
 })
 
 const mapStateToProps = state => {

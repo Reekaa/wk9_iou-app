@@ -6,7 +6,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: 'slidein',
+      active: '',
     };
     this.toggleClass = this.toggleClass.bind(this)
   }
@@ -27,15 +27,15 @@ class Navbar extends Component {
           <div id='slider' className={this.state.active} >
             <div className='link-cont'><Link className="link" to="/newtask">New Task</Link></div>
             <br/>
-            <div className='link-cont'><Link className="link" to="/profile">Profile</Link></div>
+            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/profile">Profile</Link></div>
             <br/>
-            <div className='link-cont'><Link className="link" to="/groups">Groups</Link></div>
+            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/groups">Groups</Link></div>
             <br/>
-            <div className='link-cont'><Link className="link" to="/voting">Voting</Link></div>
+            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/voting">Voting</Link></div>
             <br/>
-            <div className='link-cont'><Link className="link" to="/about">About</Link></div>
+            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/about">About</Link></div>
             <br/>
-            <div className='link-cont'><Link className="link" to="/">Logout</Link></div>
+            <div className='link-cont logout' onClick={this.toggleClass}><Link className="link" to="/">Logout</Link></div>
           </div>
         </li>
       </ul>
