@@ -35,8 +35,6 @@ class Navbar extends Component {
         <li id='menu-button' className="dropdown">
           <div className="menu-button" onClick={this.toggleClass}><img className='menuicon' src="/images/menu.png" alt='menuicon'/></div>
           <div id='slider' className={this.state.active} >
-            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/newtask">New Task</Link></div>
-            <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/profile">Profile</Link></div>
             <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/groups">Groups</Link></div>
