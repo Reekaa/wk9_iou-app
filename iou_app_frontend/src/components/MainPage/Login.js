@@ -52,9 +52,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-
-// if props.currentuser is not null the render the redirect
-// if(this.props.currentUser === {} ){
-  //   return <Redirect to='/mainpage' />
-  // }
