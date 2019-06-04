@@ -7,6 +7,7 @@ class Navbar extends Component {
     super(props)
     this.state = {
       active: '',
+      redirect: false
     };
     this.toggleClass = this.toggleClass.bind(this)
     this.logout = this.logout.bind(this)
@@ -22,15 +23,16 @@ class Navbar extends Component {
 
   logout() {
     console.log(this.props)
-    this.props.toggleUser(this.props.currentUser)
+    this.props.toggleUser(this.props.user)
     this.toggleClass()
+    this.setState({redirect: true})
   }
 
   render() {
     return(
       <ul className="icon-cont">
         <li id='menu-button' className="dropdown">
-          <div className="menu-button" onClick={this.toggleClass}><img className='menuicon' src="/images/menu.png"/></div>
+          <div className="menu-button" onClick={this.toggleClass}><img className='menuicon' src="/images/menu.png" alt='menuicon'/></div>
           <div id='slider' className={this.state.active} >
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/mainpage">Main Page</Link></div>
             <br/>

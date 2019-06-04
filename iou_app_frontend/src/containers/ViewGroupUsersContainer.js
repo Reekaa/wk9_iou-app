@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import ViewGroupUsers from '../components/MainPage/ViewGroupUsers';
 
 const checkCurrentUser = (state) => {
-  console.log(state.currentUser);
   if (state.currentUser.name === null) {
     return null
   } else {

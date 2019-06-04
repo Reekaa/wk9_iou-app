@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import TasksDropdown from './Dropdowns/TasksDropdown'
 import UsersDropdown from './Dropdowns/UsersDropdown'
 import CostNumber from './Dropdowns/CostNumber'
-import CostMethod from './Dropdowns/CostMethod'
 import SubmitButt from './Dropdowns/SubmitButt'
 import AddNewTask from './Dropdowns/AddNewTask'
 

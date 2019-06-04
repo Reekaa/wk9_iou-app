@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.current);
     this.props.getData()
     this.props.getTasksData()
     //anything you want to run straight away
@@ -77,7 +76,6 @@ const mapDispatchToProps = dispatch => {
         fetch('http://localhost:3000/api/users')
         .then(res => {
           return res.json().then(users => {
-            console.log(users);
           dispatch({
             type:'ADD_USERS',
             users

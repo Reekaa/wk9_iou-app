@@ -8,10 +8,9 @@ const Main = props => {
   }
 
   if (props.currentUser !== null) {
-    console.log(props.currentUser);
-    const populateGroups = props.currentUser.groups.map((group) => {
+    const populateGroups = props.currentUser.groups.map((group, i) => {
       return(
-        <tr>
+        <tr key={i}>
         <td>{group.groupName}</td>
         <td>{group.karma}</td>
         <td><button onClick = {() => {handleView(group.groupName)}} className='viewGroupButton' type="button">View Group</button></td>

@@ -25,7 +25,7 @@ const AddNewTask = (props) => {
         <>
           <form className="new-task-form" onSubmit={(evt) => {handleNewTaskSubmit(evt)}}>
             <input type="text" className="form-control" id="inlineFormInputName" placeholder="Babysitting"/>
-            <button id='form-submit' type="submit" id='submitbutt' className="btn btn-primary">Submit</button>
+            <button type="submit" id='submitbutt' className="btn btn-primary">Submit</button>
           </form>
           <div id='invalidInput' className="invalidInput">{props.state.errorMessage}</div>
         </>
