@@ -2,18 +2,16 @@ import React from 'react';
 
 const taskListFormat = (tasks) => {
 
-  console.log(tasks);
   // sortByDate function adapted from https://gist.github.com/onpubcom/1772996
-  const sortByDate = (tasks) => {
-    return tasks.sort((a, b) => {
-      if (a > b) return -1;
-      if (a < b) return 1;
+  const sortByDate = (tasksWithDate) => {
+    return tasksWithDate.sort((a, b) => {
+      if (a.date > b.date) return -1;
+      if (a.date < b.date) return 1;
       return 0;
     });
   };
 
   const sortedTasks = sortByDate(tasks);
-  console.log(sortedTasks);
   const recentTasks = [];
   for (let i = 0; i<5; i++) {
     recentTasks.push(sortedTasks[i])
