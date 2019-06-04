@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
 
   return {
     groupName: checkCurrentUser(state),
+    // groupName: state.currentUser.groups[0].groupName,
     groupUsers: state.groupUsers
   }
 }

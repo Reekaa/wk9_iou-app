@@ -2,7 +2,6 @@ import React from "react";
 import './userprofile.css'
 
 const Main = props => {
-  console.log(props);
 
   const userlikes = (skill) => {
     return skill.charAt(0).toUpperCase() + skill.slice(1);
@@ -10,7 +9,6 @@ const Main = props => {
 
   if (props.currentUser !== null) {
     const populateGroups = props.currentUser.groups.map((group) => {
-      console.log(group);
       return(
         <tr>
         <td>{group.groupName}</td>
@@ -28,27 +26,27 @@ const Main = props => {
       <div className='page-grid'>
       <div className='username'>{props.currentUser.name}</div>
       <div>
-      <div className='likes'>Likes:
-      <ul className='userskills'>
-      <li>{userlikes(props.currentUser.skill)}</li>
-      </ul>
-      </div>
-      <div className='groups-container'>
-      <div className='border'>
-      <table id='groups-table' className="table">
-      <thead className="thead-light">
-      <tr>
-      <th>Group</th>
-      <th>Karma</th>
-      <th>View Group</th>
-      </tr>
-      </thead>
-      <tbody>
-      {populateGroups}
-      </tbody>
-      </table>
-      </div>
-      </div>
+        <div className='likes'>Likes:
+          <ul className='userskills'>
+            <li>{userlikes(props.currentUser.skill)}</li>
+          </ul>
+        </div>
+        <div className='groups-container'>
+          <div className='border'>
+            <table id='groups-table' className="table">
+              <thead className="thead-light">
+                <tr>
+                  <th>Group</th>
+                  <th>Karma</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {populateGroups}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       </div>
     )

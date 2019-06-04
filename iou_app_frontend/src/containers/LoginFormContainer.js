@@ -24,7 +24,7 @@ const LoginFormContainer = (props) => {
   for (let user of props.users) {
     if (user.isCurrent) {
       props.getCurrentUser(user.name)
-      redirect = (<Redirect to='/mainpage' />)
+      redirect = (<Redirect to='/profile' />)
     }
   }
 
