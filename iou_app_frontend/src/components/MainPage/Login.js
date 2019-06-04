@@ -8,6 +8,7 @@ class Login extends Component {
     super(props)
     this.state = {
       userNameInput: '',
+      redirect: false
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,14 +19,15 @@ class Login extends Component {
   }
 //
   handleSubmit(evt) {
-    console.log(this.props);
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput)
-    return <Redirect to='/profile'/>
+    this.setState({redirect: true})
   }
 
   render(){
-
+    if (this.state.redirect) {
+      return <Redirect to='/profile'/>
+    }
     return(
       <div className="login-page">
         <div className="login">

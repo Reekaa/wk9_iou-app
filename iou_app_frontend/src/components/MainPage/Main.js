@@ -4,7 +4,6 @@ import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 import NewTask from './NewTask'
 
 const Main = props => {
-  console.log(props);
 
   const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
 

@@ -3,7 +3,6 @@ import './mainpage.css';
 import Navbar from './Navbar.js';
 
 const Header = props => {
-  console.log(props);
   return (
     <div className='header-container'>
       <div className='main-page-head'>

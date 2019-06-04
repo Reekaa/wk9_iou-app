@@ -1,6 +1,7 @@
 import React from 'react'
 
 const UsersDropdown = (props) => {
+  console.log(props);
 
   const handleUsersDropdown = (evt) => {
     props.object.selectUser(evt)
@@ -15,7 +16,7 @@ const UsersDropdown = (props) => {
         <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
         </li>);
       } else {
-      return
+      return null
     }
   })
 

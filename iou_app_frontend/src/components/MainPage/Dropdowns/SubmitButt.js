@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SubmitButt = (props) => {
-console.log(props.object.currentUser);
   const handleSubmit = () => {
     props.object.tasks.map((task) => {
       if (task.task === props.object.selected.task) {
