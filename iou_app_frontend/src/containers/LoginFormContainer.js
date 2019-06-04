@@ -23,7 +23,7 @@ const LoginFormContainer = (props) => {
 
   for (let user of props.users) {
     if (user.isCurrent) {
-      props.getCurrentUser(user.name)
+      props.setCurrentUser(user)
       redirect = (<Redirect to='/profile' />)
     }
   }
@@ -62,14 +62,10 @@ const mapDispatchToProps = dispatch => ({
       })
     })
   },
-  setCurrentUser(user) {
-    console.log(user._id);
-    dispatch (() => {
-      fetch(`http://localhost:3000/api/users/${user._id}/current`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then((response) => response.json())
+  setCurrentUser(currentUser) {
+    dispatch({
+      type: 'SET_CURRENT_USER',
+      currentUser
     })
   }
 })
