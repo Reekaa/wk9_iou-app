@@ -20,7 +20,7 @@
 .user-list-item {
   transition: all .4s ease-out;
   display: grid;
-  grid-template-columns: repeat(50px, 50px, 50px);
+  grid-template-columns: 1fr 2fr 2fr;
   font-size: 15px;
   font-weight: 700;
   color: #156678;
@@ -43,14 +43,13 @@
 .user-list-item-name {
   display: flex;
   justify-content: space-around;
-  grid-column-start: 3;
+  grid-column-start: 2;
 }
 
 .user-list-item-karma {
-  grid-column-start: 6;
+  grid-column-start: 3;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .group-name {
   transition: all .4s ease-out;
