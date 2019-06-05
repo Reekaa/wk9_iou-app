@@ -75,7 +75,7 @@ class ViewGroupUsers extends Component {
       >
         <br />
         <ul>
-          <li>View group info</li>
+          <a href="">View group info</a>
           <li>View your other groups</li>
         </ul>
       </div>
