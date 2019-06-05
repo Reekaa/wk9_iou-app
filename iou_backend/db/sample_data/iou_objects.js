@@ -21,7 +21,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/keith.JPG"
     },
     {
       "name": "Ben",
@@ -33,7 +34,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/ben.JPG"
     },
     {
       "name": "Reka",
@@ -45,7 +47,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/reka.JPG"
     },
     {
       "name": "Matthew",
@@ -57,7 +60,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/matthew.JPG"
     },
     {
       "name": "Euan",
@@ -69,7 +73,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/euan.JPG"
     },
     {
       "name": "Rose",
@@ -81,7 +86,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/rose.JPG"
     },
     {
       "name": "Hamish",
@@ -93,7 +99,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/hamish.JPG"
     },
     {
       "name": "Rod",
@@ -105,7 +112,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/rod.JPG"
     },
     {
       "name": "Pawel",
@@ -117,7 +125,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/pawel.JPG"
     },
     {
       "name": "James",
@@ -129,7 +138,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/james.JPG"
     },
     {
       "name": "Kris",
@@ -141,7 +151,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/kris.JPG"
     },
     {
       "name": "Sian",
@@ -153,7 +164,8 @@ db.users.insertMany(
           "completedTasks": []
         }
       ],
-      "isCurrent": false
+      "isCurrent": false,
+      "avatar": "./images/sian.JPG"
     }
   ]
 );
