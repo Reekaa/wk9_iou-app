@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const GroupOpenTasks = (props) => {
 
@@ -18,10 +19,20 @@ const GroupOpenTasks = (props) => {
   });
 
   return (
-    <div>
-      <h3>Open tasks</h3>
-      {openTasksList}
-      <button>Add a new request</button>
+    <div className='recent-tasks-container'>
+      <div className='border'>
+        <table className='table'>
+          <thead className="thead-light">
+            <tr>
+              <th>Open tasks</th>
+            </tr>
+          </thead>
+          <tbody>
+            {openTasksList}
+          </tbody>
+        </table>
+        <button className='addTaskButton'><Link to="/newtask">New request</Link></button>
+      </div>
     </div>
   );
 
