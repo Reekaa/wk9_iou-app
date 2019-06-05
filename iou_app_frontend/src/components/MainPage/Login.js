@@ -21,11 +21,9 @@ class Login extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput, this.props.users)
-    this.setState({redirect: true})
   }
 
   render(){
-    localStorage.redirect = false
     if (this.state.redirect) {
       return <Redirect to='/profile'/>
     }

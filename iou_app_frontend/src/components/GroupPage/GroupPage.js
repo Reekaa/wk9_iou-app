@@ -11,9 +11,7 @@ import { Redirect } from 'react-router-dom';
 class GroupPage extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      redirect: false
-    }
+
     this.switchRedirect = this.switchRedirect.bind(this)
   }
   componentDidMount() {
@@ -25,7 +23,6 @@ class GroupPage extends Component {
   switchRedirect() {
 
     localStorage.redirect = true
-    this.setState({redirect: !this.state.redirect})
     console.log(localStorage);
   }
 
@@ -34,26 +31,27 @@ class GroupPage extends Component {
   }
 
   render() {
-    if (localStorage.redirect === "true") {
+    if (localStorage.redirect == "true") {
       console.log(localStorage);
       return <Redirect to='/' />
-    }
-    return (
-      <>
+    } else {
+      return (
+        <>
         <div className='main-container-grid'>
-          <div className='main-container'>
-            <div className ='group-name-header'>
-              {`Group name: ${this.props.currentUser.groups[0].groupName}`}
-            </div>
-            <GroupCompletedTasks groupUsers={this.props.groupUsers} />
-            <GroupOpenTasks groupUsers={this.props.groupUsers} />
-          </div>
-          <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
-            <ViewGroupUsersContainer />
-          </div>
+        <div className='main-container'>
+        <div className ='group-name-header'>
+        {`Group name: ${this.props.currentUser.groups[0].groupName}`}
         </div>
-      </>
-    );
+        <GroupCompletedTasks groupUsers={this.props.groupUsers} />
+        <GroupOpenTasks groupUsers={this.props.groupUsers} />
+        </div>
+        <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
+        <ViewGroupUsersContainer />
+        </div>
+        </div>
+        </>
+      );
+    }
   }
 
 };

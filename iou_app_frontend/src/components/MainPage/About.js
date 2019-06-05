@@ -5,9 +5,7 @@ import { Redirect } from 'react-router-dom';
 class About extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      redirect: false
-    }
+
     this.switchRedirect = this.switchRedirect.bind(this)
   }
   componentDidMount() {
@@ -17,15 +15,11 @@ class About extends Component {
   }
 
   switchRedirect() {
-
     localStorage.redirect = true
-    this.setState({redirect: !this.state.redirect})
-    console.log(localStorage);
   }
 
   render() {
     if (localStorage.redirect === "true") {
-      console.log(localStorage);
       return <Redirect to='/' />
     }
     return(

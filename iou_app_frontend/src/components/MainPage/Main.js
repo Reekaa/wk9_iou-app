@@ -8,21 +8,18 @@ import { Redirect } from 'react-router-dom';
 class Main extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      redirect: false
-    }
     this.switchRedirect = this.switchRedirect.bind(this)
   }
   componentDidMount() {
+    console.log('component did mount');
     window.onbeforeunload = function() {
         this.switchRedirect();
     }.bind(this);
   }
 
   switchRedirect() {
-
-    localStorage.redirect = true
-    this.setState({redirect: !this.state.redirect})
+    console.log('switch redirect');
+    localStorage.setItem('redirect', "true")
     console.log(localStorage);
   }
 
@@ -31,18 +28,18 @@ class Main extends Component {
   }
 
   render() {
-    if (localStorage.redirect === "true") {
+    if (localStorage.getItem("redirect") === "true") {
       console.log(localStorage);
       return <Redirect to='/' />
     }
     return(
       <div className='main-container-grid'>
-      <div className='main-container'>
-      <NewTask object={this.props}/>
-      </div>
-      <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
-      <ViewGroupUsersContainer />
-      </div>
+        <div className='main-container'>
+          <NewTask object={this.props}/>
+        </div>
+        <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
+          <ViewGroupUsersContainer />
+        </div>
       </div>
     )
   }
