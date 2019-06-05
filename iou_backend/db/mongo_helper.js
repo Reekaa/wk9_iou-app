@@ -42,7 +42,6 @@ class MongoHelper {
   }
 
   static addKarma(coll, id, payload) {
-    console.log(payload);
     return MongoClient.connect(
       HOST,
       { useNewUrlParser: true }
@@ -54,6 +53,20 @@ class MongoHelper {
       )
     })
   }
+
+  static addRequest(coll, id, payload) {
+    return MongoClient.connect(
+      HOST,
+      { useNewUrlParser: true }
+    ).then(client => {
+      const collection = client.db(DB_NAME).collection(coll);
+      return collection.updateOne(
+        { "_id": ObjectID(id), "groups.groupName": "SW2"},
+        {"$push": {"groups.$.requestedTasks": payload}}
+      )
+    })
+  }
+
   static get(coll) {
     return MongoClient.connect(
       HOST,
