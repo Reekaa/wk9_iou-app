@@ -42,7 +42,7 @@ class GroupOpenTasks extends Component {
   openTasksList() {
     console.log(this.state.openTasks);
     return this.state.openTasks.map((task, i) => {
-      return <div key={i}>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</div>
+      return <tr key={i}>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</tr>
     });
   }
 
@@ -60,6 +60,7 @@ class GroupOpenTasks extends Component {
       task
     }
     console.log(requestData);
+    console.log(this.props.getNewData);
     this.props.addRequestToUser(this.props.currentUser, requestData);
     // // reset requestTaskButton value to 'select' and dropdownValue to ''
     // this.setState({ requestTaskButton: 'Select task', dropdownValue: '' });

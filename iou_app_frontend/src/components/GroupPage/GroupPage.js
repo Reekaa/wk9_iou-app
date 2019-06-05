@@ -26,6 +26,7 @@ const GroupPage = (props) => {
             groupUsers={props.groupUsers}
             addRequestToUser={props.addRequestToUser}
             currentUser={props.currentUser}
+            getNewData={props.getNewData}
           />
         </div>
         <div className='user-list-sidebar' style={{ height: `${userListSidebarHeight}` }}>

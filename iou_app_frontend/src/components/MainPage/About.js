@@ -5,6 +5,7 @@ const About = () => {
 return(
   <div>
     <h3>App description</h3>
+    
   </div>
 )}
 
