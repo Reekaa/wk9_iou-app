@@ -22,7 +22,6 @@ class GroupOpenTasks extends Component {
 
   componentDidMount() {
     const tasks = this.pushOpenTasks();
-    console.log(tasks);
     this.setState({ openTasks: tasks });
   };
 
@@ -42,7 +41,7 @@ class GroupOpenTasks extends Component {
   openTasksList() {
     console.log(this.state.openTasks);
     return this.state.openTasks.map((task, i) => {
-      return <div key={i}>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</div>
+      return <tr className='task-row' key={i}><td id='remove-border'>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</td></tr>
     });
   }
 
@@ -119,7 +118,10 @@ class GroupOpenTasks extends Component {
                 {this.openTasksList()}
               </tbody>
             </table>
-            <button className='addTaskButton' onClick={this.toggleShowForm}>New request</button>
+            <div className='button-container'>
+              <button className='addTaskButton' onClick={this.toggleShowForm}>New request</button>
+            </div>
+
           </div>
         </div>
         <div>

@@ -17,19 +17,8 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 20,
-          "completedTasks": [
-            {
-              "task": "Painting",
-              "value": 10,
-              "whoFor": "Reka",
-              "karma": 20,
-              "date": "2019-06-04T16:04:36.163Z",
-              "cost": {
-                "hours": 2
-              }
-            }
-          ]
+          "karma": 0,
+          "completedTasks": []
         }
       ],
       "isCurrent": false,
@@ -41,19 +30,8 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 30,
-          "completedTasks": [
-            {
-              "task": "Babysitting",
-              "value": 10,
-              "whoFor": "Matthew",
-              "karma": 30,
-              "date": "2019-06-03T16:04:36.163Z",
-              "cost": {
-                "hours": 3
-              }
-            }
-          ]
+          "karma": 0,
+          "completedTasks": []
         }
       ],
       "isCurrent": false,
@@ -65,7 +43,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": -20,
+          "karma": 0,
           "completedTasks": []
         }
       ],
@@ -80,36 +58,8 @@ db.users.insertMany(
         {
           "groupName": "SW2",
           "karma": 0,
-          "completedTasks": [
-            {
-              "task": "Gardening",
-              "value": 10,
-              "whoFor": "Euan",
-              "karma": 10,
-              "date": "2019-05-29T16:02:36.163Z",
-              "cost": {
-                "hours": 1
-              }
-            },
-            {
-              "task": "Gardening",
-              "value": 10,
-              "whoFor": "Hamish",
-              "karma": 20,
-              "date": "2019-06-01T16:04:36.163Z",
-              "cost": {
-                "hours": 2
-              }
-            }
-          ],
-          "requestedTasks": [
-            {
-              "task": "Painting"
-            },
-            {
-              "task": "Cleaning"
-            }
-          ]
+          "completedTasks": [],
+          "requestedTasks": []
         }
       ],
       "isCurrent": false,
@@ -121,7 +71,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": -10,
+          "karma": 0,
           "completedTasks": []
         }
       ],
@@ -147,19 +97,8 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 10,
-          "completedTasks": [
-            {
-              "task": "Cleaning",
-              "value": 10,
-              "whoFor": "Rose",
-              "karma": 30,
-              "date": "2019-05-27T16:04:36.163Z",
-              "cost": {
-                "hours": 3
-              }
-            }
-          ]
+          "karma": 0,
+          "completedTasks": []
         }
       ],
       "isCurrent": false,
@@ -171,19 +110,8 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 20,
-          "completedTasks": [
-            {
-              "task": "Gardening",
-              "value": 10,
-              "whoFor": "Sian",
-              "karma": 20,
-              "date": "2019-05-27T16:04:36.163Z",
-              "cost": {
-                "hours": 2
-              }
-            }
-          ]
+          "karma": 0,
+          "completedTasks": []
         }
       ],
       "isCurrent": false,
@@ -234,7 +162,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": -20,
+          "karma": 0,
           "completedTasks": []
         }
       ],

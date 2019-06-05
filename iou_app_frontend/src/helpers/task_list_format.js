@@ -27,8 +27,7 @@ const taskListFormat = (tasks) => {
       'Oct', 'Nov', 'Dec'
     ];
     let suffix;
-    console.log(taskDate[9]);
-    console.log(taskDate[8]);
+
     if (taskDate[9] === '1' && taskDate[8] !== '1') {
       suffix = 'st'
     } else if (taskDate[9] === 2 && taskDate[8] !== 1) {
@@ -44,20 +43,23 @@ const taskListFormat = (tasks) => {
     return formattedDate;
   };
 
-
-
   return recentTasks.map((task, i) => {
-
-    return <tr className='task-row' key={i}>
-    <td id='remove-border'>
-      {`${task.username} did some ${task.task.toLowerCase()} for ${task.whoFor}`}
-    </td>
-    <td id='date'>
-      {formatDate(task.date)}
-    </td>
-    </tr>
-
+    if (task !== undefined) {
+      return(
+        <tr className='task-row' key={i}>
+          <td id='remove-border'>
+          {`${task.username} did some ${task.task.toLowerCase()} for ${task.whoFor}`}
+          </td>
+          <td id='date'>
+          {formatDate(task.date)}
+          </td>
+        </tr>
+      )
+    } else {
+      return <tr></tr>
+    }
   });
+
 
 }
 

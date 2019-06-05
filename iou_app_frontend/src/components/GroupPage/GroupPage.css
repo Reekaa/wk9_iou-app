@@ -4,7 +4,7 @@
   padding: 20px;
 }
 .recent-tasks-container, .open-tasks-container {
-  min-width: 530px;
+  min-width: 600px;
   max-width: 700px;
   position: relative;
   display: flex;
@@ -95,4 +95,7 @@ td, .open-tasks-item {
 .block-button {
   display: block;
   min-width: 200px;
+}
+#date {
+  width: 150px !important;
 }

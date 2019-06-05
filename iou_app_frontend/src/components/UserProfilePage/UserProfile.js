@@ -29,16 +29,18 @@ class Main extends Component {
 
       return(
         <div className='page-grid'>
-          <div>
-            <img className="current-user-image" src={this.props.currentUser.avatar} alt='avatar' width='100' height='100'/>
-            <h1>{this.props.currentUser.name}</h1>
-            </div>
-            <div>
-              <div className='likes'>Skills:
-                <ul className='userskills'>
-                  <li>{this.userlikes(this.props.currentUser.skill)}</li>
-                </ul>
+          <div className='user-profile'>
+            <img className="current-user-image" src={this.props.currentUser.avatar} alt='avatar'/>
+              <div>
+              <h1>{this.props.currentUser.name}</h1>
+                <div className='likes'>Likes:
+                  <ul className='userskills'>
+                    <li>{this.userlikes(this.props.currentUser.skill)}</li>
+                  </ul>
+                </div>
               </div>
+          </div>
+          <div>
             <div className='groups-container'>
               <div className='border'>
                 <table id='groups-table' className="table">
