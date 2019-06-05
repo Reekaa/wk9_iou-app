@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './userprofile.css'
 import { Link } from 'react-router-dom';
+import UserProfileCompletedTasks from './UserProfileCompletedTasks';
 
 class Main extends Component {
   componentDidMount() {
@@ -58,6 +59,12 @@ class Main extends Component {
                 </table>
               </div>
             </div>
+          </div>
+          <div>
+            <UserProfileCompletedTasks
+              groupUsers={this.props.groupUsers}
+              currentUser={this.props.currentUser}
+            />
           </div>
         </div>
       )
