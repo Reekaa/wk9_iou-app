@@ -14,7 +14,8 @@ const CostNumber = (props) => {
         <div id='cost-select' className="col-10">
           <input className="form-control" type="number" placeholder='0' id="example-number-input" onChange={(evt)=>{handleNumber(evt)}}/>
         </div>
-      <span> hours</span></label>
+        <span> hours</span>
+      </label>
     </>
   )
 }

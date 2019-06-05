@@ -1,4 +1,5 @@
 import React from 'react'
+import './dropdowns.css'
 
 const TasksDropdown = (props) => {
 
@@ -10,7 +11,7 @@ const TasksDropdown = (props) => {
 
   const tasks = props.object.tasks.map((task) => {
     return (
-      <li  key={task._id}>
+      <li className='dropdown-cont' key={task._id}>
         <div id='dropdown-option' onClick={() => {handleTasksDropdown(task.task)}}>{task.task}</div>
       </li>
     )
