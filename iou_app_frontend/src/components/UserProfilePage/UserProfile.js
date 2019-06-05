@@ -37,6 +37,7 @@ class Main extends Component {
                   <ul className='userskills'>
                     <li>{this.userlikes(this.props.currentUser.skill)}</li>
                   </ul>
+                  <div className='userprofile-div'>{this.props.currentUser.userprofile}</div>
                 </div>
               </div>
           </div>
