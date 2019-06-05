@@ -44,13 +44,9 @@ class ViewGroupUsers extends Component {
           onMouseLeave={() => {this.mouseLeave()}}
           style={{ bottom: `${counter}px` }}
         >
-          <p className='user-list-item-name'>
-            {user.name}
-          </p>
-          <p className='user-list-item-karma'>
-            {user.groups[0].karma}
-          </p>
-            {this.renderInfo(user, i)}
+          <p className='user-list-item-name'>{user.name}</p>
+          <p className='user-list-item-karma'>{user.groups[0].karma}</p>
+          {this.renderInfo(user, i)}
         </div>
         counter -= 40; // decrement counter to move next item 40px downwards
       return content;
@@ -69,15 +65,15 @@ class ViewGroupUsers extends Component {
   }
 
   renderGroupDropdown() {
-    const groupDropdownText = <div
-      className='group-dropdown'
-      >
+    const groupDropdownText = (
+      <div className='group-dropdown'>
         <br />
         <ul>
           <li>View group info</li>
           <li>View your other groups</li>
         </ul>
       </div>
+    )
     return this.state.groupDropdown ?
     groupDropdownText : null;
   }

@@ -20,8 +20,8 @@ const LoginMiddle = (props) => {
       }
       redirect = (
         <Redirect
-        to='/profile'
-        component={UserProfileContainer}
+          to='/profile'
+          component={UserProfileContainer}
         />
       )
     }

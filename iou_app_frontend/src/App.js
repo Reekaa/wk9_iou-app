@@ -12,6 +12,12 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      redirect: false
+    }
+  }
 
   componentDidMount() {
     this.props.getData()
@@ -26,31 +32,45 @@ class App extends Component {
           <Fragment>
             <Route
               path='/'
-              component={HeaderContainer}
+              render={(routeProps) => (
+                <HeaderContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/'
-              component={LoginFormContainer}
+              render={(routeProps) => (
+                <LoginFormContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/newtask'
-              component={MainPageContainer}
+              render={(routeProps) => (
+                <MainPageContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/groups'
-              component={GroupPageContainer}
+              render={(routeProps) => (
+                <GroupPageContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/about'
-              component={About}
+              render={(routeProps) => (
+                <About {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/profile'
-              component={UserProfileContainer}
+              render={(routeProps) => (
+                <UserProfileContainer {...routeProps} {...this.state} />
+              )}
             />
             <Route
               exact path='/voting'
-              component={VotingContainer}
+              render={(routeProps) => (
+                <VotingContainer {...routeProps} {...this.state} />
+              )}
             />
           </Fragment>
         </Router>

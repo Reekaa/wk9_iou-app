@@ -4,6 +4,7 @@ const GroupOpenTasks = (props) => {
 
 
   const openTasks = [];
+
   props.groupUsers.map((user, i) => {
     if (user.groups[0].requestedTasks) {
       return user.groups[0].requestedTasks.forEach(task => {
@@ -14,14 +15,16 @@ const GroupOpenTasks = (props) => {
   });
 
   const openTasksList = openTasks.map((task, i) => {
-    return <div key={i}>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</div>
+    return <div className='open-tasks-item' key={i}>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</div>
   });
 
   return (
-    <div>
-      <h3>Open tasks</h3>
+    <div className='open-tasks-container'>
+      <div className='open-tasks-head'>Open tasks</div>
       {openTasksList}
-      <button>Add a new request</button>
+      <div className='centerbutton'>
+        <button className='addTaskRequest'>Add a new request</button>
+      </div>
     </div>
   );
 
