@@ -6,7 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: url(./bg1.jpeg); */
-  background-color: MintCream;
+  background-image: url(./bg.jpg);
+  background-repeat: no-repeat;
 }
 
 code {

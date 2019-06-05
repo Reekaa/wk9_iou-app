@@ -13,6 +13,7 @@ class GroupPage extends Component {
     super(props)
 
     this.switchRedirect = this.switchRedirect.bind(this)
+    this.userListSidebarHeight = this.userListSidebarHeight.bind(this)
   }
   componentDidMount() {
     window.onbeforeunload = function() {
@@ -37,18 +38,22 @@ class GroupPage extends Component {
     } else {
       return (
         <>
-        <div className='main-container-grid'>
-        <div className='main-container'>
-        <div className ='group-name-header'>
-        {`Group name: ${this.props.currentUser.groups[0].groupName}`}
-        </div>
-        <GroupCompletedTasks groupUsers={this.props.groupUsers} />
-        <GroupOpenTasks groupUsers={this.props.groupUsers} />
-        </div>
-        <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
-        <ViewGroupUsersContainer />
-        </div>
-        </div>
+          <div className='main-container-grid'>
+            <div className='main-container'>
+              <div className ='group-name-header'>
+                {`Group name: ${this.props.currentUser.groups[0].groupName}`}
+              </div>
+              <GroupCompletedTasks groupUsers={this.props.groupUsers} />
+              <GroupOpenTasks
+                groupUsers={props.groupUsers}
+                addRequestToUser={props.addRequestToUser}
+                currentUser={props.currentUser}
+               />
+            </div>
+            <div className='user-list-sidebar' style={{ height:   `${this.userListSidebarHeight()}` }}>
+              <ViewGroupUsersContainer />
+            </div>
+          </div>
         </>
       );
     }

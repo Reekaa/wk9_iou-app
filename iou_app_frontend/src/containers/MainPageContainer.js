@@ -50,7 +50,7 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   createNewTask(taskName) {
-    let newTask = {task: taskName, value: 5}
+    let newTask = {task: taskName, value: 10}
     dispatch (() => {
       fetch(`http://localhost:3000/api/tasks`, {
         method: 'POST',
