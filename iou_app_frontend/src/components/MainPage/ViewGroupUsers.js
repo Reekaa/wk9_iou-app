@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './ViewGroupUsers.css'
+import { Link } from 'react-router-dom';
 
 class ViewGroupUsers extends Component {
   constructor(props) {
@@ -74,7 +75,7 @@ class ViewGroupUsers extends Component {
       <div className='group-dropdown'>
         <br />
         <ul>
-          <li>View group info</li>
+          <li><Link to="/groups">View group info</Link></li>
           <li>View your other groups</li>
         </ul>
       </div>
