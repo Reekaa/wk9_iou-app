@@ -30,7 +30,7 @@ class Main extends Component {
       return(
         <div className='page-grid'>
           <div>
-            <img className="current-user" src={this.props.currentUser.avatar} alt='avatar' width='100' height='100'/>
+            <img className="current-user-image" src={this.props.currentUser.avatar} alt='avatar' width='100' height='100'/>
             <h1>{this.props.currentUser.name}</h1>
             </div>
             <div>
