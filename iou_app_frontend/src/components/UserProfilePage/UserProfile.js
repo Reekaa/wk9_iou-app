@@ -14,7 +14,7 @@ const Main = props => {
         <tr key={i}>
         <td>{group.groupName}</td>
         <td>{group.karma}</td>
-        <td><button className='viewGroupButton' type="button"><Link to="/groups">View Group</Link></button></td>
+        <td><button aria-label="view-group" className='viewGroupButton' type="button"><Link to="/groups">View Group</Link></button></td>
         </tr>
       )
     })
@@ -22,7 +22,7 @@ const Main = props => {
     return(
       <div className='page-grid'>
         <div className='user-profile'>
-          <img className="current-user" src={props.currentUser.avatar}/>
+          <img className="current-user-image" src={props.currentUser.avatar}/>
             <div>
             <h1>{props.currentUser.name}</h1>
               <div className='likes'>Likes:
