@@ -21,33 +21,35 @@ const Main = props => {
 
     return(
       <div className='page-grid'>
-      <div>
-        <img className="current-user" src={props.currentUser.avatar} width='100' height='100'/>
-        <h1>{props.currentUser.name}</h1>
-      </div>
-      <div>
-        <div className='likes'>Likes:
-          <ul className='userskills'>
-            <li>{userlikes(props.currentUser.skill)}</li>
-          </ul>
+        <div className='user-profile'>
+          <img className="current-user" src={props.currentUser.avatar}/>
+            <div>
+            <h1>{props.currentUser.name}</h1>
+              <div className='likes'>Likes:
+                <ul className='userskills'>
+                  <li>{userlikes(props.currentUser.skill)}</li>
+                </ul>
+              </div>
+            </div>
         </div>
-        <div className='groups-container'>
-          <div className='border'>
-            <table id='groups-table' className="table">
-              <thead className="thead-light">
-                <tr>
-                  <th>Group</th>
-                  <th>Karma</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {populateGroups}
-              </tbody>
-            </table>
+        <div>
+          <div className='groups-container'>
+            <div className='border'>
+              <table id='groups-table' className="table">
+                <thead className="thead-light">
+                  <tr>
+                    <th>Group</th>
+                    <th>Karma</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {populateGroups}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     )
 

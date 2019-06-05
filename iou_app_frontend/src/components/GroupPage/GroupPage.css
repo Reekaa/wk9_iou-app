@@ -26,6 +26,14 @@
 .addTaskButton:hover {
   background-color: #e4eef1;
 }
+.table {
+  width: 97%;
+  margin: 10px 10px 0 10px;
+}
+.addTaskButton {
+  margin: 5px;
+  padding: 3px;
+}
 #groups-table {
   z-index: 1;
 }

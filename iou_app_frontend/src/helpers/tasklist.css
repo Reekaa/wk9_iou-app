@@ -1,0 +1,21 @@
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  padding: 5px;
+  height: 30px;
+}
+.task-row:nth-child(odd) {
+  background-color: rgba(115, 115, 115, 0.2);
+}
+#remove-border {
+  border: 0px;
+}
+#date {
+  width: 120px;
+  border-top: 0px;
+  border-left: 1px solid rgb(221 221 221);
+}
+td:nth-child(odd) {
+}
