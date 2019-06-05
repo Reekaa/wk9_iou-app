@@ -25,6 +25,7 @@ class Login extends Component {
   }
 
   render(){
+    localStorage.redirect = false
     if (this.state.redirect) {
       return <Redirect to='/profile'/>
     }

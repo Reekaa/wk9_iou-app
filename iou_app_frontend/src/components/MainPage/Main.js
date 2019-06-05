@@ -1,23 +1,51 @@
-import React from "react";
+import React, {Component} from "react";
 import './mainpage.css'
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 import NewTask from './NewTask'
+import { Redirect } from 'react-router-dom';
 
-const Main = props => {
 
-  console.log(props);
-  const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
+class Main extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      redirect: false
+    }
+    this.switchRedirect = this.switchRedirect.bind(this)
+  }
+  componentDidMount() {
+    window.onbeforeunload = function() {
+        this.switchRedirect();
+    }.bind(this);
+  }
 
-  return(
-    <div className='main-container-grid'>
+  switchRedirect() {
+
+    localStorage.redirect = true
+    this.setState({redirect: !this.state.redirect})
+    console.log(localStorage);
+  }
+
+  userListSidebarHeight() {
+    return (`${((this.props.groupUsers.length * 40) + 120)}px`)
+  }
+
+  render() {
+    if (localStorage.redirect === "true") {
+      console.log(localStorage);
+      return <Redirect to='/' />
+    }
+    return(
+      <div className='main-container-grid'>
       <div className='main-container'>
-        <NewTask object={props}/>
+      <NewTask object={this.props}/>
       </div>
-      <div className='user-list-sidebar' style={{ height: `${userListSidebarHeight}` }}>
-        <ViewGroupUsersContainer />
+      <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
+      <ViewGroupUsersContainer />
       </div>
-    </div>
-)
+      </div>
+    )
+  }
 };
 
 export default Main;

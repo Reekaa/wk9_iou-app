@@ -12,12 +12,6 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      redirect: false
-    }
-  }
 
   componentDidMount() {
     this.props.getData()
@@ -33,43 +27,43 @@ class App extends Component {
             <Route
               path='/'
               render={(routeProps) => (
-                <HeaderContainer {...routeProps} {...this.state} />
+                <HeaderContainer {...routeProps}/>
               )}
             />
             <Route
               exact path='/'
               render={(routeProps) => (
-                <LoginFormContainer {...routeProps} {...this.state} />
+                <LoginFormContainer {...routeProps}/>
               )}
             />
             <Route
               exact path='/newtask'
               render={(routeProps) => (
-                <MainPageContainer {...routeProps} {...this.state} />
+                <MainPageContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
               )}
             />
             <Route
               exact path='/groups'
               render={(routeProps) => (
-                <GroupPageContainer {...routeProps} {...this.state} />
+                <GroupPageContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
               )}
             />
             <Route
               exact path='/about'
               render={(routeProps) => (
-                <About {...routeProps} {...this.state} />
+                <About {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
               )}
             />
             <Route
               exact path='/profile'
               render={(routeProps) => (
-                <UserProfileContainer {...routeProps} {...this.state} />
+                <UserProfileContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
               )}
             />
             <Route
               exact path='/voting'
               render={(routeProps) => (
-                <VotingContainer {...routeProps} {...this.state} />
+                <VotingContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
               )}
             />
           </Fragment>
