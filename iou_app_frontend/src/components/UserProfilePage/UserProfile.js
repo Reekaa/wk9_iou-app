@@ -22,7 +22,7 @@ const Main = props => {
     return(
       <div className='page-grid'>
         <div className='user-profile'>
-          <img className="current-user" src={props.currentUser.avatar} width='135' height='100'/>
+          <img className="current-user" src={props.currentUser.avatar}/>
             <div>
             <h1>{props.currentUser.name}</h1>
               <div className='likes'>Likes:
