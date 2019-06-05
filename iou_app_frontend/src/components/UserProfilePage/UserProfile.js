@@ -21,7 +21,10 @@ const Main = props => {
 
     return(
       <div className='page-grid'>
-      <div className='username'>{props.currentUser.name}</div>
+      <div>
+        <img className="current-user" src={props.currentUser.avatar} width='100' height='100'/>
+        <h1>{props.currentUser.name}</h1>
+      </div>
       <div>
         <div className='likes'>Skills:
           <ul className='userskills'>

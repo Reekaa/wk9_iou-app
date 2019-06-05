@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './mainpage.css'
+import './ViewGroupUsers.css'
 
 class ViewGroupUsers extends Component {
   constructor(props) {
