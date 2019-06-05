@@ -7,7 +7,6 @@ class GroupOpenTasks extends Component {
     this.state = {
       showForm: false,
       taskButton: 'Select Task',
-      openTasks: [],
       requestTaskButton: 'Select task',
       dropdownValue: '',
       confirmationMessage: 'TEXT'
@@ -20,16 +19,11 @@ class GroupOpenTasks extends Component {
     this.toggleConfirmationMessage = this.toggleConfirmationMessage.bind(this);
   };
 
-  componentDidMount() {
-    const tasks = this.pushOpenTasks();
-    this.setState({ openTasks: tasks });
-  };
-
   pushOpenTasks() {
     const pushTasks = [];
-    this.props.groupUsers.map((user, i) => {
+    this.props.groupUsers.forEach((user) => {
       if (user.groups[0].requestedTasks) {
-        return user.groups[0].requestedTasks.forEach(task => {
+        user.groups[0].requestedTasks.forEach(task => {
           const data = { ...task, username: user.name };
           pushTasks.push(data);
         })
@@ -39,8 +33,8 @@ class GroupOpenTasks extends Component {
   }
 
   openTasksList() {
-    console.log(this.state.openTasks);
-    return this.state.openTasks.map((task, i) => {
+    const openTasks = this.pushOpenTasks();
+    return openTasks.map((task, i) => {
       return <tr className='task-row' key={i}><td id='remove-border'>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</td></tr>
     });
   }
@@ -54,12 +48,10 @@ class GroupOpenTasks extends Component {
   };
 
   handleSubmit(task) {
-    console.log(task);
+    console.log(this.props.groupUsers);
     const requestData = {
       task
     }
-    console.log(requestData);
-    console.log(this.props.getNewData);
     this.props.addRequestToUser(this.props.currentUser, requestData);
     // // reset requestTaskButton value to 'select' and dropdownValue to ''
     // this.setState({ requestTaskButton: 'Select task', dropdownValue: '' });
@@ -122,7 +114,6 @@ class GroupOpenTasks extends Component {
             <div className='button-container'>
               <button className='addTaskButton' onClick={this.toggleShowForm}>New request</button>
             </div>
-
           </div>
         </div>
         <div>

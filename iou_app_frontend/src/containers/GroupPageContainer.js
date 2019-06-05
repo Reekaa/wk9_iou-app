@@ -11,20 +11,18 @@ const mapDispatchToProps = (dispatch) => ({
             type:'ADD_USERS',
             users
           });
-          if (currentUser) {
-            const groupUsers = users.filter(user => {
-                return user.groups[0].groupName === currentUser.groups[0].groupName;
-              })
-              dispatch({
-                  type:'SET_GROUP_USERS',
-                  groupUsers
-                })}
-                })
-              })
-            })
-          },
+          const groupUsers = users.filter(user => {
+            return user.groups[0].groupName === currentUser.groups[0].groupName;
+          });
+          dispatch({
+            type:'SET_GROUP_USERS',
+            groupUsers
+          });
+        });
+      });
+    });
+  },
   addRequestToUser(currentUser, newRequest) {
-    console.log(newRequest);
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${currentUser._id}/request`, {
         method: 'PUT',

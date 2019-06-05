@@ -30,8 +30,19 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 10,
+          "completedTasks": [
+            {
+              "task": "Babysitting",
+              "value": 10,
+              "whoFor": "Reka",
+              "karma": 10,
+              "date": "2019-06-05T20:56:56.526Z",
+              "cost": {
+                "hours": 1
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false,
@@ -43,7 +54,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -30,
           "completedTasks": []
         }
       ],
@@ -57,7 +68,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -20,
           "completedTasks": [],
           "requestedTasks": []
         }
@@ -71,7 +82,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -30,
           "completedTasks": []
         }
       ],
@@ -84,8 +95,19 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 20,
+          "completedTasks": [
+            {
+              "task": "Painting",
+              "value": 10,
+              "whoFor": "Matthew",
+              "karma": 20,
+              "date": "2019-06-04T20:56:56.526Z",
+              "cost": {
+                "hours": 2
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false,
@@ -97,8 +119,20 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 30,
+          "completedTasks": [
+            {
+              "task": "Gardening",
+              "value": 10,
+              "whoFor": "Euan",
+              "karma": 30,
+              "date": "2019-06-03T20:56:56.526Z",
+              "cost": {
+                "hours": 3
+              }
+            }
+
+          ]
         }
       ],
       "isCurrent": false,
@@ -162,8 +196,19 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 20,
+          "completedTasks": [
+            {
+              "task": "Cleaning",
+              "value": 10,
+              "whoFor": "Reka",
+              "karma": 20,
+              "date": "2019-06-05T20:56:56.526Z",
+              "cost": {
+                "hours": 2
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false,
