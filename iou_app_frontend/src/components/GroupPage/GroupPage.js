@@ -32,7 +32,7 @@ class GroupPage extends Component {
   }
 
   render() {
-    if (localStorage.redirect == "true") {
+    if (localStorage.redirect === "true") {
       console.log(localStorage);
       return <Redirect to='/' />
     } else {

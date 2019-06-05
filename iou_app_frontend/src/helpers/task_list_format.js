@@ -27,8 +27,7 @@ const taskListFormat = (tasks) => {
       'Oct', 'Nov', 'Dec'
     ];
     let suffix;
-    console.log(taskDate[9]);
-    console.log(taskDate[8]);
+
     if (taskDate[9] === '1' && taskDate[8] !== '1') {
       suffix = 'st'
     } else if (taskDate[9] === 2 && taskDate[8] !== 1) {
