@@ -35,7 +35,7 @@ const AddNewTask = (props) => {
     if (props.state.newTaskButton === 'showButton') {
       return(
         <>
-          <button onClick = {(evt) => {handleNewTask(evt)}} id='submitbutt' type="button" className="btn btn-primary">Add Task</button>
+        <button onClick = {(evt) => {handleNewTask(evt)}} id='submitbutt' type="button" className="btn btn-primary">Add New Task</button>
         </>
       )
     }

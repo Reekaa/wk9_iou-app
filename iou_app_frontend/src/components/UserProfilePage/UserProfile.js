@@ -29,33 +29,33 @@ class Main extends Component {
 
       return(
         <div className='page-grid'>
-        <div>
-        <img className="current-user" src={this.props.currentUser.avatar} alt='avatar' width='100' height='100'/>
-        <h1>{this.props.currentUser.name}</h1>
-        </div>
-        <div>
-        <div className='likes'>Skills:
-        <ul className='userskills'>
-        <li>{this.userlikes(this.props.currentUser.skill)}</li>
-        </ul>
-        </div>
-        <div className='groups-container'>
-        <div className='border'>
-        <table id='groups-table' className="table">
-        <thead className="thead-light">
-        <tr>
-        <th>Group</th>
-        <th>Karma</th>
-        <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {populateGroups}
-        </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
+          <div>
+            <img className="current-user" src={this.props.currentUser.avatar} alt='avatar' width='100' height='100'/>
+            <h1>{this.props.currentUser.name}</h1>
+            </div>
+            <div>
+              <div className='likes'>Skills:
+                <ul className='userskills'>
+                  <li>{this.userlikes(this.props.currentUser.skill)}</li>
+                </ul>
+              </div>
+            <div className='groups-container'>
+              <div className='border'>
+                <table id='groups-table' className="table">
+                  <thead className="thead-light">
+                    <tr>
+                      <th>Group</th>
+                      <th>Karma</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {populateGroups}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       )
 

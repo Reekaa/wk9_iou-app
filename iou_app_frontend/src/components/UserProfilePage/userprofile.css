@@ -2,23 +2,16 @@
   margin-left: 500px;
   width: 100%;
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 39%;
   grid-template-rows: auto;
-  text-align: left;
+  font-family: 'Poppins', sans-serif;
 }
 
-.username {
-  margin: 20px 0 0 20px;
-  margin-right: 700px;
-  font-size: 30px;
-  font-weight: 700;
-  text-align: center;
-
-}
 .likes {
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 30px;
   font-size: 25px;
   font-weight: 500;
+  text-align: left;
 }
 .groups-container {
   max-width: 500px;
@@ -63,4 +56,23 @@ th {
 td {
   font-size: 15px;
   font-weight: 500;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.current-user {
+  border-radius: 5px 20px 5px;
+  width: 135px;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  text-align: left;
 }

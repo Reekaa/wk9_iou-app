@@ -6,7 +6,6 @@ import LoginFormContainer from "./containers/LoginFormContainer";
 import GroupPageContainer from "./containers/GroupPageContainer";
 import About from "./components/MainPage/About.js"
 import UserProfileContainer from "./containers/UserProfileContainer";
-import VotingContainer from "./containers/VotingContainer";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 // import containers
 import "./App.css";
@@ -58,12 +57,6 @@ class App extends Component {
               exact path='/profile'
               render={(routeProps) => (
                 <UserProfileContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
-              )}
-            />
-            <Route
-              exact path='/voting'
-              render={(routeProps) => (
-                <VotingContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
               )}
             />
           </Fragment>
