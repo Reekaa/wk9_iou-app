@@ -49,3 +49,15 @@ td {
   font-size: 15px;
   font-weight: 500;
 }
+#request-dropdown {
+  position: relative;
+}
+.request-dropdown-option {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.block-button {
+  display: block;
+  min-width: 200px;
+}
