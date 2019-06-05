@@ -22,19 +22,13 @@ class Navbar extends Component {
   };
 
   logout() {
-    localStorage.redirect = true
     this.props.toggleUser(this.props.user)
     this.props.setCurrentUser({name: null})
     this.toggleClass()
-    this.setState({redirect: !this.state.redirect})
 
   }
 
   render() {
-    if (this.redirect === "true") {
-      console.log(localStorage);
-      return <Redirect to='/' />
-    }
     return(
       <ul className="icon-cont">
         <li id='menu-button' className="dropdown">
@@ -54,8 +48,8 @@ class Navbar extends Component {
               <Link className="link" to="/about">About</Link>
             </div>
             <br/>
-            <div className='link-cont logout link' onClick={() => {this.logout()}}>
-            Logout
+            <div className='link-cont logout' onClick={() => {this.logout()}}>
+              <Link className="link" to="/">Logout</Link>
             </div>
             <br/>
             <div className="icons">
