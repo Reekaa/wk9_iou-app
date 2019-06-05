@@ -144,7 +144,7 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
+          "karma": -20,
           "completedTasks": []
         }
       ],
@@ -183,8 +183,21 @@ db.users.insertMany(
       "groups": [
         {
           "groupName": "SW2",
-          "karma": 0,
-          "completedTasks": []
+          "karma": 20,
+          "completedTasks": [
+            {
+              {
+                "task": "Cleaning",
+                "value": 10,
+                "whoFor": "Rod",
+                "karma": 20,
+                "date": "2019-06-02T20:56:56.526Z",
+                "cost": {
+                  "hours": 2
+                }
+              }
+            }
+          ]
         }
       ],
       "isCurrent": false,
@@ -199,11 +212,11 @@ db.users.insertMany(
           "karma": 20,
           "completedTasks": [
             {
-              "task": "Cleaning",
+              "task": "DIY",
               "value": 10,
               "whoFor": "Reka",
               "karma": 20,
-              "date": "2019-06-05T20:56:56.526Z",
+              "date": "2019-06-01T20:56:56.526Z",
               "cost": {
                 "hours": 2
               }

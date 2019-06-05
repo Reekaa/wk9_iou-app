@@ -9,7 +9,7 @@ class GroupOpenTasks extends Component {
       taskButton: 'Select Task',
       requestTaskButton: 'Select task',
       dropdownValue: '',
-      confirmationMessage: 'TEXT'
+      confirmationMessage: ''
     }
     this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updateTaskButton = this.updateTaskButton.bind(this);
@@ -48,33 +48,20 @@ class GroupOpenTasks extends Component {
   };
 
   handleSubmit(task) {
-    console.log(this.props.groupUsers);
-    const requestData = {
-      task
-    }
+    const requestData = { task };
     this.props.addRequestToUser(this.props.currentUser, requestData);
-    // // reset requestTaskButton value to 'select' and dropdownValue to ''
-    // this.setState({ requestTaskButton: 'Select task', dropdownValue: '' });
-    // // show confirmation message
-    // this.setState({ confirmationMessage: 'Your request has been added!' });
-    // // this.toggleConfirmationMessage();
+    this.setState({ requestTaskButton: 'Select task', dropdownValue: '' });
+    this.toggleConfirmationMessage();
   };
 
   toggleConfirmationMessage() {
-    // setTimeout(() => {
-    //   this.setState({ confirmationMessage: '' });
-    // }, 2500);
-    // // const checkConfirmation = () => {
-    //   return <h3>Your request has been added!</h3>;
-    // }
-    // () => {
-    //   return this.state.confirmationMessage === '' ?
-    //     <h3>Your request has been added!</h3> : '';
-    // }
+    this.setState({ confirmationMessage: 'Your request has been added!' });
+    setTimeout(() => {
+      this.setState({ confirmationMessage: '' });
+    }, 2500);
   };
 
   showOptions() {
-    this.setState({ confirmationMessage: '' });
     if (this.state.dropdownValue === '') {
       const taskOptionsList = taskDropdownFilter(this.props.groupUsers);
       const options = taskOptionsList.map((option, i) => {
