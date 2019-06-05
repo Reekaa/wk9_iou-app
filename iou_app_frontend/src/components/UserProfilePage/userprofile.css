@@ -66,6 +66,7 @@ td {
 .current-user {
   border-radius: 5px 20px 5px;
   width: 135px;
+  height: 100px;
 }
 
 h1 {
