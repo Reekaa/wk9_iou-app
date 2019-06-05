@@ -6,7 +6,11 @@ import { render, fireEvent, cleanup } from "react-testing-library";
 afterEach(cleanup);
 
 const setup = () => {
-  const utils = render( <UserProfile /> );
+  const utils = render(
+    <UserProfile
+      currentUser: {name: "Reka", groups: "SW2"}
+    />
+  );
   const btn = untils.getByLabelText("view-group")
 
   return {
