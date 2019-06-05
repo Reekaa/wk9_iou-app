@@ -35,7 +35,7 @@ class Main extends Component {
     return(
       <div className='main-container-grid'>
         <div className='main-container'>
-          <NewTask object={this.props}/>
+          <NewTask {...this.props}/>
         </div>
         <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
           <ViewGroupUsersContainer />

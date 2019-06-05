@@ -8,9 +8,9 @@ const CostMethod = (props) => {
     } else {
       props.updateCostMethod('How much did the task cost (£s)?')
     }
-    props.object.costMethod(evt)
+    props.costMethod(evt)
     props.updateCostButton(evt)
-    props.object.changeConfirm(false)
+    props.changeConfirm(false)
   }
 
   const costHours = () => {
@@ -33,7 +33,7 @@ const CostMethod = (props) => {
       <label>Did the task take time or money?</label>
         <div>
           <button id="costDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            {props.state.costButton}
+            {props.costButton}
             <span id="caret" className="caret"></span>
           </button>
           <ul className="dropdown-menu">

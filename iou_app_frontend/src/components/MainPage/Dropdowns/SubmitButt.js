@@ -2,29 +2,29 @@ import React from "react";
 
 const SubmitButt = props => {
   const handleSubmit = () => {
-    props.object.tasks.map(task => {
-      if (task.task === props.object.selected.task) {
+    props.tasks.map(task => {
+      if (task.task === props.selected.task) {
         let newTask = task;
-        newTask.whoFor = props.object.selected.user;
-        newTask.karma = props.object.selected.cost * task.value;
+        newTask.whoFor = props.selected.user;
+        newTask.karma = props.selected.cost * task.value;
         newTask.date = new Date();
         newTask.cost = {
-          hours: props.object.selected.cost
+          hours: props.selected.cost
         };
         let whoFor = {};
-        for (let user of props.object.users) {
-          if (user.name === props.object.selected.user) {
+        for (let user of props.users) {
+          if (user.name === props.selected.user) {
             whoFor = user;
           }
         }
-        props.object.addKarmaToUser(whoFor, 0 - newTask.karma);
-        props.object.addKarmaToUser(
-          props.object.currentUser,
+        props.addKarmaToUser(whoFor, 0 - newTask.karma);
+        props.addKarmaToUser(
+          props.currentUser,
           newTask.karma,
-          props.object.currentUser
+          props.currentUser
         );
-        props.object.addTaskToUser(props.object.currentUser, newTask);
-        props.object.changeConfirm(true);
+        props.addTaskToUser(props.currentUser, newTask);
+        props.changeConfirm(true);
       }
     });
     props.updateTaskButton("Select Task");

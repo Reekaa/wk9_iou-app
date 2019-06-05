@@ -3,8 +3,8 @@ import React from 'react'
 const CostNumber = (props) => {
 
   const handleNumber = (evt) => {
-    props.object.selectCost(evt.target.value)
-    props.object.changeConfirm(false)
+    props.selectCost(evt.target.value)
+    props.changeConfirm(false)
   }
 
 
