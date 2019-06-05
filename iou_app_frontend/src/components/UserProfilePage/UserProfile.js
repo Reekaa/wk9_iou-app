@@ -23,7 +23,7 @@ const Main = props => {
       <div className='page-grid'>
       <div className='username'>{props.currentUser.name}</div>
       <div>
-        <div className='likes'>Likes:
+        <div className='likes'>Skills:
           <ul className='userskills'>
             <li>{userlikes(props.currentUser.skill)}</li>
           </ul>

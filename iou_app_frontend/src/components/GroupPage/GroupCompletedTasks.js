@@ -30,7 +30,9 @@ const GroupCompletedTasks = (props) => {
             {recentTasksList}
           </tbody>
         </table>
-        <button className='addTaskButton'><Link to="/newtask">Add task</Link></button>
+        <div className='button-container'>
+          <button className='addTaskButton'><Link to="/newtask">Add task</Link></button>
+        </div>
       </div>
     </div>
   )
