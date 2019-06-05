@@ -4,7 +4,7 @@ import MainPageContainer from "./containers/MainPageContainer";
 import HeaderContainer from "./containers/HeaderContainer"
 import LoginFormContainer from "./containers/LoginFormContainer";
 import GroupPageContainer from "./containers/GroupPageContainer";
-import About from './components/MainPage/About.js'
+import About from "./components/MainPage/About.js"
 import UserProfileContainer from "./containers/UserProfileContainer";
 import VotingContainer from "./containers/VotingContainer";
 import {BrowserRouter as Router, Route} from "react-router-dom";
