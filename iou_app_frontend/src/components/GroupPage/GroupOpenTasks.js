@@ -75,10 +75,18 @@ class GroupOpenTasks extends Component {
 
   createRequestForm() {
     const requestForm =
-        <div>
-          <label htmlFor='request-input'>What do you need help with?</label>
-          <div type='submit' id='request-dropdown' onClick={this.showOptions}>{this.state.requestTaskButton}
-          <div className='request-dropdown-option'>{this.state.dropdownValue}</div></div>
+        <div className='request-form'>
+          <div id='request-form-label'>What do you need help with?</div>
+          <div className='button-container'>
+            <div
+              className='addTaskButton'
+              id='request-dropdown'
+              onClick={this.showOptions}
+              >
+              {this.state.requestTaskButton}
+              <div className='request-dropdown-option'>{this.state.dropdownValue}</div>
+            </div>
+          </div>
         </div>
     return this.state.showForm ? requestForm : null;
   };

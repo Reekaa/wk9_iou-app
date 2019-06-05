@@ -30,6 +30,7 @@
   border-radius: 5px;
   margin: 5px;
   padding: 3px;
+  position: relative;
 }
 .addTaskButton:hover {
   background-color: #e4eef1;
@@ -90,7 +91,7 @@ td, .open-tasks-item {
 .request-dropdown-option {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 30px;
 }
 .block-button {
   display: block;
@@ -98,4 +99,9 @@ td, .open-tasks-item {
 }
 #date {
   width: 150px !important;
+}
+.request-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
