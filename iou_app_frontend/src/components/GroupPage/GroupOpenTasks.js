@@ -41,7 +41,7 @@ class GroupOpenTasks extends Component {
   openTasksList() {
     console.log(this.state.openTasks);
     return this.state.openTasks.map((task, i) => {
-      return <tr key={i}><td>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</td></tr>
+      return <tr className='task-row' key={i}><td id='remove-border'>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</td></tr>
     });
   }
 
