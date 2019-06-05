@@ -5,6 +5,7 @@
   overflow-x: hidden;
   overflow-y: scroll;
   position: relative;
+  font-family: 'Poppins', sans-serif;
 }
 .user-list p {
   margin-top: 5px;
@@ -19,7 +20,7 @@
 .user-list-item {
   transition: all .4s ease-out;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(50px, 50px, 50px);
   font-size: 15px;
   font-weight: 700;
   color: #156678;
@@ -31,8 +32,25 @@
   border: 1px solid #156678;
   height: 120px;
 }
-.user-list-item-name, .user-list-item-karma {
-  justify-self: center;
+
+.user-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  grid-column-start: 1;
+}
+
+.user-list-item-name {
+  display: flex;
+  justify-content: space-around;
+  grid-column-start: 3;
+}
+
+.user-list-item-karma {
+  grid-column-start: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .group-name {
   transition: all .4s ease-out;
@@ -102,7 +120,7 @@
   color: #156678;
 }
 #submitbutt {
-  width: 150px;
+  min-width: 150px;
   height: 40px;
   font-size: 15px;
   font-weight: 700;
