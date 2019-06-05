@@ -26,7 +26,7 @@ const Main = props => {
         <h1>{props.currentUser.name}</h1>
       </div>
       <div>
-        <div className='likes'>Likes:
+        <div className='likes'>Skills:
           <ul className='userskills'>
             <li>{userlikes(props.currentUser.skill)}</li>
           </ul>
