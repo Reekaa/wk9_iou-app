@@ -1,39 +1,63 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 import '../MainPage/mainpage.css'
-import { Link } from 'react-router-dom';
-import taskListFormat from '../../helpers/task_list_format';
 import './GroupPage.css';
 import GroupCompletedTasks from './GroupCompletedTasks';
 import GroupOpenTasks from './GroupOpenTasks';
+import { Redirect } from 'react-router-dom';
 
 
-const GroupPage = (props) => {
 
-  console.log(props);
+class GroupPage extends Component {
+  constructor(props) {
+    super(props)
 
-  const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
+    this.switchRedirect = this.switchRedirect.bind(this)
+    this.userListSidebarHeight = this.userListSidebarHeight.bind(this)
+  }
+  componentDidMount() {
+    window.onbeforeunload = function() {
+        this.switchRedirect();
+    }.bind(this);
+  }
 
-  return (
-    <>
-      <div className='main-container-grid'>
-        <div className='main-container'>
-          <div>
-            {`Group name: ${props.currentUser.groups[0].groupName}`}
+  switchRedirect() {
+
+    localStorage.redirect = true
+    console.log(localStorage);
+  }
+
+  userListSidebarHeight() {
+    return (`${((this.props.groupUsers.length * 40) + 120)}px`);
+  }
+
+  render() {
+    if (localStorage.redirect == "true") {
+      console.log(localStorage);
+      return <Redirect to='/' />
+    } else {
+      return (
+        <>
+          <div className='main-container-grid'>
+            <div className='main-container'>
+              <div className ='group-name-header'>
+                {`Group name: ${this.props.currentUser.groups[0].groupName}`}
+              </div>
+              <GroupCompletedTasks groupUsers={this.props.groupUsers} />
+              <GroupOpenTasks
+                groupUsers={this.props.groupUsers}
+                addRequestToUser={this.props.addRequestToUser}
+                currentUser={this.props.currentUser}
+               />
+            </div>
+            <div className='user-list-sidebar' style={{ height:   `${this.userListSidebarHeight()}` }}>
+              <ViewGroupUsersContainer />
+            </div>
           </div>
-          <GroupCompletedTasks groupUsers={props.groupUsers} />
-          <GroupOpenTasks
-            groupUsers={props.groupUsers}
-            addRequestToUser={props.addRequestToUser}
-            currentUser={props.currentUser}
-          />
-        </div>
-        <div className='user-list-sidebar' style={{ height: `${userListSidebarHeight}` }}>
-          <ViewGroupUsersContainer />
-        </div>
-      </div>
-    </>
-  );
+        </>
+      );
+    }
+  }
 
 };
 

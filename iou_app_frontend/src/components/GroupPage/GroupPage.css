@@ -1,4 +1,10 @@
-.recent-tasks-container {
+.group-name-header {
+  font-size: 25px;
+  font-weight: 700;
+  padding: 20px;
+}
+.recent-tasks-container, .open-tasks-container {
+  min-width: 530px;
   max-width: 700px;
   position: relative;
   display: flex;
@@ -22,6 +28,8 @@
   border: 3px solid #156678;
   color: #156678;
   border-radius: 5px;
+  margin: 5px;
+  padding: 3px;
 }
 .addTaskButton:hover {
   background-color: #e4eef1;
@@ -30,9 +38,36 @@
   width: 97%;
   margin: 10px 10px 0 10px;
 }
-.addTaskButton {
-  margin: 5px;
-  padding: 3px;
+.addTaskRequest {
+  width: 150px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: white;
+  border: 3px solid #156678;
+  color: #156678;
+  border-radius: 5px;
+}
+.open-tasks-container {
+  flex-direction: column;
+  padding: 10px;
+  border: 4px solid #156678;
+  border-radius: 10px;
+}
+.open-tasks-head {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid rgb(221 221 221)
+}
+.open-tasks-item {
+  padding: 5px 0 5px 10px;
+}
+.open-tasks-item:nth-child(even) {
+  background-color: rgba(115, 115, 115, 0.2);
+}
+.centerbutton {
+  display: flex;
+  justify-content: center;
 }
 #groups-table {
   z-index: 1;
@@ -40,12 +75,12 @@
 tr {
   padding-top: 10px;
 }
-th {
+th, .open-tasks-head {
   font-size: 20px;
   font-weight: 600;
   background-color: rgba(#156678, 0.93);
 }
-td {
+td, .open-tasks-item {
   font-size: 15px;
   font-weight: 500;
 }

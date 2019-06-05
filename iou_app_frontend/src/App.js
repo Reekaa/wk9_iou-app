@@ -25,27 +25,39 @@ class App extends Component {
           <Fragment>
             <Route
               path='/'
-              component={HeaderContainer}
+              render={(routeProps) => (
+                <HeaderContainer {...routeProps}/>
+              )}
             />
             <Route
               exact path='/'
-              component={LoginFormContainer}
+              render={(routeProps) => (
+                <LoginFormContainer {...routeProps}/>
+              )}
             />
             <Route
               exact path='/newtask'
-              component={MainPageContainer}
+              render={(routeProps) => (
+                <MainPageContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
+              )}
             />
             <Route
               exact path='/groups'
-              component={GroupPageContainer}
+              render={(routeProps) => (
+                <GroupPageContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
+              )}
             />
             <Route
               exact path='/about'
-              component={About}
+              render={(routeProps) => (
+                <About {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
+              )}
             />
             <Route
               exact path='/profile'
-              component={UserProfileContainer}
+              render={(routeProps) => (
+                <UserProfileContainer {...routeProps} {...this.state} switchRedirect = {this.switchRedirect} />
+              )}
             />
           </Fragment>
         </Router>

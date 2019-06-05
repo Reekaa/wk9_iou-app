@@ -10,6 +10,7 @@ const LoginMiddle = (props) => {
   let redirect;
 
   for (let user of props.users) {
+    console.log(user);
     if (user.isCurrent) {
       props.setCurrentUser(user)
       if (user.groups) {
@@ -20,13 +21,14 @@ const LoginMiddle = (props) => {
       }
       redirect = (
         <Redirect
-        to='/profile'
-        component={UserProfileContainer}
+          to='/profile'
+          component={UserProfileContainer}
         />
       )
     }
   }
 
+console.log(redirect);
   if (redirect) {
     return redirect
   }

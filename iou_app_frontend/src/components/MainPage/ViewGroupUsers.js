@@ -70,15 +70,15 @@ class ViewGroupUsers extends Component {
   }
 
   renderGroupDropdown() {
-    const groupDropdownText = <div
-      className='group-dropdown'
-      >
+    const groupDropdownText = (
+      <div className='group-dropdown'>
         <br />
         <ul>
           <li>View group info</li>
           <li>View your other groups</li>
         </ul>
       </div>
+    )
     return this.state.groupDropdown ?
     groupDropdownText : null;
   }

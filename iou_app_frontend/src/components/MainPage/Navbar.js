@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -25,7 +25,6 @@ class Navbar extends Component {
     this.props.toggleUser(this.props.user)
     this.props.setCurrentUser({name: null})
     this.toggleClass()
-    this.setState({redirect: true})
 
   }
 
@@ -33,25 +32,35 @@ class Navbar extends Component {
     return(
       <ul className="icon-cont">
         <li id='menu-button' className="dropdown">
-          <div className="menu-button" onClick={this.toggleClass}><img className='menuicon' src="/images/menu.png" alt='menuicon'/></div>
-          <div id='slider' className={this.state.active} >
-            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/profile">Profile</Link></div>
-              <br/>
-            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/groups">Groups</Link></div>
-              <br/>
-            <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/about">About</Link></div>
-              <br/>
-            <div className='link-cont logout' onClick={() => {this.logout()}}><Link className="link" to="/">Logout</Link></div>
-              <br/>
+          <div className="menu-button" onClick={this.toggleClass}>
+            <img className='menuicon' src="/images/menu.png" alt='menuicon'/>
+          </div>
+          <div id='slider' className={this.state.active}>
+            <div className='link-cont' onClick={this.toggleClass}>
+              <Link className="link" to="/profile">Profile</Link>
+            </div>
+            <br/>
+            <div className='link-cont' onClick={this.toggleClass}>
+              <Link className="link" to="/groups">Groups</Link>
+            </div>
+            <br/>
+            <div className='link-cont' onClick={this.toggleClass}>
+              <Link className="link" to="/about">About</Link>
+            </div>
+            <br/>
+            <div className='link-cont logout' onClick={() => {this.logout()}}>
+              <Link className="link" to="/">Logout</Link>
+            </div>
+            <br/>
             <div className="icons">
-              <button id="facebook" class="ui circular facebook icon button">
-                <i class="facebook icon"></i>
+              <button id="facebook" className="ui circular facebook icon button">
+                <i className="facebook icon"></i>
               </button>
-              <button id="gmail" class="ui circular google plus icon button">
-                <i class="google plus icon"></i>
+              <button id="gmail" className="ui circular google plus icon button">
+                <i className="google plus icon"></i>
               </button>
-              <button id="insta" class="ui circular instagram icon button">
-                <i class="instagram icon"></i>
+              <button id="insta" className="ui circular instagram icon button">
+                <i className="instagram icon"></i>
               </button>
             </div>
           </div>
