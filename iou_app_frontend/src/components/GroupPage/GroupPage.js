@@ -10,6 +10,8 @@ import GroupOpenTasks from './GroupOpenTasks';
 
 const GroupPage = (props) => {
 
+  console.log(props);
+
   const userListSidebarHeight = `${((props.groupUsers.length * 40) + 120)}px`;
 
   return (
@@ -20,7 +22,11 @@ const GroupPage = (props) => {
             {`Group name: ${props.currentUser.groups[0].groupName}`}
           </div>
           <GroupCompletedTasks groupUsers={props.groupUsers} />
-          <GroupOpenTasks groupUsers={props.groupUsers} />
+          <GroupOpenTasks
+            groupUsers={props.groupUsers}
+            addRequestToUser={props.addRequestToUser}
+            currentUser={props.currentUser}
+          />
         </div>
         <div className='user-list-sidebar' style={{ height: `${userListSidebarHeight}` }}>
           <ViewGroupUsersContainer />
