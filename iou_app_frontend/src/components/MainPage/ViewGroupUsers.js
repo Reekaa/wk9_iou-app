@@ -44,7 +44,7 @@ class ViewGroupUsers extends Component {
           onMouseLeave={() => {this.mouseLeave()}}
           style={{ bottom: `${counter}px` }}
         >
-          <p><img className="user-image" src={user.avatar}/></p>
+          <p><img className="user-image" src={user.avatar} alt='avatar'/></p>
           <p className='user-list-item-name'>
             {user.name}
           </p>
@@ -70,15 +70,15 @@ class ViewGroupUsers extends Component {
   }
 
   renderGroupDropdown() {
-    const groupDropdownText = <div
-      className='group-dropdown'
-      >
+    const groupDropdownText = (
+      <div className='group-dropdown'>
         <br />
         <ul>
           <a href="">View group info</a>
           <li>View your other groups</li>
         </ul>
       </div>
+    )
     return this.state.groupDropdown ?
     groupDropdownText : null;
   }
