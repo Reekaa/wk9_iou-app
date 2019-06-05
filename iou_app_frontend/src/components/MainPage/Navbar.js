@@ -36,12 +36,24 @@ class Navbar extends Component {
           <div className="menu-button" onClick={this.toggleClass}><img className='menuicon' src="/images/menu.png" alt='menuicon'/></div>
           <div id='slider' className={this.state.active} >
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/profile">Profile</Link></div>
-            <br/>
+              <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/groups">Groups</Link></div>
-            <br/>
+              <br/>
             <div className='link-cont' onClick={this.toggleClass}><Link className="link" to="/about">About</Link></div>
-            <br/>
+              <br/>
             <div className='link-cont logout' onClick={() => {this.logout()}}><Link className="link" to="/">Logout</Link></div>
+              <br/>
+            <div className="icons">
+              <button id="facebook" class="ui circular facebook icon button">
+                <i class="facebook icon"></i>
+              </button>
+              <button id="gmail" class="ui circular google plus icon button">
+                <i class="google plus icon"></i>
+              </button>
+              <button id="insta" class="ui circular instagram icon button">
+                <i class="instagram icon"></i>
+              </button>
+            </div>
           </div>
         </li>
       </ul>
