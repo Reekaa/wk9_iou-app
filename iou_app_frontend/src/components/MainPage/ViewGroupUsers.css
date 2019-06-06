@@ -20,7 +20,7 @@
 .user-list-item {
   transition: all .4s ease-out;
   display: grid;
-  grid-template-columns: repeat(50px, 50px, 50px);
+  grid-template-columns: repeat(3);
   font-size: 15px;
   font-weight: 700;
   color: #156678;

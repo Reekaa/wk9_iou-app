@@ -15,7 +15,7 @@ const setup = () => {
   );
   const newTaskInput = utils.getByText("Select Task");
   const taskReceiver = utils.getByText("Select User");
-  const hrsInput = utils.getByText(0)
+  const hrsInput = utils.getByText(0);
   const taskSubmitBtn = utils.getByText("Add task");
   const newTaskBtn = utils.getByText("Add new task");
   const taskOption = utils.getByText("Babysitting");

@@ -44,7 +44,7 @@ class ViewGroupUsers extends Component {
           onMouseLeave={() => {this.mouseLeave()}}
           style={{ bottom: `${counter}px` }}
         >
-          <p><img className="user-image" src={user.avatar} alt='avatar'/></p>
+          <img className="user-image" src={user.avatar} alt='avatar'/>
           <p className='user-list-item-name'>
             {user.name}
           </p>
