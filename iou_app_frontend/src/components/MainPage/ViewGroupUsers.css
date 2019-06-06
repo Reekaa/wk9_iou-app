@@ -82,7 +82,7 @@
   font-weight: 700;
   color: #156678;
   grid-column-start: 1;
-  grid-column-end: two;
+  grid-column-end: 4;
   text-align: center;
   overflow: hidden;
 }
