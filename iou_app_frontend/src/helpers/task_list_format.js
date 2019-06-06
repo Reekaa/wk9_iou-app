@@ -43,23 +43,22 @@ const taskListFormat = (tasks) => {
     return formattedDate;
   };
 
-  return recentTasks.map((task, i) => {
-    if (task !== undefined) {
-      return(
-        <tr className='task-row' key={i}>
-          <td id='remove-border'>
-          {`${task.username} did some ${task.task.toLowerCase()} for ${task.whoFor}`}
-          </td>
-          <td id='date'>
-          {formatDate(task.date)}
-          </td>
-        </tr>
-      )
-    } else {
-      return <tr></tr>
-    }
+  const filteredTasks = recentTasks.filter(task => {
+    return task !== undefined;
   });
 
+  return filteredTasks.map((task, i) => {
+    return(
+      <tr className='task-row' key={i}>
+        <td id='remove-border'>
+          {`${task.username} did some ${task.task.toLowerCase()} for ${task.whoFor}`}
+        </td>
+        <td id='date'>
+          {formatDate(task.date)}
+        </td>
+      </tr>
+    )
+  });
 
 }
 

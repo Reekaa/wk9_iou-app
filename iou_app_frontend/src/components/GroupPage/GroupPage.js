@@ -33,7 +33,6 @@ class GroupPage extends Component {
 
   render() {
     if (localStorage.redirect === "true") {
-      console.log(localStorage);
       return <Redirect to='/' />
     } else {
       return (
@@ -48,6 +47,7 @@ class GroupPage extends Component {
                 groupUsers={this.props.groupUsers}
                 addRequestToUser={this.props.addRequestToUser}
                 currentUser={this.props.currentUser}
+                getNewData={this.props.getNewData}
                />
             </div>
             <div className='user-list-sidebar' style={{ height:   `${this.userListSidebarHeight()}` }}>
