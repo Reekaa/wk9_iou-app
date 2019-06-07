@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import './ViewGroupUsers.css'
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class ViewGroupUsers extends Component {
   constructor(props) {
@@ -7,7 +9,8 @@ class ViewGroupUsers extends Component {
     this.state = {
       selectedUser: '',
       groupDropdown: false,
-      groupNameStyle: { zIndex: '0' }
+      groupNameStyle: { zIndex: '0' },
+      redirect: false
     }
     this.groupUsersList = this.groupUsersList.bind(this);
     this.renderInfo = this.renderInfo.bind(this);
@@ -16,6 +19,18 @@ class ViewGroupUsers extends Component {
     this.groupMouseEnter = this.groupMouseEnter.bind(this);
     this.groupMouseLeave = this.groupMouseLeave.bind(this);
     this.renderGroupDropdown = this.renderGroupDropdown.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  setRedirect() {
+    this.setState({
+      redirect: true
+    })
+  }
+  renderRedirect() {
+    if (this.state.redirect) {
+      return <Redirect to='/profile' />
+    }
   }
 
   mouseEnter(evt) {
@@ -24,6 +39,12 @@ class ViewGroupUsers extends Component {
 
   mouseLeave() {
     this.setState({ selectedUser: null });
+  }
+
+  handleClick(name) {
+    if (name === this.props.currentUser.name) {
+      {this.setRedirect()}
+    }
   }
 
   renderInfo(user, index) {
@@ -42,9 +63,11 @@ class ViewGroupUsers extends Component {
           className='user-list-item'
           onMouseEnter={() => {this.mouseEnter(user.name)}}
           onMouseLeave={() => {this.mouseLeave()}}
+          onClick={() => {this.handleClick(user.name)}}
           style={{ bottom: `${counter}px` }}
         >
-          <img className="user-image" src={user.avatar} alt='avatar'/>
+          {this.renderRedirect()}
+          <p><img className="user-image" src={user.avatar} alt='avatar'/></p>
           <p className='user-list-item-name'>
             {user.name}
           </p>
@@ -74,7 +97,7 @@ class ViewGroupUsers extends Component {
       <div className='group-dropdown'>
         <br />
         <ul>
-          <a href="">View group info</a>
+          <li><Link to="/groups">View group info</Link></li>
           <li>View your other groups</li>
         </ul>
       </div>

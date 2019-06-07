@@ -78,3 +78,7 @@ li {
   text-align: left;
   font-size: 15px;
 }
+.userprofile-div {
+  font-size: 15px;
+  max-width: 550px;
+}

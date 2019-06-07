@@ -10,12 +10,13 @@ const GroupCompletedTasks = (props) => {
       user.groups[0].completedTasks.forEach(task => {
         const data = {...task, username: user.name}
         recentTasks.push(data);
-      })
-    }
-  })
+      });
+    };
+  });
 
-  const recentTasksList = taskListFormat(recentTasks);
-
+  const recentTasksList = () => {
+    return taskListFormat(recentTasks);
+  };
 
   return (
     <div className='recent-tasks-container'>
@@ -27,7 +28,7 @@ const GroupCompletedTasks = (props) => {
             </tr>
           </thead>
           <tbody>
-            {recentTasksList}
+            {recentTasksList()}
           </tbody>
         </table>
         <div className='button-container'>

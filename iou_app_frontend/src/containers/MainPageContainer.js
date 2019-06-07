@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
         body: JSON.stringify(newTask),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then(() => {this.getNewData()});
+      .then(() => {this.getNewData(currentUser)}); //currentUser param added
     })
   },
   addKarmaToUser(user, newKarma, currentUser) {

@@ -24,7 +24,12 @@ class About extends Component {
     }
     return(
       <div>
-      <h3>App description</h3>
+        <br></br>
+      <h1>IOU <br></br></h1>
+        <br></br>
+      <h3>This app allows users to keep track of favours that users do for each other. <br></br>
+          Favours have a value and the overall value of favours provided by each user is visible to all users.
+      </h3>
       </div>
     )}
   }

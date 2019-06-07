@@ -7,10 +7,9 @@ class GroupOpenTasks extends Component {
     this.state = {
       showForm: false,
       taskButton: 'Select Task',
-      openTasks: [],
       requestTaskButton: 'Select task',
       dropdownValue: '',
-      confirmationMessage: 'TEXT'
+      confirmationMessage: ''
     }
     this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updateTaskButton = this.updateTaskButton.bind(this);
@@ -20,16 +19,11 @@ class GroupOpenTasks extends Component {
     this.toggleConfirmationMessage = this.toggleConfirmationMessage.bind(this);
   };
 
-  componentDidMount() {
-    const tasks = this.pushOpenTasks();
-    this.setState({ openTasks: tasks });
-  };
-
   pushOpenTasks() {
     const pushTasks = [];
-    this.props.groupUsers.map((user, i) => {
+    this.props.groupUsers.forEach((user) => {
       if (user.groups[0].requestedTasks) {
-        return user.groups[0].requestedTasks.forEach(task => {
+        user.groups[0].requestedTasks.forEach(task => {
           const data = { ...task, username: user.name };
           pushTasks.push(data);
         })
@@ -39,8 +33,8 @@ class GroupOpenTasks extends Component {
   }
 
   openTasksList() {
-    console.log(this.state.openTasks);
-    return this.state.openTasks.map((task, i) => {
+    const openTasks = this.pushOpenTasks();
+    return openTasks.map((task, i) => {
       return <tr className='task-row' key={i}><td id='remove-border'>{`${task.username} has requested help with ${task.task.toLowerCase()}`}</td></tr>
     });
   }
@@ -54,34 +48,20 @@ class GroupOpenTasks extends Component {
   };
 
   handleSubmit(task) {
-    console.log(task);
-    const requestData = {
-      task
-    }
-    console.log(requestData);
+    const requestData = { task };
     this.props.addRequestToUser(this.props.currentUser, requestData);
-    // // reset requestTaskButton value to 'select' and dropdownValue to ''
-    // this.setState({ requestTaskButton: 'Select task', dropdownValue: '' });
-    // // show confirmation message
-    // this.setState({ confirmationMessage: 'Your request has been added!' });
-    // // this.toggleConfirmationMessage();
+    this.setState({ requestTaskButton: 'Select task', dropdownValue: '' });
+    this.toggleConfirmationMessage();
   };
 
   toggleConfirmationMessage() {
-    // setTimeout(() => {
-    //   this.setState({ confirmationMessage: '' });
-    // }, 2500);
-    // // const checkConfirmation = () => {
-    //   return <h3>Your request has been added!</h3>;
-    // }
-    // () => {
-    //   return this.state.confirmationMessage === '' ?
-    //     <h3>Your request has been added!</h3> : '';
-    // }
+    this.setState({ confirmationMessage: 'Your request has been added!' });
+    setTimeout(() => {
+      this.setState({ confirmationMessage: '' });
+    }, 2500);
   };
 
   showOptions() {
-    this.setState({ confirmationMessage: '' });
     if (this.state.dropdownValue === '') {
       const taskOptionsList = taskDropdownFilter(this.props.groupUsers);
       const options = taskOptionsList.map((option, i) => {
@@ -95,10 +75,18 @@ class GroupOpenTasks extends Component {
 
   createRequestForm() {
     const requestForm =
-        <div>
-          <label htmlFor='request-input'>What do you need help with?</label>
-          <div type='submit' id='request-dropdown' onClick={this.showOptions}>{this.state.requestTaskButton}
-          <div className='request-dropdown-option'>{this.state.dropdownValue}</div></div>
+        <div className='request-form'>
+          <div id='request-form-label'>What do you need help with?</div>
+          <div className='button-container'>
+            <div
+              className='addTaskButton'
+              id='request-dropdown'
+              onClick={this.showOptions}
+              >
+              {this.state.requestTaskButton}
+              <div className='request-dropdown-option'>{this.state.dropdownValue}</div>
+            </div>
+          </div>
         </div>
     return this.state.showForm ? requestForm : null;
   };
@@ -121,7 +109,6 @@ class GroupOpenTasks extends Component {
             <div className='button-container'>
               <button className='addTaskButton' onClick={this.toggleShowForm}>New request</button>
             </div>
-
           </div>
         </div>
         <div>
