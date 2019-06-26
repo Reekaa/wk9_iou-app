@@ -56,3 +56,7 @@ lable{
   font-family: 'Poppins' ,sans-serif;
   text-align: center;
 }
+
+.signUp{
+  display: inline;
+}

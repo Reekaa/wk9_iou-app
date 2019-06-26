@@ -5,10 +5,9 @@ import './SignUpForm.css';
 const SignUpLink = () => {
     return(
   <div className = 'sign-up'>
-  <form>
-  <label>Username:
+  <form className = 'sign-up-form'>
+  <label>Username:</label>
   <input className= 'entry' type='text'></input>
-  </label>
   <label>Skill:</label>
   <input className= 'entry' type='text'></input>
   <label>Profile Description:</label>

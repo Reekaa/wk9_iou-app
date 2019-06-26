@@ -63,7 +63,9 @@ class Login extends Component {
         </div>
         <div id='invalidInput' className="invalidInput">{this.state.errorMessage}</div>
         <div id='signUp'>
+        <div>
         Don't have an account?
+        </div>
         <div id='signUpLink' onClick={this.handleClick}>
         Sign up here!
         </div>
