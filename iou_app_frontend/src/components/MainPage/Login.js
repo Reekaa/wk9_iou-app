@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Redirect } from 'react-router-dom';
+import SignUpForm from './SignUpForm.js'
 
 class Login extends Component {
 
@@ -19,12 +20,11 @@ class Login extends Component {
   handleInputChange(evt) {
     this.setState({userNameInput: evt.target.value})
   }
-  
+
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput, this.props.users)
     for (let user of this.props.users) {
-      console.log(user);
       if (user.name == this.state.userNameInput){
         this.setState({redirect: true})
       }
@@ -33,6 +33,15 @@ class Login extends Component {
       }
     }
   }
+
+  handleClick(evt) {
+    console.log('button clicked');
+  }
+
+  renderSignUp(){
+
+  }
+
 
   render(){
     if (this.state.redirect) {
@@ -53,6 +62,13 @@ class Login extends Component {
           </form>
         </div>
         <div id='invalidInput' className="invalidInput">{this.state.errorMessage}</div>
+        <div id='signUp'>
+        Don't have an account?
+        <div id='signUpLink' onClick={this.handleClick}>
+        Sign up here!
+        </div>
+        <SignUpForm/>
+        </div>
         <div className="slogen">
           Build a community of people that help each other!
         </div>
