@@ -24,6 +24,7 @@ class Navbar extends Component {
   logout() {
     this.props.toggleUser(this.props.user)
     this.props.setCurrentUser({name: null})
+    this.setState({ redirect: true })
     this.toggleClass()
 
   }
