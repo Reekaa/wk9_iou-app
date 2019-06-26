@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import taskDropdownFilter from '../../helpers/task_dropdown_filter.js';
+import './dropdowns.css'
+import NewRequest from './NewRequest';
+
 
 class GroupOpenTasks extends Component {
   constructor(props) {
@@ -11,12 +14,13 @@ class GroupOpenTasks extends Component {
       dropdownValue: '',
       confirmationMessage: ''
     }
-    this.toggleShowForm = this.toggleShowForm.bind(this);
+    // this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updateTaskButton = this.updateTaskButton.bind(this);
     this.pushOpenTasks = this.pushOpenTasks.bind(this);
     this.showOptions = this.showOptions.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleConfirmationMessage = this.toggleConfirmationMessage.bind(this);
+    this.taskOptionsList = taskDropdownFilter(this.props.groupUsers);
   };
 
   pushOpenTasks() {
@@ -39,9 +43,9 @@ class GroupOpenTasks extends Component {
     });
   }
 
-  toggleShowForm() {
-    this.setState({ showForm : !this.state.showForm });
-  };
+  // toggleShowForm() {
+  //   this.setState({ showForm : !this.state.showForm });
+  // };
 
   updateTaskButton(taskButtonText) {
     this.setState({taskButton: taskButtonText})
@@ -65,7 +69,21 @@ class GroupOpenTasks extends Component {
     if (this.state.dropdownValue === '') {
       const taskOptionsList = taskDropdownFilter(this.props.groupUsers);
       const options = taskOptionsList.map((option, i) => {
-        return <button onClick={() => {this.handleSubmit(option)}} className='block-button' key={i} value={option}>{option}</button>;
+        return (
+          <li
+            className='dropdown-cont'
+            key={option}
+          >
+            <div
+              id='dropdown-option'
+              className='dropdown-cont'
+              value={option}
+              onClick={() => {this.handleSubmit(option)}}
+            >
+            {option}
+            </div>
+          </li>
+        )
       });
       this.setState({ dropdownValue: options});
     } else {
@@ -77,17 +95,19 @@ class GroupOpenTasks extends Component {
     const requestForm =
         <div className='request-form'>
           <div id='request-form-label'>What do you need help with?</div>
-          <div className='button-container'>
-            <div
-              className='addTaskButton'
-              id='request-dropdown'
-              onClick={this.showOptions}
-              >
+            <button
+              id="taskDropdown"
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+            >
               {this.state.requestTaskButton}
-              <div className='request-dropdown-option'>{this.state.dropdownValue}</div>
-            </div>
+              <span id="caret" className="caret"></span>
+            </button>
+            <ul className="dropdown-menu">
+              {this.tasks}
+            </ul>
           </div>
-        </div>
     return this.state.showForm ? requestForm : null;
   };
 
@@ -106,13 +126,17 @@ class GroupOpenTasks extends Component {
                 {this.openTasksList()}
               </tbody>
             </table>
-            <div className='button-container'>
-              <button className='addTaskButton' onClick={this.toggleShowForm}>New request</button>
-            </div>
           </div>
         </div>
-        <div>
-          {this.createRequestForm()}
+        <div className='recent-tasks-container'>
+          <div className='border'>
+            <NewRequest
+              taskOptionsList={this.taskOptionsList}
+              handleSubmit={this.handleSubmit}
+              taskButton={this.state.taskButton}
+              updateTaskButton={this.updateTaskButton}
+              />
+          </div>
         </div>
         <div className='confirmation-message'>
           {this.state.confirmationMessage}
