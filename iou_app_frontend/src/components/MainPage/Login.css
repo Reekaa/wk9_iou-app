@@ -48,3 +48,11 @@ lable{
   font-family: 'Indie Flower', sans-serif;
   font-weight: bold;
 }
+
+.invalidInput {
+  font-size: 15px;
+  font-weight: 400;
+  color: red;
+  font-family: 'Poppins' ,sans-serif;
+  text-align: center;
+}
