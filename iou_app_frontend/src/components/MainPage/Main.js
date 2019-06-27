@@ -11,7 +11,7 @@ class Main extends Component {
     this.switchRedirect = this.switchRedirect.bind(this)
   }
   componentDidMount() {
-    console.log('component did mount');
+    console.log(this.props);
     window.onbeforeunload = function() {
         this.switchRedirect();
     }.bind(this);
