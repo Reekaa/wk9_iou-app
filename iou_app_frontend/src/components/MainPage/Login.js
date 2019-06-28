@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Redirect } from 'react-router-dom';
-import SignUpForm from './SignUpForm.js'
 
 class Login extends Component {
 
@@ -69,7 +68,6 @@ class Login extends Component {
         <div id='signUpLink' onClick={this.handleClick}>
         Sign up here!
         </div>
-        <SignUpForm/>
         </div>
         <div className="slogen">
           Build a community of people that help each other!
