@@ -19,12 +19,11 @@ class Login extends Component {
   handleInputChange(evt) {
     this.setState({userNameInput: evt.target.value})
   }
-  
+
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.getCurrentUser(this.state.userNameInput, this.props.users)
     for (let user of this.props.users) {
-      console.log(user);
       if (user.name == this.state.userNameInput){
         this.setState({redirect: true})
       }

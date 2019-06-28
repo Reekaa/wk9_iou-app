@@ -30,8 +30,6 @@ const mapDispatchToProps = dispatch => ({
           })
         }
       })
-
-
     })
   },
   setCurrentUser(currentUser) {

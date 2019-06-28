@@ -4,16 +4,25 @@ import './dropdowns.css'
 const UsersDropdown = (props) => {
 
   const handleUsersDropdown = (evt) => {
-    props.object.selectUser(evt)
+    console.log(evt);
+    // props.object.selectUser(evt)
     props.updateUserButton(evt)
-    props.object.changeConfirm(false)
+    // props.object.changeConfirm(false)
   }
 
-  const users = props.object.groupUsers.map((user) => {
-    if (user.name !== props.object.currentUser.name) {
+  const users = props.props.props.groupUsers.map((user) => {
+    if (user.name !== props.props.props.currentUser.name) {
       return (
-        <li key={user._id}>
-          <div id='dropdown-option' onClick={() => {handleUsersDropdown(user.name)}}>{user.name}</div>
+        <li
+          className='dropdown-cont'
+          key={user._id}
+        >
+          <div
+            id='dropdown-option'
+            onClick={() => {handleUsersDropdown(user)}}
+          >
+            {user.name}
+          </div>
         </li>);
       } else {
       return null
@@ -23,8 +32,13 @@ const UsersDropdown = (props) => {
   return(
     <>
       <label>Who did you do it for?</label>
-        <button id="userDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-          {props.state.userButton}
+        <button
+          id="userDropdown"
+          className="btn btn-primary dropdown-toggle"
+          type="button"
+          data-toggle="dropdown"
+        >
+          {props.state.userButton.name}
           <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">

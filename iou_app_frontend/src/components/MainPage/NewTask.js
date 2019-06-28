@@ -9,8 +9,9 @@ class NewTask extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      taskButton: 'Select Task',
-      userButton: 'Select User',
+      taskButton: {_id: 0, task: "Select Task"},
+      userButton: {_id: 0, name: "Select User"},
+      duration: '',
       newTaskForm: 'none',
       newTaskButton: 'showButton',
       errorMessage: ''
@@ -18,27 +19,31 @@ class NewTask extends Component {
     this.confirmation = this.confirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
+    this.updateDuration = this.updateDuration.bind(this)
     this.updateErrorMessage = this.updateErrorMessage.bind(this)
     this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
     this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
   }
 
   confirmation() {
-    if(this.props.object.confirm === true){
+    if(this.props.confirm === true){
     return (
       <div className='confirm-text'>
         Task submitted!
       </div>
     )}else{
-      return <div></div>
+      return <div/>
     }
   }
 
-  updateTaskButton(taskButtonText) {
-    this.setState({taskButton: taskButtonText})
+  updateTaskButton(taskButton) {
+    this.setState({taskButton})
   }
-  updateUserButton(userButtonText) {
-    this.setState({userButton: userButtonText})
+  updateUserButton(userButton) {
+    this.setState({userButton})
+  }
+  updateDuration(duration) {
+    this.setState({duration})
   }
   updateErrorMessage(errorText) {
     this.setState({errorMessage: errorText})
@@ -57,21 +62,33 @@ class NewTask extends Component {
           <div className='new-task'>New Task:</div>
           <div className='dropdown-container'>
             <div id='dropdown' className="dropdown">
-              <TasksDropdown object={this.props.object} state={this.state} updateTaskButton={this.updateTaskButton}/>
+              <TasksDropdown
+                props={this.props}
+                state={this.state}
+                updateTaskButton={this.updateTaskButton}
+              />
             </div>
             <div id='dropdown' className="dropdown">
-              <UsersDropdown object={this.props.object} state={this.state} updateUserButton={this.updateUserButton}/>
+              <UsersDropdown
+                props={this.props}
+                state={this.state}
+                updateUserButton={this.updateUserButton}
+              />
             </div>
             <div id='dropdown' className="dropdown">
-              <CostNumber object={this.props.object} state={this.state}/>
+              <CostNumber
+                props={this.props}
+                state={this.state}
+                updateDuration={this.updateDuration}
+              />
             </div>
             <div id='submit-container'>
               <SubmitButt
-                object={this.props.object}
+                props={this.props}
                 state={this.state}
                 updateTaskButton={this.updateTaskButton}
                 updateUserButton={this.updateUserButton}
-                updateCostButton={this.updateCostButton}
+                updateDuration={this.updateDuration}
               />
             </div>
             {this.confirmation()}
@@ -79,7 +96,7 @@ class NewTask extends Component {
         </div>
         <div className='new-task-container'>
           <AddNewTask
-            object={this.props.object}
+            props={this.props}
             state={this.state}
             updateErrorMessage={this.updateErrorMessage}
             updateNewTaskForm={this.updateNewTaskForm}

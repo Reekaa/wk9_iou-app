@@ -2,14 +2,14 @@ import React from 'react'
 import './dropdowns.css'
 
 const TasksDropdown = (props) => {
-
   const handleTasksDropdown = (evt) => {
-    props.object.selectTask(evt)
-    props.updateTaskButton(evt)
-    props.object.changeConfirm(false)
+    console.log(evt);
+    // props.object.selectTask(evt)
+    props.updateTaskButton(evt) //updates text on task button
+    // props.object.changeConfirm(false)
   }
 
-  const tasks = props.object.tasks.map((task) => {
+  const tasks = props.props.props.tasks.map((task) => {
     return (
       <li
         className='dropdown-cont'
@@ -17,7 +17,7 @@ const TasksDropdown = (props) => {
       >
         <div
           id='dropdown-option'
-          onClick={() => {handleTasksDropdown(task.task)}}
+          onClick={() => {handleTasksDropdown(task)}}
         >
           {task.task}
         </div>
@@ -34,7 +34,7 @@ const TasksDropdown = (props) => {
           type="button"
           data-toggle="dropdown"
         >
-          {props.state.taskButton}
+          {props.state.taskButton.task}
           <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">
