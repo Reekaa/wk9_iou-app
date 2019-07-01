@@ -17,7 +17,8 @@ class LogInPage extends Component {
           getCurrentUser={this.props.getCurrentUser}
           setGroupUsers={this.props.setGroupUsers}
         />
-        <SignUpForm/>
+        <SignUpForm
+          createNewUser = {this.props.createNewUser}/>
       </div>
     )
   }

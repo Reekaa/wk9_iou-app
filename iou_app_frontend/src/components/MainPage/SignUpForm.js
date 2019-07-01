@@ -9,7 +9,7 @@ class SignUpForm extends Component {
     this.state = {
       name: '',
       skill: '',
-      userProfile: ''
+      userprofile: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -26,9 +26,15 @@ class SignUpForm extends Component {
     const newUser = {
       name: this.state.name,
       skill: this.state.skill,
-      userProfile: this.state.userProfile
+      userprofile: this.state.userprofile,
+      groups: [{
+          groupName: 'SW2',
+          karma: 0,
+          completedTasks: [],
+      }],
+      avatar: "./images/avatar.jpeg"
     };
-    this.createNewUser(newUser);
+    this.props.createNewUser(newUser);
     this.resetForm();
   };
 
@@ -38,7 +44,8 @@ class SignUpForm extends Component {
     this.setState({
       name: '',
       skill: '',
-      userProfile: ''
+      userprofile: '',
+
     })
   }
 
@@ -68,8 +75,8 @@ class SignUpForm extends Component {
       <input
         className= 'entry'
         type='text'
-        id='userProfile'
-        value={this.state.userProfile}
+        id='userprofile'
+        value={this.state.userprofile}
         onChange={this.handleInputChange}>
       </input>
       <input id="submit" type="submit" value="Sign Up" onClick={this.handleFormSubmit} />
@@ -78,4 +85,4 @@ class SignUpForm extends Component {
 )}
 }
 
-export default SignUpForm
+export default SignUpForm;

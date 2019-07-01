@@ -46,7 +46,7 @@ const mapDispatchToProps = dispatch => ({
           type: 'ADD_USER',
           currentUser
         })
-        console.log('running');
+        console.log('hit add new user');
       })
     })
   },
