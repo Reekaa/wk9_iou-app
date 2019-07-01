@@ -14,25 +14,33 @@ class NewTask extends Component {
       duration: '',
       newTaskForm: 'none',
       newTaskButton: 'showButton',
-      errorMessage: ''
+      userMessage: ''
     }
     this.confirmation = this.confirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateDuration = this.updateDuration.bind(this)
-    this.updateErrorMessage = this.updateErrorMessage.bind(this)
+    this.updateUserMessage = this.updateUserMessage.bind(this)
     this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
     this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
   }
 
   confirmation() {
-    if(this.props.confirm === true){
-    return (
-      <div className='confirm-text'>
-        Task submitted!
-      </div>
-    )}else{
-      return <div/>
+    switch (this.state.userMessage) {
+      case 'incomplete form':
+          return(
+            <div id='invalidInput' className="invalidInput">
+            Please complete all of the form
+            </div>
+          )
+      case 'complete form':
+          return(
+            <div id='validInput' className="validInput">
+            Thank you for helping your community
+            </div>
+          )
+      default:
+        return null
     }
   }
 
@@ -45,8 +53,8 @@ class NewTask extends Component {
   updateDuration(duration) {
     this.setState({duration})
   }
-  updateErrorMessage(errorText) {
-    this.setState({errorMessage: errorText})
+  updateUserMessage(userMessage) {
+    this.setState({userMessage})
   }
   updateNewTaskForm(formText) {
     this.setState({newTaskForm: formText})
@@ -89,6 +97,7 @@ class NewTask extends Component {
                 updateTaskButton={this.updateTaskButton}
                 updateUserButton={this.updateUserButton}
                 updateDuration={this.updateDuration}
+                updateUserMessage={this.updateUserMessage}
               />
             </div>
             {this.confirmation()}
