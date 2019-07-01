@@ -33,6 +33,15 @@ class Login extends Component {
     }
   }
 
+  handleClick(evt) {
+    console.log('button clicked');
+  }
+
+  renderSignUp(){
+
+  }
+
+
   render(){
     if (this.state.redirect) {
       return <Redirect to='/profile'/>
@@ -52,6 +61,14 @@ class Login extends Component {
           </form>
         </div>
         <div id='invalidInput' className="invalidInput">{this.state.errorMessage}</div>
+        <div id='signUp'>
+        <div>
+        Don't have an account?
+        </div>
+        <div id='signUpLink' onClick={this.handleClick}>
+        Sign up here!
+        </div>
+        </div>
         <div className="slogen">
           Build a community of people that help each other!
         </div>

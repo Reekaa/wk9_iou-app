@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import LoginMiddle from '../components/MainPage/LoginMiddle.js';
+import LogInPage from '../components/MainPage/LogInPage.js';
 
 const mapDispatchToProps = dispatch => ({
   setGroupUsers(groupUsers) {
@@ -32,6 +32,25 @@ const mapDispatchToProps = dispatch => ({
       })
     })
   },
+
+  createNewUser(newUser) {
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/users`, {
+        method: 'POST',
+        body: JSON.stringify(newUser),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => response.json())
+      .then((currentUser) => {
+        dispatch({
+          type: 'ADD_USER',
+          currentUser
+        })
+        console.log('hit add new user');
+      })
+    })
+  },
+
   setCurrentUser(currentUser) {
     dispatch({
       type: 'SET_CURRENT_USER',
@@ -47,4 +66,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginMiddle);
+export default connect(mapStateToProps, mapDispatchToProps)(LogInPage);

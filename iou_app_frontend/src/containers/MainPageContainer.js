@@ -74,6 +74,7 @@ const mapDispatchToProps = dispatch => ({
       });
     })
   },
+
   changeConfirm(confirm) {
     dispatch({
       type: 'CONFIRM_TASK',
