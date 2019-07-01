@@ -61,6 +61,7 @@ const mapDispatchToProps = dispatch => ({
       .then(this.getTasksData());
     })
   },
+
   changeConfirm(confirm) {
     dispatch({
       type: 'CONFIRM_TASK',
