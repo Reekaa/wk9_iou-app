@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import Main from "../components/MainPage/Main";
 
+
+
 const mapDispatchToProps = dispatch => ({
   selectTask(selectedTask) {
     dispatch({
@@ -37,28 +39,39 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   addKarmaToUser(user, newKarma, currentUser) {
-    let karma = {karma: newKarma}
-
+    let updateKarma = {karma: newKarma}
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${user._id}/karma`, {
         method: 'PUT',
-        body: JSON.stringify(karma),
+        body: JSON.stringify(updateKarma),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then((response) => response.json())
-      .then(this.getNewData(currentUser));
+      .then((res) => res.json())
+      .then(users => {
+        dispatch({
+          type:'ADD_USERS',
+          users
+        })
+      })
     })
   },
+
   createNewTask(taskName) {
     let newTask = {task: taskName, value: 10}
+    console.log(`posting new task ${newTask.task}`);
     dispatch (() => {
       fetch(`http://localhost:3000/api/tasks`, {
         method: 'POST',
         body: JSON.stringify(newTask),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then((response) => response.json())
-      .then(this.getTasksData());
+      .then((res) => res.json())
+      .then(tasks =>{
+        dispatch({
+          type:'ADD_TASKS',
+          tasks
+        })
+      });
     })
   },
 
@@ -69,6 +82,7 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   getNewData(currentUser) {
+    console.log(`getting new data list`);
     dispatch(() =>{
       fetch('http://localhost:3000/api/users')
       .then(res => {
@@ -95,11 +109,11 @@ const mapDispatchToProps = dispatch => ({
       fetch('http://localhost:3000/api/tasks')
       .then(res => {
         return res.json().then(tasks => {
-        dispatch({
-          type:'ADD_TASKS',
-          tasks
+          dispatch({
+            type:'ADD_TASKS',
+            tasks
+          })
         })
-      })
       })
     })
   }
@@ -116,5 +130,6 @@ const mapStateToProps = state => {
     confirm: state.confirm
   };
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

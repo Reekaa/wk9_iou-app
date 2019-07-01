@@ -16,7 +16,11 @@ class App extends Component {
     this.props.getData()
     this.props.getTasksData()
     //anything you want to run straight away
+
+    console.log('appjs');
   }
+
+
 
   render() {
     return (
@@ -67,6 +71,8 @@ class App extends Component {
 
 }
 
+
+
 const mapDispatchToProps = dispatch => {
   return {
     getData() {
@@ -82,6 +88,7 @@ const mapDispatchToProps = dispatch => {
         })
       })
     },
+
     getTasksData() {
       dispatch(() =>{
         fetch('http://localhost:3000/api/tasks')
@@ -95,8 +102,6 @@ const mapDispatchToProps = dispatch => {
         })
       })
     }
-
-
   }
 }
 
