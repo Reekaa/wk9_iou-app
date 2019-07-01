@@ -37,13 +37,16 @@ const SubmitButt = props => {
       date: new Date(),
       cost: {hours:props.state.duration}
     }
-    console.log(newTask);
-    props.props.props.addTaskToUser(props.props.props.currentUser, newTask)
-    props.props.props.addKarmaToUser(props.props.props.currentUser, newTask.karma) // add karma to current user
-    props.props.props.addKarmaToUser(props.state.userButton, 0 - newTask.karma) //subtract karma from who you helped
-    props.updateTaskButton({_id: null, task: "Select Task"});
-    props.updateUserButton({_id: null, name: "Select User"});
-    props.updateDuration('')
+    if(props.state.userButton && props.state.duration && props.state.taskButton) {
+      props.props.props.addTaskToUser(props.props.props.currentUser, newTask)
+      props.props.props.addKarmaToUser(props.props.props.currentUser, newTask.karma) // add karma to current user
+      props.props.props.addKarmaToUser(props.state.userButton, 0 - newTask.karma) //subtract karma from who you helped
+      props.updateTaskButton({_id: null, task: "Select Task"});
+      props.updateUserButton({_id: null, name: "Select User"});
+      props.updateDuration('')
+    }else{
+      console.log('need to fill out form correctly');
+    }
   };
 
   return (
