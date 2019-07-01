@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './mainpage.css'
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
+// import UserProfile from '../UserProfilePage/UserProfile';
 import NewTask from './NewTask'
 import { Redirect } from 'react-router-dom';
 
