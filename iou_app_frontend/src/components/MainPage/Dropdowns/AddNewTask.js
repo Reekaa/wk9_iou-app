@@ -2,6 +2,7 @@ import React from 'react'
 
 const AddNewTask = (props) => {
 
+console.log(props);
   const handleNewTask = (evt) => {
     props.updateNewTaskButton('none')
     props.updateNewTaskForm('showForm')
@@ -12,7 +13,7 @@ const AddNewTask = (props) => {
     if (newTask.length >= 20) {
       props.updateErrorMessage('Task cannnot be longer than 20 characters')
     } else {
-      props.object.createNewTask(newTask)
+      props.props.props.createNewTask(newTask)
       props.updateNewTaskButton('showButton')
       props.updateNewTaskForm('none')
     }
