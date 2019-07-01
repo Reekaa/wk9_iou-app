@@ -50,6 +50,7 @@ class SignUpForm extends Component {
   }
 
   render(){
+    if(this.props.showSignUp){
     return(
   <div className = 'sign-up'>
     <form className = 'sign-up-form'>
@@ -83,6 +84,8 @@ class SignUpForm extends Component {
     </form>
   </div>
 )}
+return null
+}
 }
 
 export default SignUpForm;
