@@ -12,8 +12,7 @@ class NewTask extends Component {
       taskButton: {_id: 0, task: "Select Task"},
       userButton: {_id: 0, name: "Select User"},
       duration: '',
-      newTaskForm: 'none',
-      newTaskButton: 'showButton',
+      showNewTaskForm: false,
       userMessage: ''
     }
     this.confirmation = this.confirmation.bind(this)
@@ -21,7 +20,7 @@ class NewTask extends Component {
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateDuration = this.updateDuration.bind(this)
     this.updateUserMessage = this.updateUserMessage.bind(this)
-    this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
+    this.revealNewTaskForm = this.revealNewTaskForm.bind(this)
     this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
   }
 
@@ -56,11 +55,11 @@ class NewTask extends Component {
   updateUserMessage(userMessage) {
     this.setState({userMessage})
   }
-  updateNewTaskForm(formText) {
-    this.setState({newTaskForm: formText})
+  revealNewTaskForm() {
+    this.setState({showNewTaskForm:!this.state.showNewTaskForm})
   }
-  updateNewTaskButton(buttonText) {
-    this.setState({newTaskButton: buttonText})
+  updateNewTaskButton(newTaskButton) {
+    this.setState({newTaskButton})
   }
 
   render() {
@@ -108,7 +107,7 @@ class NewTask extends Component {
             props={this.props}
             state={this.state}
             updateErrorMessage={this.updateErrorMessage}
-            updateNewTaskForm={this.updateNewTaskForm}
+            revealNewTaskForm={this.revealNewTaskForm}
             updateNewTaskButton={this.updateNewTaskButton}/>
         </div>
       </>

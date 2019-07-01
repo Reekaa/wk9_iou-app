@@ -5,7 +5,7 @@ const AddNewTask = (props) => {
 console.log(props);
   const handleNewTask = (evt) => {
     props.updateNewTaskButton('none')
-    props.updateNewTaskForm('showForm')
+    props.revealNewTaskForm()
   }
   const handleNewTaskSubmit = (evt) => {
     evt.preventDefault()
@@ -14,13 +14,12 @@ console.log(props);
       props.updateErrorMessage('Task cannnot be longer than 20 characters')
     } else {
       props.props.props.createNewTask(newTask)
-      props.updateNewTaskButton('showButton')
-      props.updateNewTaskForm('none')
+      props.revealNewTaskForm()
     }
   }
 
   const newTaskForm = () => {
-    if (props.state.newTaskForm === 'showForm') {
+    if (props.state.showNewTaskForm === true) {
       return (
         <>
           <form className="new-task-form" onSubmit={(evt) => {handleNewTaskSubmit(evt)}}>
@@ -33,7 +32,7 @@ console.log(props);
     }
   }
   const newTaskButton = () => {
-    if (props.state.newTaskButton === 'showButton') {
+    if (props.state.showNewTaskForm === false) {
       return(
         <>
         <button onClick = {(evt) => {handleNewTask(evt)}} id='submitbutt' type="button" className="btn btn-primary">Add New Task</button>
@@ -48,7 +47,8 @@ console.log(props);
       <div className='button-container'>
         {newTaskButton()}
       </div>
-      {newTaskForm()}
+      <div> {newTaskForm()}</div>
+      <div> {} </div>
     </>
   )
 }
