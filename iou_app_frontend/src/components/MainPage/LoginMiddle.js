@@ -40,6 +40,8 @@ const LoginMiddle = (props) => {
         users = {props.users}
         setGroupUsers = {props.setGroupUsers}
         setCurrentUser = {props.setCurrentUser}
+        showSignUp = {props.showSignUp}
+        signUp = {props.signUp}
 
       />
     </div>
