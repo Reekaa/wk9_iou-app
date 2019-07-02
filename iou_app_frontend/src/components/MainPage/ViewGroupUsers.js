@@ -82,8 +82,7 @@ class ViewGroupUsers extends Component {
   }
 
   groupMouseEnter() {
-    this.setState({ groupNameStyle: { zIndex: '1' }});
-    this.setState({ groupDropdown: true });
+    this.setState({ groupDropdown: true, groupNameStyle: { zIndex: '1' }});
   }
 
   groupMouseLeave() {
@@ -115,7 +114,7 @@ class ViewGroupUsers extends Component {
           onMouseLeave={this.groupMouseLeave}
           style={this.state.groupNameStyle}
         >
-          <h3>Current group: {this.props.groupName}</h3>
+          <div>Current group: {this.props.groupName}</div>
           <div>{this.renderGroupDropdown()}</div>
         </div>
         {this.groupUsersList()}

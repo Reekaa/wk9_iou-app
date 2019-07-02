@@ -1,56 +1,128 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const AddNewTask = (props) => {
-
-console.log(props);
-  const handleNewTask = (evt) => {
-    props.updateNewTaskButton('none')
-    props.revealNewTaskForm()
+class AddNewTask extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      revealNewTaskForm: false,
+      newTask:'',
+      newTaskMessage:''
+    }
+    this.revealNewTaskForm=this.revealNewTaskForm.bind(this);
+    this.handleFormChange=this.handleFormChange.bind(this);
+    this.updateNewTaskMessage=this.updateNewTaskMessage.bind(this);
+    this.handleNewTaskSubmit=this.handleNewTaskSubmit.bind(this);
   }
-  const handleNewTaskSubmit = (evt) => {
-    evt.preventDefault()
-    let newTask = evt.target.inlineFormInputName.value;
-    if (newTask.length >= 20) {
-      props.updateErrorMessage('Task cannnot be longer than 20 characters')
+
+  revealNewTaskForm() {
+    this.setState({revealNewTaskForm:true})
+  }
+
+  handleFormChange(event) {
+    this.setState({ newTask: event.target.value });
+  }
+
+  updateNewTaskMessage(newTaskMessage) {
+    this.setState({newTaskMessage})
+  }
+
+  handleNewTaskSubmit(event){
+    event.preventDefault()
+    if (this.state.newTask.length >= 20) {
+      this.setState({newTaskMessage:'string too long'})
+      setTimeout(() => {
+        this.setState({newTaskMessage:''});
+      }, 2500);
     } else {
-      props.props.props.createNewTask(newTask)
-      props.revealNewTaskForm()
+      this.props.props.props.createNewTask(this.state.newTask)
+      this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
+      setTimeout(() => {
+        this.setState({newTaskMessage:''});
+      }, 2500);
     }
   }
 
-  const newTaskForm = () => {
-    if (props.state.showNewTaskForm === true) {
-      return (
-        <>
-          <form className="new-task-form" onSubmit={(evt) => {handleNewTaskSubmit(evt)}}>
-            <input type="text" className="form-control" id="inlineFormInputName" placeholder="Babysitting"/>
-            <button type="submit" id='submitbutt' className="btn btn-primary">Submit</button>
-          </form>
-          <div id='invalidInput' className="invalidInput">{props.state.errorMessage}</div>
-        </>
-      )
-    }
-  }
-  const newTaskButton = () => {
-    if (props.state.showNewTaskForm === false) {
+  newTaskButton(){
+    if (this.state.revealNewTaskForm === false) {
       return(
         <>
-        <button onClick = {(evt) => {handleNewTask(evt)}} id='submitbutt' type="button" className="btn btn-primary">Add New Task</button>
+          <button
+            onClick = {this.revealNewTaskForm}
+            id='submitbutt'
+            type="button"
+            className="btn btn-primary"
+          >
+            Add New Task
+          </button>
         </>
       )
     }
   }
 
-  return (
-    <>
+  newTaskForm(){
+    if (this.state.revealNewTaskForm === true) {
+      return (
+        <>
+          <form
+            className="new-task-form"
+            onSubmit={this.handleNewTaskSubmit}
+          >
+            <input
+              type="text"
+              className="form-control"
+              id="inlineFormInputName"
+              placeholder="Babysitting"
+              value = {this.state.newTask}
+              onChange={this.handleFormChange}
+            />
+            <button
+              type="submit"
+              id='submitbutt'
+              className="btn btn-primary"
+            >
+              Submit
+            </button>
+          </form>
+        </>
+      )
+    }
+  }
+
+  newTaskConfirmation (){
+    switch (this.state.newTaskMessage) {
+      case 'string too long':
+          return(
+            <div id='invalidInput' className="invalidInput">
+              Task cannot be longer than 20 characters
+            </div>
+          )
+      case 'complete form':
+          return(
+            <div id='validInput' className="validInput">
+              New task added
+            </div>
+          )
+      default:
+        return null
+    }
+  }
+
+  render(){
+    return (
+      <>
       <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
       <div className='button-container'>
-        {newTaskButton()}
+      {this.newTaskButton()}
       </div>
-      <div> {newTaskForm()}</div>
-      <div> {} </div>
-    </>
-  )
+      <div>
+      {this.newTaskForm()}
+      </div>
+      <div>
+      {this.newTaskConfirmation()}
+      </div>
+      </>
+    )
+  }
 }
 
 export default AddNewTask

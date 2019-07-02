@@ -15,16 +15,17 @@ class NewTask extends Component {
       showNewTaskForm: false,
       userMessage: ''
     }
-    this.confirmation = this.confirmation.bind(this)
+    this.submitConfirmation = this.submitConfirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateDuration = this.updateDuration.bind(this)
     this.updateUserMessage = this.updateUserMessage.bind(this)
-    this.revealNewTaskForm = this.revealNewTaskForm.bind(this)
-    this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
+    // this.revealNewTaskForm = this.revealNewTaskForm.bind(this)
+    // this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
+    // this.updateNewTaskMessage = this.updateNewTaskMessage.bind(this)
   }
 
-  confirmation() {
+  submitConfirmation() {
     switch (this.state.userMessage) {
       case 'incomplete form':
           return(
@@ -55,12 +56,10 @@ class NewTask extends Component {
   updateUserMessage(userMessage) {
     this.setState({userMessage})
   }
-  revealNewTaskForm() {
-    this.setState({showNewTaskForm:!this.state.showNewTaskForm})
-  }
-  updateNewTaskButton(newTaskButton) {
-    this.setState({newTaskButton})
-  }
+
+  // updateNewTaskButton(newTaskButton) {
+  //   this.setState({newTaskButton})
+  // }
 
   render() {
     return(
@@ -99,16 +98,14 @@ class NewTask extends Component {
                 updateUserMessage={this.updateUserMessage}
               />
             </div>
-            {this.confirmation()}
+            {this.submitConfirmation()}
           </div>
         </div>
         <div className='new-task-container'>
           <AddNewTask
             props={this.props}
             state={this.state}
-            updateErrorMessage={this.updateErrorMessage}
-            revealNewTaskForm={this.revealNewTaskForm}
-            updateNewTaskButton={this.updateNewTaskButton}/>
+          />
         </div>
       </>
     )
