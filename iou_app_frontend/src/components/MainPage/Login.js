@@ -13,6 +13,7 @@ class Login extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
 
   }
 
@@ -34,13 +35,8 @@ class Login extends Component {
   }
 
   handleClick(evt) {
-    console.log('button clicked');
+    this.props.signUp()
   }
-
-  renderSignUp(){
-
-  }
-
 
   render(){
     if (this.state.redirect) {
@@ -61,14 +57,14 @@ class Login extends Component {
           </form>
         </div>
         <div id='invalidInput' className="invalidInput">{this.state.errorMessage}</div>
-        <div id='signUp'>
-        <div>
-        Don't have an account?
-        </div>
-        <div id='signUpLink' onClick={this.handleClick}>
-        Sign up here!
-        </div>
-        </div>
+          <div id='signUp'>
+            <div>
+            Don't have an account?
+            </div>
+            <div id='signUpLink' onClick={this.handleClick}>
+            Sign up here!
+            </div>
+          </div>
         <div className="slogen">
           Build a community of people that help each other!
         </div>
