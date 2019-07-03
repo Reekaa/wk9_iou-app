@@ -38,6 +38,7 @@ class Main extends Component {
               currentUser = {this.props.currentUser}
               addTaskToUser = {this.props.addTaskToUser}
               addKarmaToUser = {this.props.addKarmaToUser}
+              createNewTask = {this.props.createNewTask}
             />
           </div>
           <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>

@@ -30,7 +30,6 @@ const UsersDropdown = (props) => {
 
   return(
     <>
-      <label>Who did you do it for?</label>
         <button
           id="userDropdown"
           className="btn btn-primary dropdown-toggle"

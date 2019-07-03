@@ -12,7 +12,27 @@ const mapDispatchToProps = dispatch => ({
         body: JSON.stringify(newTask),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then(() => {getNewData(currentUser)}); //currentUser param added
+      .then(() => {dispatch(() =>{
+        fetch('http://localhost:3000/api/users')
+        .then(res => {
+          return res.json().then(users => {
+            dispatch({
+            type:'ADD_USERS',
+            users
+          });
+          if (currentUser) {
+          const groupUsers = users.filter(user => {
+            return user.groups[0].groupName === currentUser.groups[0].groupName;
+          })
+          dispatch({
+            type:'SET_GROUP_USERS',
+            groupUsers
+          })}
+
+        })
+        })
+      })
+    }); //currentUser param added
     })
   },
 
@@ -49,29 +69,6 @@ const mapDispatchToProps = dispatch => ({
           tasks
         })
       });
-    })
-  },
-
-  getNewData(currentUser) {
-    dispatch(() =>{
-      fetch('http://localhost:3000/api/users')
-      .then(res => {
-        return res.json().then(users => {
-          dispatch({
-          type:'ADD_USERS',
-          users
-        });
-        if (currentUser) {
-        const groupUsers = users.filter(user => {
-          return user.groups[0].groupName === currentUser.groups[0].groupName;
-        })
-        dispatch({
-          type:'SET_GROUP_USERS',
-          groupUsers
-        })}
-
-      })
-      })
     })
   },
 

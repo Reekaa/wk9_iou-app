@@ -4,7 +4,6 @@ const CostNumber = (props) => {
 
   return(
     <>
-      <label>How long did it take you?
         <div
           id='cost-select'
           className="col-10"
@@ -19,7 +18,6 @@ const CostNumber = (props) => {
           />
         </div>
         <span> hours</span>
-      </label>
     </>
   )
 }

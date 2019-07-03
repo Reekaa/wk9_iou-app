@@ -65,6 +65,7 @@ class NewTask extends Component {
           <div className='new-task'>New Task:</div>
           <div className='dropdown-container'>
             <div id='dropdown' className="dropdown">
+            <label>What task did you do?</label>
               <TasksDropdown
                 tasks = {this.props.tasks}
                 taskButton = {this.state.taskButton}
@@ -72,6 +73,7 @@ class NewTask extends Component {
               />
             </div>
             <div id='dropdown' className="dropdown">
+            <label>Who did you do it for?</label>
               <UsersDropdown
                 groupUsers = {this.props.groupUsers}
                 currentUser = {this.props.currentUser}
@@ -80,6 +82,7 @@ class NewTask extends Component {
               />
             </div>
             <div id='dropdown' className="dropdown">
+            <label>How long did it take you?</label>
               <CostNumber
                 duration = {this.state.duration}
                 updateDuration={this.updateDuration}
@@ -105,8 +108,7 @@ class NewTask extends Component {
         <div className='new-task-container'>
         <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
           <AddNewTask
-            props={this.props}
-            state={this.state}
+            createNewTask = {this.props.createNewTask}
           />
         </div>
       </>

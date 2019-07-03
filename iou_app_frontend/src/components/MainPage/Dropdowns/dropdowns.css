@@ -1,5 +1,5 @@
 .dropdown-menu {
   max-height: 200px;
   overflow: scroll;
-
+  text-transform: capitalize;
 }
