@@ -4,7 +4,6 @@ import './dropdowns.css'
 const UsersDropdown = (props) => {
 
   const handleUsersDropdown = (evt) => {
-    console.log(evt);
     // props.object.selectUser(evt)
     props.updateUserButton(evt)
     // props.object.changeConfirm(false)

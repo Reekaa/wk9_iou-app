@@ -82,7 +82,6 @@ const mapDispatchToProps = dispatch => ({
     })
   },
   getNewData(currentUser) {
-    console.log(`getting new data list`);
     dispatch(() =>{
       fetch('http://localhost:3000/api/users')
       .then(res => {

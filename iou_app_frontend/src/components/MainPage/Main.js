@@ -12,16 +12,13 @@ class Main extends Component {
     this.switchRedirect = this.switchRedirect.bind(this)
   }
   componentDidMount() {
-    // console.log(this.props);
-    window.onbeforeunload = function() {
+    window.onBeforeUnload = function() {
         this.switchRedirect();
     }.bind(this);
   }
 
   switchRedirect() {
-    console.log('switch redirect');
     localStorage.setItem('redirect', "true")
-    console.log(localStorage);
   }
 
   userListSidebarHeight() {
@@ -30,19 +27,19 @@ class Main extends Component {
 
   render() {
     if (localStorage.getItem("redirect") === "true") {
-      // console.log(localStorage);
       return <Redirect to='/' />
+    }else{
+      return(
+        <div className='main-container-grid'>
+          <div className='main-container'>
+            <NewTask props={this.props}/>
+          </div>
+          <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
+            <ViewGroupUsersContainer />
+          </div>
+        </div>
+      )
     }
-    return(
-      <div className='main-container-grid'>
-        <div className='main-container'>
-          <NewTask props={this.props}/>
-        </div>
-        <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
-          <ViewGroupUsersContainer />
-        </div>
-      </div>
-    )
   }
 };
 

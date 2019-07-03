@@ -2,12 +2,6 @@ import React from 'react'
 
 const CostNumber = (props) => {
 
-  const handleNumber = (evt) => {
-    props.updateDuration(evt.target.value)
-    // props.object.changeConfirm(false)
-  }
-
-
   return(
     <>
       <label>How long did it take you?
@@ -21,7 +15,7 @@ const CostNumber = (props) => {
             placeholder='0'
             id="example-number-input"
             value={props.state.duration}
-            onChange={(evt)=>{handleNumber(evt)}}
+            onChange={(evt)=>{props.updateDuration(evt.target.value)}}
           />
         </div>
         <span> hours</span>

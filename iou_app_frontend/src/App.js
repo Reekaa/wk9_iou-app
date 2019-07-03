@@ -16,8 +16,6 @@ class App extends Component {
     this.props.getData()
     this.props.getTasksData()
     //anything you want to run straight away
-
-    console.log('appjs');
   }
 
 

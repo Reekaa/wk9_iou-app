@@ -3,10 +3,7 @@ import './dropdowns.css'
 
 const TasksDropdown = (props) => {
   const handleTasksDropdown = (evt) => {
-    console.log(evt);
-    // props.object.selectTask(evt)
     props.updateTaskButton(evt) //updates text on task button
-    // props.object.changeConfirm(false)
   }
 
   const tasks = props.props.props.tasks.map((task) => {

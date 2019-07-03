@@ -20,9 +20,6 @@ class NewTask extends Component {
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateDuration = this.updateDuration.bind(this)
     this.updateUserMessage = this.updateUserMessage.bind(this)
-    // this.revealNewTaskForm = this.revealNewTaskForm.bind(this)
-    // this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
-    // this.updateNewTaskMessage = this.updateNewTaskMessage.bind(this)
   }
 
   submitConfirmation() {
@@ -102,6 +99,7 @@ class NewTask extends Component {
           </div>
         </div>
         <div className='new-task-container'>
+        <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
           <AddNewTask
             props={this.props}
             state={this.state}
