@@ -4,30 +4,7 @@ import Main from "../components/MainPage/Main";
 
 
 const mapDispatchToProps = dispatch => ({
-  selectTask(selectedTask) {
-    dispatch({
-      type: 'ADD_SELECTED_TASK',
-      selectedTask
-    })
-  },
-  selectUser(selectedUser) {
-    dispatch({
-      type: 'ADD_SELECTED_USER',
-      selectedUser
-    })
-  },
-  selectCost(selectedCost) {
-    dispatch({
-      type: 'ADD_SELECTED_COST',
-      selectedCost
-    })
-  },
-  costMethod(costMethod) {
-    dispatch({
-      type: 'ADD_SELECTED_COST_METHOD',
-      costMethod
-    })
-  },
+
   addTaskToUser(currentUser, newTask) {
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${currentUser._id}/task`, {
@@ -35,9 +12,10 @@ const mapDispatchToProps = dispatch => ({
         body: JSON.stringify(newTask),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then(() => {this.getNewData(currentUser)}); //currentUser param added
+      .then(() => {getNewData(currentUser)}); //currentUser param added
     })
   },
+
   addKarmaToUser(user, newKarma, currentUser) {
     let updateKarma = {karma: newKarma}
     dispatch (() => {
@@ -58,7 +36,6 @@ const mapDispatchToProps = dispatch => ({
 
   createNewTask(taskName) {
     let newTask = {task: taskName, value: 10}
-    console.log(`posting new task ${newTask.task}`);
     dispatch (() => {
       fetch(`http://localhost:3000/api/tasks`, {
         method: 'POST',
@@ -75,12 +52,6 @@ const mapDispatchToProps = dispatch => ({
     })
   },
 
-  changeConfirm(confirm) {
-    dispatch({
-      type: 'CONFIRM_TASK',
-      confirm
-    })
-  },
   getNewData(currentUser) {
     dispatch(() =>{
       fetch('http://localhost:3000/api/users')
@@ -103,6 +74,7 @@ const mapDispatchToProps = dispatch => ({
       })
     })
   },
+
   getTasksData() {
     dispatch(() =>{
       fetch('http://localhost:3000/api/tasks')
@@ -117,15 +89,14 @@ const mapDispatchToProps = dispatch => ({
     })
   }
 
-})
+});
 
 const mapStateToProps = state => {
   return {
     users: state.users,
     groupUsers: state.groupUsers,
-    tasks: state.tasks,
-    selected: state.selected,
     currentUser: state.currentUser,
+    tasks: state.tasks,
     confirm: state.confirm
   };
 };

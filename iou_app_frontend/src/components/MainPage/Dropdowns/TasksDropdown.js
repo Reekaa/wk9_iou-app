@@ -6,7 +6,7 @@ const TasksDropdown = (props) => {
     props.updateTaskButton(evt) //updates text on task button
   }
 
-  const tasks = props.props.props.tasks.map((task) => {
+  const tasks = props.tasks.map((task) => {
     return (
       <li
         className='dropdown-cont'
@@ -31,7 +31,7 @@ const TasksDropdown = (props) => {
           type="button"
           data-toggle="dropdown"
         >
-          {props.state.taskButton.task}
+          {props.taskButton.task}
           <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">

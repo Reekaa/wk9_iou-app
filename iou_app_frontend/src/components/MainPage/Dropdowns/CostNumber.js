@@ -14,7 +14,7 @@ const CostNumber = (props) => {
             type="number"
             placeholder='0'
             id="example-number-input"
-            value={props.state.duration}
+            value={props.duration}
             onChange={(evt)=>{props.updateDuration(evt.target.value)}}
           />
         </div>

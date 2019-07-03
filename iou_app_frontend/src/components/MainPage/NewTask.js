@@ -66,33 +66,37 @@ class NewTask extends Component {
           <div className='dropdown-container'>
             <div id='dropdown' className="dropdown">
               <TasksDropdown
-                props={this.props}
-                state={this.state}
+                tasks = {this.props.tasks}
+                taskButton = {this.state.taskButton}
                 updateTaskButton={this.updateTaskButton}
               />
             </div>
             <div id='dropdown' className="dropdown">
               <UsersDropdown
-                props={this.props}
-                state={this.state}
+                groupUsers = {this.props.groupUsers}
+                currentUser = {this.props.currentUser}
+                userButton = {this.state.userButton}
                 updateUserButton={this.updateUserButton}
               />
             </div>
             <div id='dropdown' className="dropdown">
               <CostNumber
-                props={this.props}
-                state={this.state}
+                duration = {this.state.duration}
                 updateDuration={this.updateDuration}
               />
             </div>
             <div id='submit-container'>
               <SubmitButt
-                props={this.props}
-                state={this.state}
+                taskButton = {this.state.taskButton}
+                userButton = {this.state.userButton}
+                duration = {this.state.duration}
+                currentUser = {this.props.currentUser}
                 updateTaskButton={this.updateTaskButton}
                 updateUserButton={this.updateUserButton}
                 updateDuration={this.updateDuration}
                 updateUserMessage={this.updateUserMessage}
+                addTaskToUser = {this.props.addTaskToUser}
+                addKarmaToUser = {this.props.addKarmaToUser}
               />
             </div>
             {this.submitConfirmation()}

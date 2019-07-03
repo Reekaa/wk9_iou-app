@@ -9,8 +9,8 @@ const UsersDropdown = (props) => {
     // props.object.changeConfirm(false)
   }
 
-  const users = props.props.props.groupUsers.map((user) => {
-    if (user.name !== props.props.props.currentUser.name) {
+  const users = props.groupUsers.map((user) => {
+    if (user.name !== props.currentUser.name) {
       return (
         <li
           className='dropdown-cont'
@@ -37,7 +37,7 @@ const UsersDropdown = (props) => {
           type="button"
           data-toggle="dropdown"
         >
-          {props.state.userButton.name}
+          {props.userButton.name}
           <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">
