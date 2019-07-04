@@ -128,8 +128,8 @@ class GroupOpenTasks extends Component {
             </table>
           </div>
         </div>
-        <div className='recent-tasks-container'>
-          <div className='border'>
+        <div className='r'>
+          <div className='b'>
             <NewRequest
               taskOptionsList={this.taskOptionsList}
               handleSubmit={this.handleSubmit}

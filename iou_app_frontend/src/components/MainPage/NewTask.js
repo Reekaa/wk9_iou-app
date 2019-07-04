@@ -93,15 +93,16 @@ class NewTask extends Component {
             </div>
             {this.confirmation()}
           </div>
+          <div className='new-task-container'>
+            <AddNewTask
+              props={this.props}
+              state={this.state}
+              updateErrorMessage={this.updateErrorMessage}
+              updateNewTaskForm={this.updateNewTaskForm}
+              updateNewTaskButton={this.updateNewTaskButton}/>
+          </div>
         </div>
-        <div className='new-task-container'>
-          <AddNewTask
-            props={this.props}
-            state={this.state}
-            updateErrorMessage={this.updateErrorMessage}
-            updateNewTaskForm={this.updateNewTaskForm}
-            updateNewTaskButton={this.updateNewTaskButton}/>
-        </div>
+
       </>
     )
   }

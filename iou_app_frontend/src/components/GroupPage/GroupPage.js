@@ -22,7 +22,6 @@ class GroupPage extends Component {
   }
 
   switchRedirect() {
-
     localStorage.redirect = true
     console.log(localStorage);
   }

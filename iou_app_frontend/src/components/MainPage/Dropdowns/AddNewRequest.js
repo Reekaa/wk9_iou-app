@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-class AddNewTask extends Component {
+class AddNewRequest extends Component {
   constructor(props) {
+    console.log(props);
     super(props)
     this.state = {
       revealNewTaskForm: false,
@@ -110,7 +111,7 @@ class AddNewTask extends Component {
   render(){
     return (
       <>
-      <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
+      <div className='new-task-head'>Is the task you need not listed? Add it here:</div>
       <div className='button-container'>
       {this.newTaskButton()}
       </div>
@@ -125,4 +126,4 @@ class AddNewTask extends Component {
   }
 }
 
-export default AddNewTask
+export default AddNewRequest

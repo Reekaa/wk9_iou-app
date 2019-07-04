@@ -3,6 +3,7 @@ import './mainpage.css'
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
 // import UserProfile from '../UserProfilePage/UserProfile';
 import NewTask from './NewTask'
+import NewRequest from '../GroupPage/NewRequest'
 import { Redirect } from 'react-router-dom';
 
 
@@ -40,6 +41,9 @@ class Main extends Component {
         </div>
         <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
           <ViewGroupUsersContainer />
+        </div>
+        <div>
+        <NewRequest props={this.props}/>
         </div>
       </div>
     )
