@@ -32,23 +32,22 @@ class Main extends Component {
     }else{
       return(
         <div>
-        <div className='main-container-grid'>
-          <div className='main-container'>
-            <NewTask
-              tasks = {this.props.tasks}
-              groupUsers = {this.props.groupUsers}
-              currentUser = {this.props.currentUser}
-              addTaskToUser = {this.props.addTaskToUser}
-              addKarmaToUser = {this.props.addKarmaToUser}
-              createNewTask = {this.props.createNewTask}
-            />
-          </div>
+          <div className='main-container-grid'>
+            <div className='main-container'>
+              <NewTask
+                tasks = {this.props.tasks}
+                groupUsers = {this.props.groupUsers}
+                currentUser = {this.props.currentUser}
+                addTaskToUser = {this.props.addTaskToUser}
+                addKarmaToUser = {this.props.addKarmaToUser}
+                createNewTask = {this.props.createNewTask}
+              />
+            </div>
           <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
             <ViewGroupUsersContainer />
           </div>
         </div>
         <div>
-        <NewRequest props={this.props}/>
         </div>
         </div>
     )
@@ -56,3 +55,5 @@ class Main extends Component {
 };
 }
 export default Main;
+
+// <NewRequest props={this.props}/>

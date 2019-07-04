@@ -39,6 +39,11 @@ class NewRequest extends Component {
       >
         What do you want help with?
       </label>
+      <TasksDropdown
+        tasks = {this.props.tasks}
+        taskButton = {this.state.taskButton}
+        updateTaskButton={this.updateTaskButton}
+      />
 
       <button
         onClick={() => {this.handleSubmit()}}
@@ -60,10 +65,3 @@ class NewRequest extends Component {
 }
 
 export default NewRequest
-
-
-// <TasksDropdown
-//   tasks = {this.props.tasks}
-//   taskButton = {this.state.taskButton}
-//   updateTaskButton={this.updateTaskButton}
-// />
