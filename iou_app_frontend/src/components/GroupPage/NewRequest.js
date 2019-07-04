@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import './dropdowns.css'
 import './NewRequest.css'
 import TasksDropdown from '../MainPage/Dropdowns/TasksDropdown'
 
@@ -19,37 +18,38 @@ class NewRequest extends Component {
   }
 
   handleSubmit() {
-    console.log('click');
     if(this.state.taskButton.task != "Select Task"){
       this.props.addRequestToUser(this.props.currentUser, this.state.taskButton);
       this.setState({taskButton: {_id: 0, task: "Select Task"}})
     }
   };
 
-
   render(){
-  return(
-    <>
-      <label
-        className="request-menu"
-      >
-        What do you want help with?
-      </label>
-      <TasksDropdown
-        tasks = {this.props.tasks}
-        taskButton = {this.state.taskButton}
-        updateTaskButton={this.updateTaskButton}
-      />
-      <button
-        onClick={() => {this.handleSubmit()}}
-        type="button"
-        className="request-menu addTaskButton"
-      >
-        Request Help
-      </button>
-    </>
-  )
-}
-
+    return(
+      <>
+        <div id='dropdown' className="dropdown">
+          <label
+            className="request-menu"
+          >
+            What do you want help with?
+          </label>
+          <TasksDropdown
+            tasks = {this.props.tasks}
+            taskButton = {this.state.taskButton}
+            updateTaskButton={this.updateTaskButton}
+          />
+        </div>
+        <div className='button-container'>
+          <button
+            onClick={() => {this.handleSubmit()}}
+            type="button"
+            className="request-menu addTaskButton"
+          >
+          Request Help
+          </button>
+        </div>
+      </>
+    )
+  }
 }
 export default NewRequest
