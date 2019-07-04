@@ -9,7 +9,8 @@ class SignUpForm extends Component {
     this.state = {
       name: '',
       skill: '',
-      userprofile: ''
+      userprofile: '',
+      formState: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -35,6 +36,7 @@ class SignUpForm extends Component {
       avatar: "./images/avatar.jpeg"
     };
     this.props.createNewUser(newUser);
+    this.formCompletion();
     this.resetForm();
   };
 
@@ -47,6 +49,35 @@ class SignUpForm extends Component {
       userprofile: '',
 
     })
+  }
+
+  submitConfirmation() {
+    if (this.state.formState === 'complete') {
+          return(
+            <div id='validInput' className="validInput">
+            Your registration was successful!
+            </div>
+
+          )}
+      else if(this.state.formState === 'incomplete'){
+        return(
+          <div id='invalidInput' className="invalidInput">
+          Please complete all of the form
+          </div>
+        )
+      }
+      else{
+        return null
+      }
+  }
+
+  formCompletion(){
+    if (this.state.name != '' && this.state.skill != '' && this.state.userprofile != '') {
+      this.setState({formState: 'complete'})
+    }
+      else{
+        this.setState({formState: 'incomplete'})
+      }
   }
 
   render(){
@@ -80,6 +111,7 @@ class SignUpForm extends Component {
         value={this.state.userprofile}
         onChange={this.handleInputChange}>
       </input>
+      {this.submitConfirmation()}
       <input id="submit" type="submit" value="Sign Up" onClick={this.handleFormSubmit} />
     </form>
   </div>
