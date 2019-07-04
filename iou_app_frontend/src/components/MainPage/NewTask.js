@@ -70,7 +70,6 @@ class NewTask extends Component {
                 tasks = {this.props.tasks}
                 taskButton = {this.state.taskButton}
                 updateTaskButton={this.updateTaskButton}
-                message={"i helped someone today"}
               />
             </div>
             <div id='dropdown' className="dropdown">

@@ -44,9 +44,9 @@ class AddNewRequest extends Component {
         <>
           <button
             onClick = {this.revealNewTaskForm}
-            id='submitbutt'
+            id='submitbutton'
             type="button"
-            className="btn btn-primary"
+            className="request-menu addTaskButton"
           >
             Add New Task
           </button>
@@ -74,7 +74,7 @@ class AddNewRequest extends Component {
             <button
               type="submit"
               id='submitbutt'
-              className="btn btn-primary"
+              className="request-menu addTaskButton"
             >
               Submit
             </button>
