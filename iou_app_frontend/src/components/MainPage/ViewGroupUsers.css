@@ -18,15 +18,15 @@
 .user-list div:nth-child(even) {
   background-color: #c0d7dd;
 }
-
-/* .users :nth-child(odd) {
+.user-list div:nth-child(odd) {
   background-color: white;
 }
-
-.users :nth-child(even) {
-  background-color: #c0d7dd;
-} */
-
+.user-list div:first-child {
+  background-color: transparent;
+}
+.users div:first-child {
+  background-color: white;
+}
 
 .user-list-item {
   transition: all .4s ease-out;
