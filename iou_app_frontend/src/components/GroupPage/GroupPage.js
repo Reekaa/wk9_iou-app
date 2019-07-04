@@ -44,6 +44,7 @@ class GroupPage extends Component {
               </div>
               <GroupCompletedTasks groupUsers={this.props.groupUsers} />
               <GroupOpenTasks
+                tasks = {this.props.tasks}
                 groupUsers={this.props.groupUsers}
                 addRequestToUser={this.props.addRequestToUser}
                 currentUser={this.props.currentUser}

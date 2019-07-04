@@ -9,8 +9,6 @@ class GroupOpenTasks extends Component {
     super(props);
     this.state = {
       showForm: false,
-      taskButton: 'Select Task',
-      requestTaskButton: 'Select task',
       dropdownValue: '',
       confirmationMessage: ''
     }
@@ -131,10 +129,10 @@ class GroupOpenTasks extends Component {
         <div className='recent-tasks-container'>
           <div className='border'>
             <NewRequest
-              taskOptionsList={this.taskOptionsList}
-              handleSubmit={this.handleSubmit}
-              taskButton={this.state.taskButton}
+              tasks={this.props.tasks}
+              addRequestToUser={this.props.addRequestToUser}
               updateTaskButton={this.updateTaskButton}
+              currentUser={this.props.currentUser}
               />
           </div>
         </div>

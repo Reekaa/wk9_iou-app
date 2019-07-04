@@ -1,29 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
 // import './dropdowns.css'
 import './NewRequest.css'
+import TasksDropdown from '../MainPage/Dropdowns/TasksDropdown'
 
-const NewRequest = (props) => {
-
-  const handleTasksDropdown = (evt) => {
-    props.updateTaskButton(evt)
+class NewRequest extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      taskButton: {_id: 0, task: "Select Task"},
+      showNewTaskForm: false,
+    }
+  this.updateTaskButton = this.updateTaskButton.bind(this)
+  this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  const tasks = props.taskOptionsList.map((element,index) => {
-    return (
-      <li
-        className='dropdown-cont'
-        key={index}
-      >
-        <div
-          id='dropdown-option'
-          onClick={() => {handleTasksDropdown(element)}}
-        >
-          {element}
-        </div>
-      </li>
-    )
-  })
+  updateTaskButton(taskButton) {
+    this.setState({taskButton})
+  }
 
+  handleSubmit() {
+    console.log('click');
+    if(this.state.taskButton.task != "Select Task"){
+      this.props.addRequestToUser(this.props.currentUser, this.state.taskButton);
+      this.setState({taskButton: {_id: 0, task: "Select Task"}})
+    }
+  };
+
+
+  render(){
   return(
     <>
       <label
@@ -31,20 +35,13 @@ const NewRequest = (props) => {
       >
         What do you want help with?
       </label>
+      <TasksDropdown
+        tasks = {this.props.tasks}
+        taskButton = {this.state.taskButton}
+        updateTaskButton={this.updateTaskButton}
+      />
       <button
-        id="taskDropdown"
-        className="request-menu btn btn-primary dropdown-toggle"
-        type="button"
-        data-toggle="dropdown"
-      >
-        {props.taskButton}
-        <span id="caret" className="caret"></span>
-      </button>
-      <ul className="dropdown-menu">
-        {tasks}
-      </ul>
-      <button
-        onClick={() => {props.handleSubmit(props.taskButton)}}
+        onClick={() => {this.handleSubmit()}}
         type="button"
         className="request-menu addTaskButton"
       >
@@ -52,6 +49,7 @@ const NewRequest = (props) => {
       </button>
     </>
   )
+}
 
 }
 export default NewRequest
