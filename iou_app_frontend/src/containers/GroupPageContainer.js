@@ -30,7 +30,26 @@ const mapDispatchToProps = (dispatch) => ({
         headers: { 'Content-Type': 'application/json' }
       })
       .then(() => {
-        this.getNewData(currentUser);
+
+        dispatch(() =>{
+          fetch('http://localhost:3000/api/users')
+          .then(res => {
+            return res.json().then(users => {
+              dispatch({
+                type:'ADD_USERS',
+                users
+              });
+              const groupUsers = users.filter(user => {
+                return user.groups[0].groupName === currentUser.groups[0].groupName;
+              });
+              dispatch({
+                type:'SET_GROUP_USERS',
+                groupUsers
+              });
+            });
+          });
+        });
+
       });
     })
   },
@@ -60,6 +79,7 @@ const mapStateToProps = state => {
     groupUsers: state.groupUsers,
     tasks: state.tasks,
     currentUser: state.currentUser
+
   };
 };
 

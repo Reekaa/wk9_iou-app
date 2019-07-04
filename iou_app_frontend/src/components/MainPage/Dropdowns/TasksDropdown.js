@@ -2,11 +2,8 @@ import React from 'react'
 import './dropdowns.css'
 
 const TasksDropdown = (props) => {
-  console.log(props);
-
-  const handleTasksDropdown = () => {
-    console.log('handle dropdown called');
-    props.updateTaskButton(props.taskButton) //updates text on task button
+  const handleTasksDropdown = (evt) => {
+    props.updateTaskButton(evt) //updates text on task button
   }
 
   const tasks = props.tasks.map((task) => {
@@ -17,7 +14,7 @@ const TasksDropdown = (props) => {
       >
         <div
           id='dropdown-option'
-          onClick={handleTasksDropdown}
+          onClick={() => {handleTasksDropdown(task)}}
         >
           {task.task}
         </div>

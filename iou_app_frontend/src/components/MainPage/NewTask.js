@@ -107,7 +107,6 @@ class NewTask extends Component {
           </div>
           </div>
         <div className='new-task-container'>
-        <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
           <AddNewTask
             createNewTask = {this.props.createNewTask}
           />

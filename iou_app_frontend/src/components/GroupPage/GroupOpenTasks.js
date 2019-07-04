@@ -9,8 +9,6 @@ class GroupOpenTasks extends Component {
     super(props);
     this.state = {
       showForm: false,
-      taskButton: {_id: 0, task: "Select Task"},
-      requestTaskButton: {_id: 0, task: "Select Task"},
       dropdownValue: '',
       confirmationMessage: ''
     }
@@ -128,14 +126,13 @@ class GroupOpenTasks extends Component {
             </table>
           </div>
         </div>
-        <div className='r'>
-          <div className='b'>
+        <div className='recent-tasks-container'>
+          <div className='border'>
             <NewRequest
-              tasks = {this.props.tasks}
-              taskOptionsList={this.taskOptionsList}
-              handleSubmit={this.handleSubmit}
-              taskButton={this.state.taskButton}
+              tasks={this.props.tasks}
+              addRequestToUser={this.props.addRequestToUser}
               updateTaskButton={this.updateTaskButton}
+              currentUser={this.props.currentUser}
               createNewTask = {this.props.createNewTask}
               />
           </div>
