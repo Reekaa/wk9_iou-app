@@ -105,7 +105,6 @@ class AddNewTask extends Component {
   render(){
     return (
       <>
-      <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
         <div className='button-container'>
           {this.newTaskButton()}
           </div>
