@@ -16,3 +16,7 @@
   font-family: 'Poppins' ,sans-serif;
   margin-top: 50px;
 }
+
+button{
+  outline: none;
+}
