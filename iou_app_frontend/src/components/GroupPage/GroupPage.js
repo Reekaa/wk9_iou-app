@@ -48,6 +48,7 @@ class GroupPage extends Component {
                 addRequestToUser={this.props.addRequestToUser}
                 currentUser={this.props.currentUser}
                 getNewData={this.props.getNewData}
+                createNewTask = {this.props.createNewTask}
                />
             </div>
             <div className='user-list-sidebar' style={{ height:   `${this.userListSidebarHeight()}` }}>

@@ -16,8 +16,8 @@ class ViewGroupUsers extends Component {
     this.renderInfo = this.renderInfo.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
     this.mouseEnter = this.mouseEnter.bind(this);
-    this.groupMouseEnter = this.groupMouseEnter.bind(this);
-    this.groupMouseLeave = this.groupMouseLeave.bind(this);
+    // this.groupMouseEnter = this.groupMouseEnter.bind(this);
+    // this.groupMouseLeave = this.groupMouseLeave.bind(this);
     this.renderGroupDropdown = this.renderGroupDropdown.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -81,44 +81,47 @@ class ViewGroupUsers extends Component {
     });
   }
 
-  groupMouseEnter() {
-    this.setState({ groupDropdown: true, groupNameStyle: { zIndex: '1' }});
-  }
 
-  groupMouseLeave() {
-    this.setState({ groupDropdown: false });
-    this.setState({ groupNameStyle: { zIndex: '0' }});
-    ;
-  }
+  // groupMouseEnter() {
+  //   this.setState({ groupDropdown: true, groupNameStyle: { zIndex: '1' }});
+  // }
+  //
+  // groupMouseLeave() {
+  //   this.setState({ groupDropdown: false });
+  //   this.setState({ groupNameStyle: { zIndex: '0' }});
+  //   ;
+  // }
 
   renderGroupDropdown() {
     const groupDropdownText = (
       <div className='group-dropdown'>
-        <br />
-        <ul>
-          <li><Link to="/groups">View group info</Link></li>
-          <li>View your other groups</li>
-        </ul>
+          <button className='view-group-info'><Link to="/groups"><span>Group Info</span></Link></button>
+          <button className='view-other-groups'><span>Your Groups</span></button>
       </div>
     )
-    return this.state.groupDropdown ?
-    groupDropdownText : null;
+    // return this.state.groupDropdown ?
+    // groupDropdownText : null;
+    return groupDropdownText;
   }
 
   render() {
     return (
       <div className='user-list'>
-        <div
-          className='group-name'
-          onMouseEnter={this.groupMouseEnter}
-          onMouseLeave={this.groupMouseLeave}
-          style={this.state.groupNameStyle}
-        >
-          <div>Current group: {this.props.groupName}</div>
+        <div className ='user-sidebar-list'>
           <div>{this.renderGroupDropdown()}</div>
+          <div
+            className='group-name'
+            onMouseEnter={this.groupMouseEnter}
+            onMouseLeave={this.groupMouseLeave}
+            style={this.state.groupNameStyle}
+          >
+          <h3>Users in {this.props.groupName}</h3>
+          </div>
+          <div className='users'>
+          {this.groupUsersList()}
+          </div>
         </div>
-        {this.groupUsersList()}
-      </div>
+       </div>
     )
   }
 };

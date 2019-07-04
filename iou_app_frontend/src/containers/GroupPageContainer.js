@@ -52,6 +52,23 @@ const mapDispatchToProps = (dispatch) => ({
 
       });
     })
+  },
+  createNewTask(taskName) {
+    let newTask = {task: taskName, value: 10}
+    dispatch (() => {
+      fetch(`http://localhost:3000/api/tasks`, {
+        method: 'POST',
+        body: JSON.stringify(newTask),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((res) => res.json())
+      .then(tasks =>{
+        dispatch({
+          type:'ADD_TASKS',
+          tasks
+        })
+      });
+    })
   }
 })
 
@@ -60,8 +77,9 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = state => {
   return {
     groupUsers: state.groupUsers,
-    currentUser: state.currentUser,
-    tasks:state.tasks
+    tasks: state.tasks,
+    currentUser: state.currentUser
+
   };
 };
 

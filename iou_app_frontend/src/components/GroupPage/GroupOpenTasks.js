@@ -126,16 +126,12 @@ class GroupOpenTasks extends Component {
             </table>
           </div>
         </div>
-        <div className='recent-tasks-container'>
-          <div className='border'>
             <NewRequest
               tasks={this.props.tasks}
               addRequestToUser={this.props.addRequestToUser}
               updateTaskButton={this.updateTaskButton}
               currentUser={this.props.currentUser}
               />
-          </div>
-        </div>
         <div className='confirmation-message'>
           {this.state.confirmationMessage}
         </div>

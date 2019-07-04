@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './NewRequest.css'
 import TasksDropdown from '../MainPage/Dropdowns/TasksDropdown'
+import AddNewRequest from '../MainPage/Dropdowns/AddNewRequest';
 
 class NewRequest extends Component {
   constructor(props) {
@@ -15,7 +16,9 @@ class NewRequest extends Component {
 
   updateTaskButton(taskButton) {
     this.setState({taskButton})
-  }
+  };
+
+
 
   handleSubmit() {
     if(this.state.taskButton.task != "Select Task"){
@@ -24,32 +27,48 @@ class NewRequest extends Component {
     }
   };
 
+
+
   render(){
-    return(
-      <>
-        <div id='dropdown' className="dropdown">
-          <label
-            className="request-menu"
-          >
-            What do you want help with?
-          </label>
-          <TasksDropdown
-            tasks = {this.props.tasks}
-            taskButton = {this.state.taskButton}
-            updateTaskButton={this.updateTaskButton}
-          />
+  return(
+    <>
+    <div className='recent-tasks-container'>
+      <div className='border'>
+      <div id='dropdown' className="dropdown">
+        <label
+          className="request-menu"
+        >
+          What do you want help with?
+        </label>
+        <TasksDropdown
+          tasks = {this.props.tasks}
+          taskButton = {this.state.taskButton}
+          updateTaskButton={this.updateTaskButton}
+        />
         </div>
-        <div className='button-container'>
-          <button
-            onClick={() => {this.handleSubmit()}}
-            type="button"
-            className="request-menu addTaskButton"
-          >
+      <div className='button-container'>
+        <button
+          onClick={() => {this.handleSubmit()}}
+          type="button"
+          className="request-menu addTaskButton"
+        >
           Request Help
-          </button>
+        </button>
+
         </div>
-      </>
-    )
+        </div>
+        </div>
+        <div className='new-tasks-container recent-tasks-container'>
+          <div className='border'>
+            <AddNewRequest
+              createNewTask = {this.props.createNewTask}
+            />
+          </div>
+      </div>
+    </>
+  )
   }
+
 }
+
 export default NewRequest

@@ -6,17 +6,28 @@
   overflow-y: scroll;
   position: relative;
   font-family: 'Poppins', sans-serif;
+  background-color: transparent;
 }
 .user-list p {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 .user-list div {
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 .user-list div:nth-child(even) {
   background-color: #c0d7dd;
 }
+
+/* .users :nth-child(odd) {
+  background-color: white;
+}
+
+.users :nth-child(even) {
+  background-color: #c0d7dd;
+} */
+
+
 .user-list-item {
   transition: all .4s ease-out;
   display: grid;
@@ -30,8 +41,9 @@
 }
 .user-list-item:hover {
   border: 1px solid #156678;
-  height: 120px;
+  height: 65px;
 }
+
 
 .user-image {
   position: absolute;
@@ -55,23 +67,78 @@
   justify-content: center;
 }
 .group-name {
-  transition: all 0.5s ease-out;
-  /* transition-delay: 1s; */
-  position: relative;
+  /* transition: all .4s ease-out; */
+  position: inherit;
   font-size: 20px;
   font-weight: 900;
   text-align: center;
-  min-height: 120px;
+  height: 60px;
   width: 100%;
-  }
-
-.group-name:hover {
-  /* transform: scaleY(1.1); */
 }
+
+.group-name h3{
+  vertical-align: bottom;
+  height: inherit;
+  padding: 30px;
+
+  /* position: absolute; */
+  /* bottom: 0; */
+
+}
+
+/* .group-name:hover {
+  border: 1px solid #156678;
+  height: 160px;
+} */
 
 .group-dropdown {
-  background-color: #FFFFFF;
+  background-color: transparent;
+  display: flex;
 }
+
+.view-group-info{
+  width: 120px;
+  text-align: center;
+  height: 0;
+  position: relative;
+  border-right: 25px solid transparent;
+  border-bottom: 20px solid #c0d7dd;
+  border-left: 25px solid transparent;
+  box-sizing: content-box;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.view-group-info span {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  color: #fff;
+}
+
+.view-other-groups{
+  width: 120px;
+  text-align: center;
+  height: 0;
+  position: relative;
+  border-right: 25px solid transparent;
+  border-bottom: 20px solid #c0d7dd;
+  border-left: 25px solid transparent;
+  box-sizing: content-box;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.view-other-groups span {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  color: #156678;
+}
+
+
 .group-dropdown li {
   list-style-type: none;
   text-align: left;
@@ -79,6 +146,7 @@
   font-weight: 700;
   color: #156678;
 }
+
 .user-info {
   font-size: 15px;
   font-weight: 700;
@@ -88,6 +156,7 @@
   text-align: center;
   overflow: hidden;
 }
+
 .user-info p {
   margin-left: 10px;
   margin-right: 10px;

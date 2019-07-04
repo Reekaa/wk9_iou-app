@@ -24,14 +24,14 @@ const TasksDropdown = (props) => {
 
   return(
     <>
-        <button
-          id="taskDropdown"
-          className="btn btn-primary dropdown-toggle"
-          type="button"
-          data-toggle="dropdown"
-        >
-          {props.taskButton.task}
-          <span id="caret" className="caret"></span>
+      <button
+        id="taskDropdown"
+        className="btn btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+      >
+        {props.taskButton.task}
+        <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">
         {tasks}
