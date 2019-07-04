@@ -29,7 +29,7 @@ class AddNewRequest extends Component {
       setTimeout(() => {
         this.setState({newTaskMessage:''});
       }, 2500);
-    } else {
+    } else if (this.state.newTask.length){
       this.props.createNewTask(this.state.newTask)
       this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
       setTimeout(() => {

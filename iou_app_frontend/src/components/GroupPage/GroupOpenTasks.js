@@ -131,6 +131,7 @@ class GroupOpenTasks extends Component {
               addRequestToUser={this.props.addRequestToUser}
               updateTaskButton={this.updateTaskButton}
               currentUser={this.props.currentUser}
+              createNewTask={this.props.createNewTask}
               />
         <div className='confirmation-message'>
           {this.state.confirmationMessage}
