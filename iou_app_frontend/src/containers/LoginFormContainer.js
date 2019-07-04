@@ -8,6 +8,7 @@ const mapDispatchToProps = dispatch => ({
       groupUsers
     })
   },
+
   getCurrentUser(name, users) {
     dispatch (() => {
       fetch(`http://localhost:3000/api/users/${name}`)
@@ -40,13 +41,18 @@ const mapDispatchToProps = dispatch => ({
         body: JSON.stringify(newUser),
         headers: { 'Content-Type': 'application/json' }
       })
-      .then((response) => response.json())
-      .then((currentUser) => {
-        dispatch({
-          type: 'ADD_USER',
-          currentUser
+      .then(() => {
+        dispatch(() =>{
+          fetch('http://localhost:3000/api/users')
+          .then(res => {
+            return res.json().then(users => {
+              dispatch({
+                type:'ADD_USERS',
+                users
+              });
+            })
+          })
         })
-        console.log('hit add new user');
       })
     })
   },

@@ -10,16 +10,16 @@ class LogInPage extends Component {
       showSignUp: false
     }
     this.signUp = this.signUp.bind(this)
-  }
+  };
 
   signUp(){
     if (this.state.showSignUp) {
       this.setState({showSignUp: false})
-      }
-      else {
-        this.setState({showSignUp: true})
-      }
     }
+    else {
+      this.setState({showSignUp: true})
+    }
+  };
 
   render(){
     return(
@@ -38,5 +38,6 @@ class LogInPage extends Component {
       </div>
     )
   }
-}
+};
+
 export default LogInPage

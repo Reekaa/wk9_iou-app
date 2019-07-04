@@ -3,8 +3,6 @@ import Login from './Login.js';
 import UserProfileContainer from "../../containers/UserProfileContainer";
 import { Redirect } from 'react-router-dom';
 
-
-
 const LoginMiddle = (props) => {
 
   let redirect;
@@ -42,10 +40,9 @@ const LoginMiddle = (props) => {
         setCurrentUser = {props.setCurrentUser}
         showSignUp = {props.showSignUp}
         signUp = {props.signUp}
-
       />
     </div>
   )
-}
+};
 
 export default LoginMiddle
