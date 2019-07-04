@@ -12,27 +12,32 @@ class NewTask extends Component {
       taskButton: {_id: 0, task: "Select Task"},
       userButton: {_id: 0, name: "Select User"},
       duration: '',
-      newTaskForm: 'none',
-      newTaskButton: 'showButton',
-      errorMessage: ''
+      showNewTaskForm: false,
+      userMessage: ''
     }
-    this.confirmation = this.confirmation.bind(this)
+    this.submitConfirmation = this.submitConfirmation.bind(this)
     this.updateTaskButton = this.updateTaskButton.bind(this)
     this.updateUserButton = this.updateUserButton.bind(this)
     this.updateDuration = this.updateDuration.bind(this)
-    this.updateErrorMessage = this.updateErrorMessage.bind(this)
-    this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
-    this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
+    this.updateUserMessage = this.updateUserMessage.bind(this)
   }
 
-  confirmation() {
-    if(this.props.confirm === true){
-    return (
-      <div className='confirm-text'>
-        Task submitted!
-      </div>
-    )}else{
-      return <div/>
+  submitConfirmation() {
+    switch (this.state.userMessage) {
+      case 'incomplete form':
+          return(
+            <div id='invalidInput' className="invalidInput">
+            Please complete all of the form
+            </div>
+          )
+      case 'complete form':
+          return(
+            <div id='validInput' className="validInput">
+            Thank you for helping your community
+            </div>
+          )
+      default:
+        return null
     }
   }
 
@@ -45,15 +50,13 @@ class NewTask extends Component {
   updateDuration(duration) {
     this.setState({duration})
   }
-  updateErrorMessage(errorText) {
-    this.setState({errorMessage: errorText})
+  updateUserMessage(userMessage) {
+    this.setState({userMessage})
   }
-  updateNewTaskForm(formText) {
-    this.setState({newTaskForm: formText})
-  }
-  updateNewTaskButton(buttonText) {
-    this.setState({newTaskButton: buttonText})
-  }
+
+  // updateNewTaskButton(newTaskButton) {
+  //   this.setState({newTaskButton})
+  // }
 
   render() {
     return(
@@ -62,47 +65,53 @@ class NewTask extends Component {
           <div className='new-task'>New Task:</div>
           <div className='dropdown-container'>
             <div id='dropdown' className="dropdown">
+            <label>What task did you do?</label>
               <TasksDropdown
-                props={this.props}
-                state={this.state}
+                tasks = {this.props.tasks}
+                taskButton = {this.state.taskButton}
                 updateTaskButton={this.updateTaskButton}
+                message={"i helped someone today"}
               />
             </div>
             <div id='dropdown' className="dropdown">
+            <label>Who did you do it for?</label>
               <UsersDropdown
-                props={this.props}
-                state={this.state}
+                groupUsers = {this.props.groupUsers}
+                currentUser = {this.props.currentUser}
+                userButton = {this.state.userButton}
                 updateUserButton={this.updateUserButton}
               />
             </div>
             <div id='dropdown' className="dropdown">
+            <label>How long did it take you?</label>
               <CostNumber
-                props={this.props}
-                state={this.state}
+                duration = {this.state.duration}
                 updateDuration={this.updateDuration}
               />
             </div>
             <div id='submit-container'>
               <SubmitButt
-                props={this.props}
-                state={this.state}
+                taskButton = {this.state.taskButton}
+                userButton = {this.state.userButton}
+                duration = {this.state.duration}
+                currentUser = {this.props.currentUser}
                 updateTaskButton={this.updateTaskButton}
                 updateUserButton={this.updateUserButton}
                 updateDuration={this.updateDuration}
+                updateUserMessage={this.updateUserMessage}
+                addTaskToUser = {this.props.addTaskToUser}
+                addKarmaToUser = {this.props.addKarmaToUser}
               />
             </div>
-            {this.confirmation()}
+            {this.submitConfirmation()}
           </div>
-          <div className='new-task-container'>
-            <AddNewTask
-              props={this.props}
-              state={this.state}
-              updateErrorMessage={this.updateErrorMessage}
-              updateNewTaskForm={this.updateNewTaskForm}
-              updateNewTaskButton={this.updateNewTaskButton}/>
           </div>
+        <div className='new-task-container'>
+        <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
+          <AddNewTask
+            createNewTask = {this.props.createNewTask}
+          />
         </div>
-
       </>
     )
   }

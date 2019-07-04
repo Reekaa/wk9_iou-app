@@ -22,7 +22,7 @@ class Navbar extends Component {
   };
 
   logout() {
-    this.props.toggleUser(this.props.user)
+    this.props.toggleCurrentUser(this.props.currentUser)
     this.props.setCurrentUser({name: null})
     this.setState({ redirect: true })
     this.toggleClass()
@@ -49,7 +49,7 @@ class Navbar extends Component {
               <Link className="link" to="/about">About</Link>
             </div>
             <br/>
-            <div className='link-cont logout' onClick={() => {this.logout()}}>
+            <div className='link-cont logout' onClick={this.logout}>
               <Link className="link" to="/">Logout</Link>
             </div>
             <br/>
@@ -69,11 +69,6 @@ class Navbar extends Component {
       </ul>
     )
   }
-
 }
-
-
-
-
 
 export default Navbar;

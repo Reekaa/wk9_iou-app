@@ -10,7 +10,6 @@ class AddNewTask extends Component {
     }
     this.revealNewTaskForm=this.revealNewTaskForm.bind(this);
     this.handleFormChange=this.handleFormChange.bind(this);
-    this.updateNewTaskMessage=this.updateNewTaskMessage.bind(this);
     this.handleNewTaskSubmit=this.handleNewTaskSubmit.bind(this);
   }
 
@@ -22,10 +21,6 @@ class AddNewTask extends Component {
     this.setState({ newTask: event.target.value });
   }
 
-  updateNewTaskMessage(newTaskMessage) {
-    this.setState({newTaskMessage})
-  }
-
   handleNewTaskSubmit(event){
     event.preventDefault()
     if (this.state.newTask.length >= 20) {
@@ -34,7 +29,7 @@ class AddNewTask extends Component {
         this.setState({newTaskMessage:''});
       }, 2500);
     } else {
-      this.props.props.props.createNewTask(this.state.newTask)
+      this.props.createNewTask(this.state.newTask)
       this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
       setTimeout(() => {
         this.setState({newTaskMessage:''});
@@ -111,15 +106,15 @@ class AddNewTask extends Component {
     return (
       <>
       <div className='new-task-head'>Is the task you performed not listed? Add it here:</div>
-      <div className='button-container'>
-      {this.newTaskButton()}
-      </div>
-      <div>
-      {this.newTaskForm()}
-      </div>
-      <div>
-      {this.newTaskConfirmation()}
-      </div>
+        <div className='button-container'>
+          {this.newTaskButton()}
+          </div>
+        <div>
+          {this.newTaskForm()}
+        </div>
+        <div>
+          {this.newTaskConfirmation()}
+        </div>
       </>
     )
   }

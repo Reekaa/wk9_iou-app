@@ -191,6 +191,7 @@
   background-color: #c0d7dd;
   border: 3px solid #156678;
   color: #156678;
+  text-transform: capitalize;
 
 }
 #submitbutt {
@@ -252,6 +253,11 @@
   font-size: 15px;
   font-weight: 400;
   color: red;
+}
+.validInput {
+  font-size: 15px;
+  font-weight: 400;
+  color: #156678;
 }
 .new-task-form {
   display: flex;

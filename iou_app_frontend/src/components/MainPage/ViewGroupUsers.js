@@ -8,7 +8,7 @@ class ViewGroupUsers extends Component {
     super(props);
     this.state = {
       selectedUser: '',
-      // groupDropdown: true,
+      groupDropdown: false,
       groupNameStyle: { zIndex: '0' },
       redirect: false
     }
@@ -81,9 +81,9 @@ class ViewGroupUsers extends Component {
     });
   }
 
+
   // groupMouseEnter() {
-  //   this.setState({ groupNameStyle: { zIndex: '1' }});
-  //   this.setState({ groupDropdown: true });
+  //   this.setState({ groupDropdown: true, groupNameStyle: { zIndex: '1' }});
   // }
   //
   // groupMouseLeave() {
@@ -106,7 +106,6 @@ class ViewGroupUsers extends Component {
 
   render() {
     return (
-
       <div className='user-list'>
         <div className ='user-sidebar-list'>
           <div>{this.renderGroupDropdown()}</div>

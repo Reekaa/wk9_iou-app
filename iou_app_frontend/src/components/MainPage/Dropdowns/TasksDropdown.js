@@ -2,14 +2,14 @@ import React from 'react'
 import './dropdowns.css'
 
 const TasksDropdown = (props) => {
-  const handleTasksDropdown = (evt) => {
-    console.log(evt);
-    // props.object.selectTask(evt)
-    props.updateTaskButton(evt) //updates text on task button
-    // props.object.changeConfirm(false)
+  console.log(props);
+
+  const handleTasksDropdown = () => {
+    console.log('handle dropdown called');
+    props.updateTaskButton(props.taskButton) //updates text on task button
   }
 
-  const tasks = props.props.props.tasks.map((task) => {
+  const tasks = props.tasks.map((task) => {
     return (
       <li
         className='dropdown-cont'
@@ -17,7 +17,7 @@ const TasksDropdown = (props) => {
       >
         <div
           id='dropdown-option'
-          onClick={() => {handleTasksDropdown(task)}}
+          onClick={handleTasksDropdown}
         >
           {task.task}
         </div>
@@ -27,15 +27,14 @@ const TasksDropdown = (props) => {
 
   return(
     <>
-      <label>What task did you do?</label>
-        <button
-          id="taskDropdown"
-          className="btn btn-primary dropdown-toggle"
-          type="button"
-          data-toggle="dropdown"
-        >
-          {props.state.taskButton.task}
-          <span id="caret" className="caret"></span>
+      <button
+        id="taskDropdown"
+        className="btn btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+      >
+        {props.taskButton.task}
+        <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">
         {tasks}

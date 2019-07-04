@@ -3,17 +3,15 @@ import TasksDropdown from '../MainPage/Dropdowns/TasksDropdown'
 import UsersDropdown from '../MainPage/Dropdowns/UsersDropdown'
 import CostNumber from '../MainPage/Dropdowns/CostNumber'
 import SubmitButt from '../MainPage/Dropdowns/SubmitButt'
-// import './dropdowns.css'
 import './NewRequest.css'
 import AddNewRequest from '../MainPage/Dropdowns/AddNewRequest';
 
 class NewRequest extends Component {
 
   constructor(props) {
-    console.log(props);
     super(props)
     this.state = {
-      taskButton: {_id: 0, task: "Select Task"},
+      taskButton: {_id: 0, task: "Select Something"},
       userButton: {_id: 0, name: "Select User"},
       duration: '',
       newTaskForm: 'none',
@@ -29,28 +27,10 @@ class NewRequest extends Component {
     this.updateNewTaskForm = this.updateNewTaskForm.bind(this)
     this.updateNewTaskButton = this.updateNewTaskButton.bind(this)
 
-    this.tasks = this.props.taskOptionsList.map((element,index) => {
-
-      return (
-        <>
-        <li
-          className='dropdown-cont'
-          key={index}
-        >
-          <div
-            id='dropdown-option'
-            onClick={this.handleTaskDropdown(element)}
-          >
-            {element}
-          </div>
-        </li>
-        </>
-      )
-    })
-
-
   }
-
+  // componentDidMount(){
+  //   console.log(this.state);
+  // }
 
   confirmation() {
     if(this.props.confirm === true){
@@ -64,6 +44,7 @@ class NewRequest extends Component {
   }
 
   updateTaskButton(taskButton) {
+    console.log('update task button called');
     this.setState({taskButton})
   }
   updateUserButton(userButton) {
@@ -86,8 +67,6 @@ class NewRequest extends Component {
 
 
 render(){
-
-  console.log('taskssss',this.tasks);
   return(
     <>
       <label
@@ -95,36 +74,42 @@ render(){
       >
         What do you want help with?
       </label>
-      <button
-        id="taskDropdown"
-        className="request-menu btn btn-primary dropdown-toggle"
-        type="button"
-        data-toggle="dropdown"
-      >
-        {this.props.taskButton}
-        <span id="caret" className="caret"></span>
-      </button>
+        <TasksDropdown
+          tasks = {this.props.tasks}
+          taskButton = {this.state.taskButton}
+          updateTaskButton={this.updateTaskButton}
+          message={"i need help with..."}
+        />
       <ul className="dropdown-menu">
         {this.tasks}
       </ul>
       <button
-        onClick={() => {this.props.handleSubmit(this.props.taskButton)}}
+        onClick={() => {this.props.handleSubmit(this.state.taskButton)}}
         type="button"
         className="request-menu addTaskButton"
       >
         Request Help
       </button>
-      <div className = "new-task-container" >
-      <AddNewRequest
-        props={this.props}
-        state={this.state}
-        updateErrorMessage={this.updateErrorMessage}
-        updateNewTaskForm={this.updateNewTaskForm}
-        updateNewTaskButton={this.updateNewTaskButton}/>
-    </div>
+      <div className='new-task-container'>
+        <AddNewRequest
+          createNewTask = {this.props.createNewTask}
+        />
+      </div>
     </>
   )
 }
 
 }
 export default NewRequest
+
+
+
+// <button
+//   id="taskDropdown"
+//   className="request-menu btn btn-primary dropdown-toggle"
+//   type="button"
+//   data-toggle="dropdown"
+// >
+//   {this.props.taskButton}
+//   <span id="caret" className="caret"></span>
+// </button>
