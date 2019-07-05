@@ -16,8 +16,6 @@ class ViewGroupUsers extends Component {
     this.renderInfo = this.renderInfo.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
     this.mouseEnter = this.mouseEnter.bind(this);
-    // this.groupMouseEnter = this.groupMouseEnter.bind(this);
-    // this.groupMouseLeave = this.groupMouseLeave.bind(this);
     this.renderGroupDropdown = this.renderGroupDropdown.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -54,7 +52,6 @@ class ViewGroupUsers extends Component {
   }
 
   groupUsersList() {
-    // counter calculates the height needed for list items to allow absolute positioning
     let counter = (this.props.groupUsers.length * 40);
     return this.props.groupUsers.map((user, i) => {
       const content =
@@ -81,17 +78,6 @@ class ViewGroupUsers extends Component {
     });
   }
 
-
-  // groupMouseEnter() {
-  //   this.setState({ groupDropdown: true, groupNameStyle: { zIndex: '1' }});
-  // }
-  //
-  // groupMouseLeave() {
-  //   this.setState({ groupDropdown: false });
-  //   this.setState({ groupNameStyle: { zIndex: '0' }});
-  //   ;
-  // }
-
   renderGroupDropdown() {
     const groupDropdownText = (
       <div className='group-dropdown'>
@@ -99,8 +85,6 @@ class ViewGroupUsers extends Component {
           <button className='view-other-groups'><span>Your Groups</span></button>
       </div>
     )
-    // return this.state.groupDropdown ?
-    // groupDropdownText : null;
     return groupDropdownText;
   }
 

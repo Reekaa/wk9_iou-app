@@ -30,7 +30,6 @@ const mapDispatchToProps = (dispatch) => ({
         headers: { 'Content-Type': 'application/json' }
       })
       .then(() => {
-
         dispatch(() =>{
           fetch('http://localhost:3000/api/users')
           .then(res => {
@@ -49,7 +48,6 @@ const mapDispatchToProps = (dispatch) => ({
             });
           });
         });
-
       });
     })
   },
@@ -79,7 +77,6 @@ const mapStateToProps = state => {
     groupUsers: state.groupUsers,
     tasks: state.tasks,
     currentUser: state.currentUser
-
   };
 };
 

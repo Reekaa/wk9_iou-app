@@ -12,7 +12,6 @@ class GroupOpenTasks extends Component {
       dropdownValue: '',
       confirmationMessage: ''
     }
-    // this.toggleShowForm = this.toggleShowForm.bind(this);
     this.updateTaskButton = this.updateTaskButton.bind(this);
     this.pushOpenTasks = this.pushOpenTasks.bind(this);
     this.showOptions = this.showOptions.bind(this);
@@ -41,9 +40,6 @@ class GroupOpenTasks extends Component {
     });
   }
 
-  // toggleShowForm() {
-  //   this.setState({ showForm : !this.state.showForm });
-  // };
 
   updateTaskButton(taskButtonText) {
     this.setState({taskButton: taskButtonText})

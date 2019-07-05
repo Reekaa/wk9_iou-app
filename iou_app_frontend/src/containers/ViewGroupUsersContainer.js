@@ -14,7 +14,6 @@ const mapStateToProps = (state) => {
   // return list of users with names and karma ratings
   return {
     groupName: checkCurrentUser(state),
-    // groupName: state.currentUser.groups[0].groupName,
     groupUsers: state.groupUsers,
     currentUser: state.currentUser
   }

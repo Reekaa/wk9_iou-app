@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class AddNewRequest extends Component {
   constructor(props) {
     super(props)
-    // console.log('request props',this.props);
     this.state = {
       revealNewTaskForm: false,
       newTask:'',
@@ -131,9 +130,10 @@ class AddNewRequest extends Component {
   render(){
     return (
       <>
+
         <div className='button-container'>
           {this.newTaskButton()}
-          </div>
+        </div>
         <div>
           {this.newTaskForm()}
         </div>

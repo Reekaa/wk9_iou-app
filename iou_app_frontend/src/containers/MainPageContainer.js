@@ -32,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
         })
         })
       })
-    }); //currentUser param added
+    });
     })
   },
 
@@ -43,9 +43,9 @@ const mapDispatchToProps = dispatch => ({
         method: 'PUT',
         body: JSON.stringify(updateKarma),
         headers: { 'Content-Type': 'application/json' }
-      })
-      .then((res) => res.json())
-      .then(users => {
+        })
+        .then((res) => res.json())
+        .then(users => {
         dispatch({
           type:'ADD_USERS',
           users
@@ -85,7 +85,6 @@ const mapDispatchToProps = dispatch => ({
       })
     })
   }
-
 });
 
 const mapStateToProps = state => {
