@@ -58,6 +58,7 @@ class NewRequest extends Component {
             </div>
             <AddNewRequest
               createNewTask = {this.props.createNewTask}
+              tasks = {this.props.tasks}
             />
           </div>
         </div>

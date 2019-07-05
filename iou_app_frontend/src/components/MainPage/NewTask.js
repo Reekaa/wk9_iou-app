@@ -105,6 +105,7 @@ class NewTask extends Component {
           <div className='new-task-head request-menu'>Is the task you performed not listed?</div>
           <AddNewTask
             createNewTask = {this.props.createNewTask}
+            tasks = {this.props.tasks}
           />
         </div>
       </>
