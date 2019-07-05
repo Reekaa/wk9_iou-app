@@ -7,7 +7,8 @@ class AddNewRequest extends Component {
     this.state = {
       revealNewTaskForm: false,
       newTask:'',
-      newTaskMessage:''
+      newTaskMessage:'',
+      duplicateTask:false
     }
     this.revealNewTaskForm=this.revealNewTaskForm.bind(this);
     this.handleFormChange=this.handleFormChange.bind(this);
@@ -32,20 +33,20 @@ class AddNewRequest extends Component {
     }
 
     else if (this.state.newTask.length){
-      let duplicateTask = false
+      this.setState({duplicateTask:false})
       this.props.tasks.forEach((task) => {
-        if (task.toLowerCase === this.state.newTask.toLowerCase()){
-          duplicateTask = true
+        if (task.task.toLowerCase() == this.state.newTask.toLowerCase()){
+        this.setState({duplicateTask:true})
         }
       })
 
-      if (duplicateTask = false){
+      if (this.state.duplicateTask === false){
         this.props.createNewTask(this.state.newTask.toLowerCase())
         this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
         setTimeout(() => {
           this.setState({newTaskMessage:''});
         }, 2500);
-        
+
       } else {
         this.setState({newTaskMessage:'duplicate task'})
         setTimeout(() => {
