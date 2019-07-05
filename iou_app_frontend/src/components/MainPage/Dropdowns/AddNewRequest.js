@@ -29,12 +29,29 @@ class AddNewRequest extends Component {
       setTimeout(() => {
         this.setState({newTaskMessage:''});
       }, 2500);
-    } else if (this.state.newTask.length){
-      this.props.createNewTask(this.state.newTask)
-      this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
-      setTimeout(() => {
-        this.setState({newTaskMessage:''});
-      }, 2500);
+    }
+
+    else if (this.state.newTask.length){
+      let duplicateTask = false
+      this.props.tasks.forEach((task) => {
+        if (task.toLowerCase === this.state.newTask.toLowerCase()){
+          duplicateTask = true
+        }
+      })
+
+      if (duplicateTask = false){
+        this.props.createNewTask(this.state.newTask.toLowerCase())
+        this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
+        setTimeout(() => {
+          this.setState({newTaskMessage:''});
+        }, 2500);
+        
+      } else {
+        this.setState({newTaskMessage:'duplicate task'})
+        setTimeout(() => {
+          this.setState({newTaskMessage:''});
+        }, 2500);
+      }
     }
   }
 
@@ -87,17 +104,24 @@ class AddNewRequest extends Component {
   newTaskConfirmation (){
     switch (this.state.newTaskMessage) {
       case 'string too long':
-          return(
-            <div id='invalidInput' className="invalidInput">
-              Task cannot be longer than 20 characters
-            </div>
-          )
+        return(
+          <div id='invalidInput' className="invalidInput">
+            Task cannot be longer than 20 characters
+          </div>
+        )
       case 'complete form':
-          return(
-            <div id='validInput' className="validInput">
-              New task added
-            </div>
-          )
+        return(
+          <div id='validInput' className="validInput">
+            New task added
+          </div>
+        )
+      case 'duplicate task':
+        return(
+          <div id='invalidInput' className="invalidInput">
+            Task aready exists
+          </div>
+        )
+        break;
       default:
         return null
     }
