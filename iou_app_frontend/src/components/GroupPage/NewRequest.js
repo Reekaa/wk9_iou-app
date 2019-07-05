@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import './dropdowns.css'
 import './NewRequest.css'
 import TasksDropdown from '../MainPage/Dropdowns/TasksDropdown'
 import AddNewRequest from '../MainPage/Dropdowns/AddNewRequest';

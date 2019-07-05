@@ -17,7 +17,6 @@ const mapStateToProps = (state) => {
     groupUsers: state.groupUsers,
     tasks: state.tasks,
     selected: state.selected,
-    // currentUser: state.currentUser,
     currentUser: checkCurrentUser(state),
     confirm: state.confirm
   };

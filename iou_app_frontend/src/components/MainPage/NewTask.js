@@ -54,10 +54,6 @@ class NewTask extends Component {
     this.setState({userMessage})
   }
 
-  // updateNewTaskButton(newTaskButton) {
-  //   this.setState({newTaskButton})
-  // }
-
   render() {
     return(
       <>
