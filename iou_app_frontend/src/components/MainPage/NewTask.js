@@ -66,7 +66,6 @@ class NewTask extends Component {
                 tasks = {this.props.tasks}
                 taskButton = {this.state.taskButton}
                 updateTaskButton={this.updateTaskButton}
-                message={"i helped someone today"}
               />
             </div>
             <div id='dropdown' className="dropdown">
@@ -103,6 +102,7 @@ class NewTask extends Component {
           </div>
           </div>
         <div className='new-task-container'>
+          <div className='new-task-head request-menu'>Is the task you performed not listed?</div>
           <AddNewTask
             createNewTask = {this.props.createNewTask}
           />

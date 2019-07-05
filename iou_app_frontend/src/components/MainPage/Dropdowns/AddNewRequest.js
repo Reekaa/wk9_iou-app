@@ -28,7 +28,7 @@ class AddNewRequest extends Component {
       setTimeout(() => {
         this.setState({newTaskMessage:''});
       }, 2500);
-    } else {
+    } else if (this.state.newTask.length){
       this.props.createNewTask(this.state.newTask)
       this.setState({revealNewTaskForm: false, newTaskMessage:'complete form', newTask:''})
       setTimeout(() => {
@@ -43,9 +43,9 @@ class AddNewRequest extends Component {
         <>
           <button
             onClick = {this.revealNewTaskForm}
-            id='submitbutt'
+            id='submitbutton'
             type="button"
-            className="btn btn-primary"
+            className="request-menu addTaskButton"
           >
             Add New Task
           </button>
@@ -73,7 +73,7 @@ class AddNewRequest extends Component {
             <button
               type="submit"
               id='submitbutt'
-              className="btn btn-primary"
+              className="request-menu addTaskButton"
             >
               Submit
             </button>
@@ -105,7 +105,7 @@ class AddNewRequest extends Component {
   render(){
     return (
       <>
-       <div className='new-task-head'>Is the task you want help with not here? Add it here:</div>
+
         <div className='button-container'>
           {this.newTaskButton()}
         </div>
