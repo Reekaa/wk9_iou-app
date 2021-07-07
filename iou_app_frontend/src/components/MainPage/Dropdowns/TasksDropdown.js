@@ -2,17 +2,25 @@ import React from 'react'
 import './dropdowns.css'
 
 const TasksDropdown = (props) => {
-
   const handleTasksDropdown = (evt) => {
-    props.object.selectTask(evt)
-    props.updateTaskButton(evt)
-    props.object.changeConfirm(false)
+    console.log(evt);
+    // props.object.selectTask(evt)
+    props.updateTaskButton(evt) //updates text on task button
+    // props.object.changeConfirm(false)
   }
 
-  const tasks = props.object.tasks.map((task) => {
+  const tasks = props.props.props.tasks.map((task) => {
     return (
-      <li className='dropdown-cont' key={task._id}>
-        <div id='dropdown-option' onClick={() => {handleTasksDropdown(task.task)}}>{task.task}</div>
+      <li
+        className='dropdown-cont'
+        key={task._id}
+      >
+        <div
+          id='dropdown-option'
+          onClick={() => {handleTasksDropdown(task)}}
+        >
+          {task.task}
+        </div>
       </li>
     )
   })
@@ -20,8 +28,13 @@ const TasksDropdown = (props) => {
   return(
     <>
       <label>What task did you do?</label>
-        <button id="taskDropdown" className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-          {props.state.taskButton}
+        <button
+          id="taskDropdown"
+          className="btn btn-primary dropdown-toggle"
+          type="button"
+          data-toggle="dropdown"
+        >
+          {props.state.taskButton.task}
           <span id="caret" className="caret"></span>
         </button>
       <ul className="dropdown-menu">

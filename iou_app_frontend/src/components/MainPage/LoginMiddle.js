@@ -38,6 +38,9 @@ const LoginMiddle = (props) => {
         currentUser = {props.currentUser}
         setCurrentUser = {props.setCurrentUser}
         users = {props.users}
+        setGroupUsers = {props.setGroupUsers}
+        setCurrentUser = {props.setCurrentUser}
+
       />
     </div>
   )

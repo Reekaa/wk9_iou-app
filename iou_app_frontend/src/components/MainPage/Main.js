@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './mainpage.css'
 import ViewGroupUsersContainer from '../../containers/ViewGroupUsersContainer';
+// import UserProfile from '../UserProfilePage/UserProfile';
 import NewTask from './NewTask'
 import { Redirect } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ class Main extends Component {
     this.switchRedirect = this.switchRedirect.bind(this)
   }
   componentDidMount() {
-    console.log('component did mount');
+    // console.log(this.props);
     window.onbeforeunload = function() {
         this.switchRedirect();
     }.bind(this);
@@ -29,13 +30,13 @@ class Main extends Component {
 
   render() {
     if (localStorage.getItem("redirect") === "true") {
-      console.log(localStorage);
+      // console.log(localStorage);
       return <Redirect to='/' />
     }
     return(
       <div className='main-container-grid'>
         <div className='main-container'>
-          <NewTask object={this.props}/>
+          <NewTask props={this.props}/>
         </div>
         <div className='user-list-sidebar' style={{ height: `${this.userListSidebarHeight()}` }}>
           <ViewGroupUsersContainer />

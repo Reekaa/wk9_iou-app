@@ -34,8 +34,10 @@ router.put("/:id/task", function(req, res) {
 })
 
 router.put("/:id/karma", function(req, res) {
-  MongoHelper.addKarma("users", req.params.id, req.body.karma).then(result => {
-    res.status(201).json('karma added')
+  MongoHelper.addKarma('users', req.params.id, req.body.karma).then(results => {
+    MongoHelper.get('users').then(karma => {
+      res.status(200).json(karma)
+    })
   })
 })
 
@@ -47,9 +49,10 @@ router.put("/:id/request", function(req, res) {
 })
 
 router.put("/:id/current", function(req, res) {
-  console.log(req.body);
-  MongoHelper.setCurrent("users", req.params.id).then(result => {
-    res.status(201).json('current user set')
+  MongoHelper.setCurrent('users', req.params.id).then(result => {
+    MongoHelper.get('users').then(current => {
+    res.status(200).json(current)
+    })
   })
 })
 

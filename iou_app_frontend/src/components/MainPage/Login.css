@@ -48,3 +48,24 @@ lable{
   font-family: 'Indie Flower', sans-serif;
   font-weight: bold;
 }
+
+.invalidInput {
+  font-size: 15px;
+  font-weight: 400;
+  color: red;
+  font-family: 'Poppins' ,sans-serif;
+  text-align: center;
+}
+
+#signUp{
+  display: inline-flex;
+  text-align: center;
+  margin-left: 150px;
+}
+
+#signUpLink{
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}

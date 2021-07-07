@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import UserProfileCompletedTasks from './UserProfileCompletedTasks';
 
 class Main extends Component {
-  componentDidMount() {
+  componentDidUpdate() {
     localStorage.redirect = "false"
   }
 
@@ -12,9 +12,20 @@ class Main extends Component {
     return skill.charAt(0).toUpperCase() + skill.slice(1);
   }
 
+
   render() {
+
     if (this.props.currentUser !== null) {
-      const populateGroups = this.props.currentUser.groups.map((group, i) => {
+
+      const currentUserIndex = this.props.users.map(function(user) { return user._id; }).indexOf(this.props.currentUser._id);
+      console.log('getting current user index!!', currentUserIndex);
+
+      const userProfileInfo = this.props.users[currentUserIndex]
+      console.log('hopefully got current user info!!', userProfileInfo);
+
+
+      const populateGroups = userProfileInfo.groups.map((group, i) => {
+        console.log(this.props.currentUser.groups);
         return(
           <tr key={i}>
           <td>{group.groupName}</td>
